@@ -1,0 +1,37 @@
+[
+    {
+        "sumary": {
+            "title": "sunlight"
+        },
+        "part1": [
+            {
+                "gif":"a.gif",
+                "voice":"a.mp3",
+                "chinese": "利用|测试",
+                "english": "harness|test"
+            }
+
+
+        ],
+        "part2": [
+            {
+                "word": "harness",
+                "answers": [
+                    "11.png",
+                    "12.png",
+                    "13.png",
+                    "14.png"
+                ],
+                "right": 3
+            }
+
+
+        ],
+        "part3": [
+              {
+                "text": "请将下面的图片从大到小排序",
+                "answers":  "11.png,12.png,13.png,14.png"}
+
+        ]
+    }
+]

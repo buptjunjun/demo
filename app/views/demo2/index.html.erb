@@ -1,0 +1,34 @@
+
+<style>
+  span.greenspan
+  {
+      color:green;
+      font-size:12px;
+  }
+
+  span.redspan
+  {
+      color:red;
+      font-size:12px;
+
+  }
+
+</style>
+<script>
+    $(document).ready(function() {
+        $("#first_text").show(800).delay(500);
+        $("#last_text").show(800).delay(500);
+    });
+
+
+</script>
+
+<div style = "" class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
+  <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+    <p><img src="/images/topic/<%=q.gif%>" width="460"></p>
+  </div>
+  <div class="col-md-8 col-md-offset-2" style=" margin-top:10px;">
+        <p id="first_text" style="display: none;  font-size: 12px"><%= text_decorate(texts[1]).html_safe %></p>
+        <p id="last_text" style="display: none; font-size: 12px"><%= text_decorate(texts[0]).html_safe %></p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+
+<div style = "" class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
+
+  <%= form_tag({:controller => "upload",:action=>"upload"}, multipart: true) do %>
+
+      <%= file_field('file','file') %><br>
+      <%= submit_tag %>
+  <% end %>
+
+</div>

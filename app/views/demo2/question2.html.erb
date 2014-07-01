@@ -1,0 +1,37 @@
+
+<script>
+    $(document).ready(function() {
+        $("img.isanswer").click(function(){
+            $("#okmsg").show(500);
+        })
+        $("img.isnotanswer").click(function(){
+            $("#errormsg").show(500).hide(2000)
+        })
+    });
+</script>
+<div class="col-md-8 col-md-offset-2" style="margin-top:30px;" >
+
+  <div class="col-md-2" style="margin-top:10px;" >
+    <%= question.text%>
+  </div>
+  <style>
+    .single_answer
+    {
+       margin: 10px;
+    }
+  </style>
+
+
+
+  <div id="answerdiv" class="col-md-10" style="margin-top:10px;" >
+    <% answers.each do |answer|  %>
+        <div class="col-md-6">
+          <% if answer.isright == true %>
+           <img class="single_answer isanswer" width="140" height="140" src='/images/topic/<%= answer.gif %>'>
+          <% else %>
+              <img class="single_answer isnotanswer" width="140" height="140" src='/images/topic/<%= answer.gif %>'>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
