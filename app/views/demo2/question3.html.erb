@@ -69,14 +69,12 @@
             $("#okmsg").show(500);
             //alert("succeed");
         }
-        else  if(count == $orderdiv.length && right == false)
-        {
+        else  if(count == $orderdiv.length && right == false) {
             $("#errormsg").show(1000)
-           setTimeout(function(){location.reload();},2000);
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
         }
-
-
-
     }
 </script>
 
@@ -98,8 +96,8 @@
 </div>
 
 <div class="col-md-8 col-md-offset-2" style="margin-top:20px;" >
-    <span class="text1 label label-info"><%=@question.text%></span><br>
-  <span class="text2 label label-danger"> 悄悄告诉你:把下面的图片按顺序拉到上面的<em>框</em>里,就可以了~~</span>
+    <span class="text1 "><%=@question.text%></span><br>
+  <span class="text2 "> 悄悄告诉你:把下面的图片按顺序拉到上面的<em>框</em>里,就可以了~~</span>
 </div>
 <hr>
 <div class="col-md-10 col-md-offset-1" style="margin-top:10px;" >

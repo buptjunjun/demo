@@ -20,7 +20,10 @@ class Demo2Controller < ApplicationController
            render :template => "demo2/index",locals: {:teststr=>'test', :q=>@question, :texts => texts, :words=>words}
         elsif  @q_type == 1
             answers = @question.answers
-            render :template => "demo2/question2", locals: { :topic=>@topic,:question=>@question,:answers=>answers}
+            text = @question.text
+            texts = text.split("|")
+
+            render :template => "demo2/question2", locals: { :topic=>@topic,:question=>@question,:texts=>texts,:answers=>answers}
         elsif @q_type == 2
           answers = @question.answers
           images = answers[0].text.split(",")

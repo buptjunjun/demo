@@ -41,7 +41,9 @@ private
       q = t.questions.new
       q.qtype=1
       word = part['word']
-      q.text = word
+      chinese = part['chinese']
+      q.text = word+"|"+chinese
+
       q.save
 
       count = 1
