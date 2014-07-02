@@ -67,7 +67,7 @@
         <!--<p id="first_text" style="display: none;  font-size: 12px"><%= text_decorate(texts[1]).html_safe %></p>-->
         <!--<p id="last_text" style="display: none; font-size: 12px"><%= text_decorate(texts[0]).html_safe %></p>-->
         <% words.each  do |word| %>
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <span class="english"><%= word['e']%></span><br>
                 <span class="chinese"><%= word['c'] %></span>
             </div>
@@ -79,7 +79,7 @@
 
       <div class="col-md-8 ">
 
-      <% if @count <= @total-1 %>
+      <% if @count < @total-1 %>
           <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>我们继续下一个吧~~  </a>
       <% else %>
           <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>我们继续下一个吧~~  </a>

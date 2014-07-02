@@ -1,0 +1,166 @@
+[
+    {
+        "sumary": {
+            "title": "bigbang"
+        },
+        "part1": [
+            {
+                "gif":"a.gif",
+                "voice":"a.mp3",
+                "chinese": "大爆炸",
+                "english": "big bang"
+            },
+            {
+                "gif":"b.gif",
+                "voice":"b.mp3",
+                "chinese": "原子|膨胀",
+                "english": "atom|expand"
+            },
+            {
+                "gif":"c.png",
+                "voice":"c.mp3",
+                "chinese": "黑暗",
+                "english": "darkness"
+            },
+            {
+                "gif":"d.gif",
+                "voice":"d.mp3",
+                "chinese": "恒星",
+                "english": "star"
+            },
+            {
+                "gif":"e.gif",
+                "voice":"e.mp3",
+                "chinese": "银河系",
+                "english": "milky way"
+            },
+            {
+                "gif":"f.gif",
+                "voice":"f.mp3",
+                "chinese":"超新星",
+                "english": "supernova"
+            },
+            {
+                "gif":"g.gif",
+                "voice":"g.mp3",
+                "chinese": "爆炸",
+                "english": "explosion"
+            },
+            {
+                "gif":"h.gif",
+                "voice":"h.mp3",
+                "chinese": "碎片",
+                "english": "fragment"
+            },
+            {
+                "gif":"i.gif",
+                "voice":"i.mp3",
+                "chinese": "摩擦力",
+                "english": "friction"
+            },
+            {
+                "gif":"j.gif",
+                "voice":"j.mp3",
+                "chinese": "生存",
+                "english": "existence"
+            }
+        ],
+        "part2": [
+            {
+                "word": "atom",
+                "chinese":"原子",
+                "answers": [
+                    "1.jpg",
+                    "2.jpg",
+                    "3.jpg",
+                    "4.jpg"
+                ],
+                "right": 2
+            },
+            {
+                "word": "expand",
+                "chinese":"膨胀",
+                "answers": [
+                    "5.jpg",
+                    "6.jpg",
+                    "7.jpg",
+                    "8.jpg"
+                ],
+                "right": 4
+            },
+            {
+                "word": "star",
+                "chinese":"恒星",
+                "answers": [
+                    "9.jpg",
+                    "10.jpg",
+                    "11.jpg",
+                    "12.jpg"
+                ],
+                "right": 4
+            },
+            {
+                "word": "milky way",
+                "chinese":"银河系",
+                "answers": [
+                    "13.jpg",
+                    "14.jpg",
+                    "15.jpg",
+                    "16.jpg"
+                ],
+                "right": 2
+            },
+            {
+                "word": "supernova",
+                "chinese":"超新星",
+                "answers": [
+                    "17.jpg",
+                    "18.jpg",
+                    "19.jpg",
+                    "20.jpg"
+                ],
+                "right": 1
+            },
+            {
+                "word": "fragment",
+                "chinese":"碎片",
+                "answers": [
+                    "21.jpg",
+                    "22.jpg",
+                    "23.jpg",
+                    "8.jpg"
+                ],
+                "right": 1
+            },
+            {
+                "word": "friction",
+                "chinese":"摩擦力",
+                "answers": [
+                    "24.jpg",
+                    "25.jpg",
+                    "22.jpg",
+                    "21.jpg"
+                ],
+                "right": 1
+            },
+            {
+                "word": "existence",
+                "chinese":"存在",
+                "answers": [
+                    "26.jpg",
+                    "16.jpg",
+                    "8.jpg",
+                    "7.jpg"
+                ],
+                "right":1
+            }
+
+        ],
+        "part3": [
+            {
+                "text": "请将下列图片按时间先后顺序排列",
+                "answers":  "e.gif,f.gif,g.gif,h.gif,i.gif"}
+
+        ]
+    }
+]

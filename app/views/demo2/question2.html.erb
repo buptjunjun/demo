@@ -59,11 +59,12 @@
         </div>
         <div  id="okmsg" class="btn btn-default navbar-btn" style="display:none; margin-top:30px">
 
-          <% if @count <= @total-1 %>
-              <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'> 答对了，下一步吧   </a>
+          <% if @count < @total-1 %>
+              <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=<%=@q_type%>'> 答对了，下一步吧   </a>
           <% else %>
               <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>答对了，下一步吧</a>
           <% end %>
+
         </div>
       </div>
 

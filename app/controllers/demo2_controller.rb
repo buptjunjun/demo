@@ -4,8 +4,6 @@ class Demo2Controller < ApplicationController
   def index
     if @count < @total
         @question = Question.where(:qtype=>@q_type,:topic_id => @topic.id)[@count]
-        @count = @count+1
-
         if @q_type == 0
            text = @question.text
            texts = text.split("|||")
@@ -27,7 +25,9 @@ class Demo2Controller < ApplicationController
         elsif @q_type == 2
           answers = @question.answers
           images = answers[0].text.split(",")
-          render :template => "demo2/question3", locals: {:images=>images,:question=>@question}
+          length = images.length
+          width = 12/length
+          render :template => "demo2/question3", locals: {:images=>images,:width=>width, :question=>@question}
         else
           redirect_to ("/demo2/index?t_id=#{@topic.id}&q_id=0&q_type=0")
         end
