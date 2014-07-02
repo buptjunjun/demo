@@ -73,16 +73,16 @@
             </div>
         <% end %>
         <div id="play" class="col-md-8 " style="display: none;margin-top: 40px">
-          <span>再听一次~</span><img src="http://baicizhan.qiniudn.com/pack/assets/playing.png" width="30">
+          <span class="btn btn-default navbar-btn" style="display: inline">再听一次~ <img src="http://baicizhan.qiniudn.com/pack/assets/playing.png" width="30"></span>
         </div>
 
 
       <div class="col-md-8 ">
 
       <% if @count <= @total-1 %>
-          <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>next  </a>
+          <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>我们继续下一个吧~~  </a>
       <% else %>
-          <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>next  </a>
+          <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>我们继续下一个吧~~  </a>
       <% end %>
       </div>
 

@@ -5,8 +5,8 @@
         },
         "part1": [
             {
-                "gif":"a.gif",
-                "voice":"a.mp3",
+                "gif":"bigbang.gif",
+                "voice":"ai.mp3",
                 "chinese": "利用|测试",
                 "english": "harness|test"
             }
@@ -17,10 +17,10 @@
             {
                 "word": "harness",
                 "answers": [
-                    "11.png",
-                    "12.png",
-                    "13.png",
-                    "14.png"
+                    "11.jpg",
+                    "12.jpg",
+                    "13.jpg",
+                    "14.jpg"
                 ],
                 "right": 3
             }
@@ -30,7 +30,7 @@
         "part3": [
               {
                 "text": "请将下面的图片从大到小排序",
-                "answers":  "11.png,12.png,13.png,14.png"}
+                "answers":  "11.jpg,12.jpg,13.jpg,14.jpg"}
 
         ]
     }

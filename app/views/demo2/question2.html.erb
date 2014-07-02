@@ -19,28 +19,43 @@
         {
             border: solid 1px ;
         }
+
+        .word
+        {
+            font-size: 20px;
+            color:Blue;
+        }
+       .text1
+       {
+           color:red;
+       }
     </style>
 
     <div  class="col-md-4 col-md-offset-4" style="margin-top:10px;" >
-      <div id="errormsg" style="display:none; margin-top:30px">
-        没有对，加油！fighting.....
+      <div class="btn btn-default navbar-btn" id="errormsg" style="display:none; margin-top:30px">
+        没有对~~ 在来一次吧！加油！fighting.....
       </div>
-      <div id="okmsg" style="display:none; margin-top:30px">
-        Yeah!对了，我们进入下一步吧！～～
+      <div  id="okmsg" class="btn btn-default navbar-btn" style="display:none; margin-top:30px">
+
         <% if @count <= @total-1 %>
-            <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>next  </a>
+            <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'> Yeah!对了，我们进入下一步吧！～～   </a>
         <% else %>
-            <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>next  </a>
+            <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>Yeah!对了，我们进入下一步吧！～～</a>
         <% end %>
       </div>
 
 
     </div>
-
+    <div class="col-md-8 col-md-offset-2" style="margin-top:20px;" >
+      <span class="text1">请选择与下面单词最匹配的图片~~</span><br>
+    </div>
+    <hr>
     <div class="col-md-8 col-md-offset-2" style="margin-top:30px;background: linen" >
 
       <div class="col-md-3" style="margin-top:20px;" >
-        <%= question.text%>
+        <span class="word">
+            <%= question.text%>
+       </span>
       </div>
 
       <div id="answerdiv" class="col-md-9" style="margin-top:10px;" >

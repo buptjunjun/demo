@@ -5,15 +5,16 @@
     span.text1
     {
         font-size:18px;
-        color:#ff0000;
+
     }
 
     span.text2{
         font-size:14px;
-        color:green;
+
     }
     span em{
-        color:red;
+        color:blue;
+        font-size:20px;
     }
 </style>
 
@@ -86,21 +87,21 @@
 <div id="errormsg" style="display:none; margin-top:30px">
   没有对，我们重新再来吧.....
 </div>
-<div id="okmsg" style="display:none; margin-top:30px">
-  Yeah!对了，我们进入下一步吧！～～
+<div id="okmsg" class="btn btn-default navbar-btn" style="display:none; margin-top:30px">
+
   <% if @count <= @total-1 %>
-      <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>next  </a>
+      <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>Yeah!对了，我们进入下一步吧！～～  </a>
   <% else %>
-      <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>next  </a>
+      <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>Yeah!对了，我们进入下一步吧！～～  </a>
   <% end %>
 </div>
 </div>
 
 <div class="col-md-8 col-md-offset-2" style="margin-top:20px;" >
-    <span class="text1"><%=@question.text%></span><br>
-  <span class="text2"> 悄悄告诉你:把下面的图片按顺序拉到上面的<em>框</em>里,就可以了~~</span>
+    <span class="text1 label label-info"><%=@question.text%></span><br>
+  <span class="text2 label label-danger"> 悄悄告诉你:把下面的图片按顺序拉到上面的<em>框</em>里,就可以了~~</span>
 </div>
-<hr/>
+<hr>
 <div class="col-md-10 col-md-offset-1" style="margin-top:10px;" >
   <div class="col-md-10 col-md-offset-1" style="margin-top:10px;" >
       <% images.each do |image| %>
