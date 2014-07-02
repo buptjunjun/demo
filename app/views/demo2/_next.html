@@ -1,0 +1,7 @@
+<div class="col-md-4">
+<% if count <= total-1 %>
+<a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>next  </a>
+<% else %>
+<a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>next  </a>
+<% end %>
+</div>
