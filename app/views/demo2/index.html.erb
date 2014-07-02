@@ -12,23 +12,79 @@
       font-size:12px;
 
   }
+  span.english
+  {
+      font-size:30px;
+  }
+
+  span.chinese
+  {
+      font-size:12px;
+  }
 
 </style>
 <script>
     $(document).ready(function() {
-        $("#first_text").show(800).delay(500);
-        $("#last_text").show(800).delay(500);
-    });
+        $("#word").show(800).delay(500);
 
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+                $(this).jPlayer("setMedia", {
+                    title: "Bubble",
+                    mp3: "/audio/<%=q.voice%>"
+                }).jPlayer("play");  //在页面load播放的时候自动播放
+
+            },
+            swfPath: "/js/jplayer",
+            supplied: "mp3",
+            wmode: "window",
+            smoothPlayBar: true,
+            keyEnabled: true,
+            remainingDuration: true,
+            toggleDuration: true
+        });
+
+        // event when the mp3 is finished
+        $("#jquery_jplayer_1").bind($.jPlayer.event.ended, function() {
+            $("#play").show(); // 显示播放按钮
+        });
+
+        $("#play").click(function(){$("#jquery_jplayer_1").jPlayer("play");});
+
+
+    });
 
 </script>
 
-<div style = "" class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
-  <div class="col-md-8 col-md-offset-2" style="margin-top:10px;">
+
+<div class="col-md-10 col-md-offset-1" style="margin-top:30px;background:linen" >
+  <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+  <div class="col-md-8 " style="margin-top:10px;">
     <p><img src="/images/topic/<%=q.gif%>" width="460"></p>
   </div>
-  <div class="col-md-8 col-md-offset-2" style=" margin-top:10px;">
-        <p id="first_text" style="display: none;  font-size: 12px"><%= text_decorate(texts[1]).html_safe %></p>
-        <p id="last_text" style="display: none; font-size: 12px"><%= text_decorate(texts[0]).html_safe %></p>
+
+  <div id = "word" class="col-md-4 " style=" margin-top:10px; display: none">
+        <!--<p id="first_text" style="display: none;  font-size: 12px"><%= text_decorate(texts[1]).html_safe %></p>-->
+        <!--<p id="last_text" style="display: none; font-size: 12px"><%= text_decorate(texts[0]).html_safe %></p>-->
+        <% words.each  do |word| %>
+            <div class="col-md-8">
+                <span class="english"><%= word['e']%></span><br>
+                <span class="chinese"><%= word['c'] %></span>
+            </div>
+        <% end %>
+        <div id="play" class="col-md-8 " style="display: none;margin-top: 40px">
+          <span>再听一次~</span><img src="http://baicizhan.qiniudn.com/pack/assets/playing.png" width="30">
+        </div>
+
+
+      <div class="col-md-8 ">
+
+      <% if @count <= @total-1 %>
+          <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>next  </a>
+      <% else %>
+          <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>next  </a>
+      <% end %>
+      </div>
+
   </div>
 </div>

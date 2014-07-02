@@ -1,6 +1,20 @@
 
 <style>
-    div.target {height:140px;;width:140px;padding:10px;border:1px solid #aaaaaa;}
+    div.target {height:140px;;width:140px;padding:10px;}
+    div.orderdiv {height:140px;;width:140px;padding:10px;border:1px solid #aaaaaa;}
+    span.text1
+    {
+        font-size:18px;
+        color:#ff0000;
+    }
+
+    span.text2{
+        font-size:14px;
+        color:green;
+    }
+    span em{
+        color:red;
+    }
 </style>
 
 <script>
@@ -37,8 +51,8 @@
               var $img = $(this).find("img")
               if ($img != null && $img!=undefined && $img.attr("id")!=null &&  $img.attr("id")!=undefined)
               {
-                  var $imgid = $img.attr("id")+"1";
-                  var $divid = $(this).attr("id")
+                  var $imgid = $img.attr("id");
+                  var $divid = $(this).attr("id")+"1";
 
                   if ($imgid != $divid)
                        right = false;
@@ -48,13 +62,16 @@
           }
         );
 
+
         if(count == $orderdiv.length && right == true)
         {
             $("#okmsg").show(500);
+            //alert("succeed");
         }
         else  if(count == $orderdiv.length && right == false)
         {
-            $("#errormsg").show(500).hide(2000);
+            $("#errormsg").show(1000)
+           setTimeout(function(){location.reload();},2000);
         }
 
 
@@ -65,13 +82,29 @@
 
 
 
+<div  class="col-md-4 col-md-offset-4" style="margin-top:10px;" >
+<div id="errormsg" style="display:none; margin-top:30px">
+  没有对，我们重新再来吧.....
+</div>
+<div id="okmsg" style="display:none; margin-top:30px">
+  Yeah!对了，我们进入下一步吧！～～
+  <% if @count <= @total-1 %>
+      <a  href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>next  </a>
+  <% else %>
+      <a  href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>next  </a>
+  <% end %>
+</div>
+</div>
 
-
-
-<div class="col-md-10 col-md-offset-1" style="margin-top:40px;" >
+<div class="col-md-8 col-md-offset-2" style="margin-top:20px;" >
+    <span class="text1"><%=@question.text%></span><br>
+  <span class="text2"> 悄悄告诉你:把下面的图片按顺序拉到上面的<em>框</em>里,就可以了~~</span>
+</div>
+<hr/>
+<div class="col-md-10 col-md-offset-1" style="margin-top:10px;" >
   <div class="col-md-10 col-md-offset-1" style="margin-top:10px;" >
       <% images.each do |image| %>
-          <div class="orderdiv target  col-md-3" id="<%= image %>" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div class="orderdiv  col-md-3" id="<%= image %>" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
       <% end %>
   </div>
 
