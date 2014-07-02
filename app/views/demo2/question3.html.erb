@@ -4,7 +4,8 @@
     div.orderdiv {height:<%=width*50%>px;;width:<%=width*50%>px;border:1px solid #aaaaaa;}
     #question img
     {
-        height:<%=width*50-8 %>px;;width:<%=width*50-8 %>px;
+       width: <%=width*50%>px;
+       height:<%=width*50%>px;
     }
     span.text1
     {
@@ -104,16 +105,26 @@
   <span class="text2 "> 悄悄告诉你:把下面的图片拉到上面的<em>框</em>里~~</span>
 </div>
 <hr>
-<div id="question" class="col-md-10 col-md-offset-1" style="margin-top:10px;" >
-  <div class="col-md-12" style="margin-top:10px;margin-left:10px" >
+<div id="question" class="col-md-10 col-md-offset-1" style="margin-top:10px;margin-left:140px" >
+  <table>
+    <tr>
       <% images.each do |image| %>
-          <div style="padding:3px" class="orderdiv  col-md-<%=width%>" id="<%= image %>" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <td align="center">
+          <div style="padding:0px" class="orderdiv" id="<%= image %>" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </td>
       <% end %>
-  </div>
+    </tr>
 
-  <div class="col-md-12" style="margin-top:10px;" >
+  <tr>
+
       <% images.each do |image| %>
-          <div class="target col-md-<%=width%>" ondrop="drop(event)" ondragover="allowDrop(event)" ><img id="<%= image+"1" %>" width="100" height="100" src="/images/topic/<%=image%>" draggable="true" ondragstart="drag(event)"></div>
+        <td align="center">
+          <div class="target" ondrop="drop(event)" ondragover="allowDrop(event)" >
+            <img id="<%= image+"1" %>" src="/images/topic/<%=image%>" draggable="true" ondragstart="drag(event)"
+          ></div>
+        </td>
       <% end %>
-  </div>
+
+  </tr>
+  </table>
 </div>
