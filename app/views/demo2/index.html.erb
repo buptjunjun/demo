@@ -61,12 +61,15 @@
         $("#play").click(function(){$("#jquery_jplayer_1").jPlayer("play");});
 
 
-        setTimeout( function(){$("#gif").attr("src","/images/topic/<%=q.gif%>")},1000);
+        setTimeout( function(){$("#gif").attr("src","/images/topic/<%=q.gif%>")},0);
 
     });
 
-    preloadimages(["/images/topic/<%=q.gif%>"])
-
+    <% if q1%>
+        preloadimages(["/images/topic/<%=q.gif%>","/images/topic/<%=q1.gif%>"]);
+    <% else %>
+        preloadimages(["/images/topic/<%=q.gif%>"]);
+    <% end %>
 
 </script>
 

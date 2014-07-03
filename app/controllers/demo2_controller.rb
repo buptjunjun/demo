@@ -5,6 +5,11 @@ class Demo2Controller < ApplicationController
     if @count < @total
         @question = Question.where(:qtype=>@q_type,:topic_id => @topic.id)[@count]
         if @q_type == 0
+
+          #用于预加载
+          if @count+1 < @total
+            @question1 = Question.where(:qtype=>@q_type,:topic_id => @topic.id)[@count+1]
+          end
            text = @question.text
            texts = text.split("|||")
            chineses = texts[0].split("|")
@@ -15,13 +20,13 @@ class Demo2Controller < ApplicationController
                 word = {"c"=>c,"e"=>e}
                 words.append(word)
            }
-           render :template => "demo2/index",locals: {:teststr=>'test', :q=>@question, :texts => texts, :words=>words}
+           render :template => "demo2/index",locals: {:teststr=>'test',:q1=>@question1, :q=>@question, :texts => texts, :words=>words}
         elsif  @q_type == 1
             answers = @question.answers
             text = @question.text
             texts = text.split("|")
 
-            render :template => "demo2/question2", locals: { :topic=>@topic,:question=>@question,:texts=>texts,:answers=>answers}
+            render :template => "demo2/question2", locals: { :topic=>@topic,:question1 => @question1,:texts=>texts,:answers=>answers}
         elsif @q_type == 2
           answers = @question.answers
           images = answers[0].text.split(",")
