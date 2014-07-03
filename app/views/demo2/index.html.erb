@@ -24,6 +24,15 @@
 
 </style>
 <script>
+    function preloadimages(arr){
+        var newimages=[]
+        var arr=(typeof arr!="object")? [arr] : arr  //确保参数总是数组
+        for (var i=0; i<arr.length; i++){
+            newimages[i]=new Image()
+            newimages[i].src=arr[i]
+        }
+    }
+
     $(document).ready(function() {
         $("#word").show(800).delay(500);
 
@@ -52,7 +61,12 @@
         $("#play").click(function(){$("#jquery_jplayer_1").jPlayer("play");});
 
 
+        setTimeout( function(){$("#gif").attr("src","/images/topic/<%=q.gif%>")},1000);
+
     });
+
+    preloadimages(["/images/topic/<%=q.gif%>"])
+
 
 </script>
 
@@ -60,7 +74,7 @@
 <div class="col-md-10 col-md-offset-1" style="margin-top:30px;background:linen" >
   <div id="jquery_jplayer_1" class="jp-jplayer"></div>
   <div class="col-md-8 " style="margin-top:10px;">
-    <p><img src="/images/topic/<%=q.gif%>" width="460"></p>
+    <p><img id="gif"  width="460"></p>
   </div>
 
   <div id = "word" class="col-md-4 " style=" margin-top:10px; display: none">
