@@ -22,8 +22,48 @@
       font-size:12px;
   }
 
+  /* Start by setting display:none to make this hidden.
+     Then we position it in relation to the viewport window
+     with position:fixed. Width, height, top and left speak
+     speak for themselves. Background we set to 80% white with
+     our animation centered, and no-repeating */
+  .modal {
+      display:    none;
+      position:   fixed;
+      z-index:    1000;
+      top:        0;
+      left:       0;
+      height:     100%;
+      width:      100%;
+      background: rgba( 255, 255, 255, .8 )
+      url('http://i.stack.imgur.com/FhHRx.gif')
+      50% 50%
+      no-repeat;
+  }
+
+  body.loading {
+      overflow: hidden;
+  }
+
+  /* Anytime the body has the loading class, our
+     modal element will be visible */
+  body.loading .modal {
+      display: block;
+  }
+
 </style>
 <script>
+
+    function startloading()
+    {
+        $("body").addClass("loading");
+    }
+
+    function stoploading()
+    {
+        $("body").removeClass("loading");
+    }
+
     function preloadimages(arr){
         var newimages=[]
         var arr=(typeof arr!="object")? [arr] : arr  //确保参数总是数组
@@ -36,22 +76,6 @@
     $(document).ready(function() {
         $("#word").show(800).delay(500);
 
-        $("#jquery_jplayer_1").jPlayer({
-            ready: function () {
-                $(this).jPlayer("setMedia", {
-                    title: "Bubble",
-                    mp3: "/audio/<%=q.voice%>"
-                }).jPlayer("play");  //在页面load播放的时候自动播放
-
-            },
-            swfPath: "/js/jplayer",
-            supplied: "mp3",
-            wmode: "window",
-            smoothPlayBar: true,
-            keyEnabled: true,
-            remainingDuration: true,
-            toggleDuration: true
-        });
 
         // event when the mp3 is finished
         $("#jquery_jplayer_1").bind($.jPlayer.event.ended, function() {
@@ -60,20 +84,41 @@
 
         $("#play").click(function(){$("#jquery_jplayer_1").jPlayer("play");});
 
+        startloading();
+        setTimeout( function(){
+            $("#gif").attr("src","/images/topic/<%=q.gif%>");
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function () {
+                    $(this).jPlayer("setMedia", {
+                        title: "Bubble",
+                        mp3: "/audio/<%=q.voice%>"
+                    }).jPlayer("play");  //在页面load播放的时候自动播放
 
-        setTimeout( function(){$("#gif").attr("src","/images/topic/<%=q.gif%>")},0);
+                },
+                swfPath: "/js/jplayer",
+                supplied: "mp3",
+                wmode: "window",
+                smoothPlayBar: true,
+                keyEnabled: true,
+                remainingDuration: true,
+                toggleDuration: true
+            });
+            stoploading();
+        },4000);
+
 
     });
 
+
     <% if q1%>
-        preloadimages(["/images/topic/<%=q.gif%>","/images/topic/<%=q1.gif%>"]);
+        preloadimages(["/images/topic/<%=q.gif%>","/audio/<%=q.voice%>","/images/topic/<%=q1.gif%>"]);
     <% else %>
-        preloadimages(["/images/topic/<%=q.gif%>"]);
+        preloadimages(["/images/topic/<%=q.gif%>","/audio/<%=q.voice%>"]);
     <% end %>
 
 </script>
 
-
+<div class="modal"><!-- Place at bottom of page --></div>
 <div class="col-md-10 col-md-offset-1" style="margin-top:30px;background:linen" >
   <div id="jquery_jplayer_1" class="jp-jplayer"></div>
   <div class="col-md-8 " style="margin-top:10px;">
@@ -91,17 +136,18 @@
         <% end %>
         <div id="play" class="col-md-8 " style="display: none;margin-top: 40px">
           <span class="btn btn-default navbar-btn" style="display: inline">再听一次~ <img src="http://baicizhan.qiniudn.com/pack/assets/playing.png" width="30"></span>
+          <div >
+
+            <% if @count < @total-1 %>
+                <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>我们继续下一个吧~~  </a>
+            <% else %>
+                <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>我们继续下一个吧~~  </a>
+            <% end %>
+          </div>
         </div>
 
 
-      <div class="col-md-8 ">
 
-      <% if @count < @total-1 %>
-          <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=<%= @count+1 %>&q_type=0'>我们继续下一个吧~~  </a>
-      <% else %>
-          <a  class="btn btn-default navbar-btn" href='/demo2/index?t_id=2&q_id=0&q_type=<%=@q_type+1 %>'>我们继续下一个吧~~  </a>
-      <% end %>
-      </div>
 
   </div>
 </div>
