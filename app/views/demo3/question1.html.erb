@@ -1,0 +1,293 @@
+
+<style>
+
+  .answer
+  {
+      color:red;
+  }
+
+
+  /* Start by setting display:none to make this hidden.
+     Then we position it in relation to the viewport window
+     with position:fixed. Width, height, top and left speak
+     speak for themselves. Background we set to 80% white with
+     our animation centered, and no-repeating */
+  .modal {
+      display:    none;
+      position:   fixed;
+      z-index:    1000;
+      top:        0;
+      left:       0;
+      height:     100%;
+      width:      100%;
+      background: rgba( 255, 255, 255, .8 )
+      url('http://i.stack.imgur.com/FhHRx.gif')
+      50% 50%
+      no-repeat;
+  }
+
+  body.loading {
+      overflow: hidden;
+  }
+  .picture
+  {
+      width:80px;
+      display: inline;
+
+  }
+  .picture image
+  {
+      width:80px;
+      height:80px;
+  }
+  .right
+  {
+      border:solid 1px ;
+  }
+  .wrong
+  {
+      border:solid 1px ;
+  }
+  .picture:hover
+  {
+      border:solid 1px;
+      color:blue;
+
+  }
+
+  #word {
+      font-size: 30px;
+      color:#64a3dd;
+  }
+  .smallenglish
+  {
+      font-size: 15px;
+      color:#64a3dd;
+  }
+  /* Anytime the body has the loading class, our
+     modal element will be visible */
+  body.loading .modal {
+      display: block;
+  }
+  .question
+  {
+    border :solid 1px;
+    margin-top: 5px;
+    font-size:18px;
+    padding:5px;
+  }
+
+  ul { list-style-type: none; }
+</style>
+
+<script>
+    var imgbase = "/images/topic/";
+    var rightimage = " http://baicizhan.qiniudn.com/pack/assets/done-right.png";
+    var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
+    var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
+
+
+    function showchinese()
+    {
+        $("#chinese").show(300);
+    }
+
+    function bindevent()
+    {
+        $(".right").on("click",function(){
+            showchinese();
+            console.log("right");
+            //alert("right");
+            $imagetag = $(this);
+            console.log("log:"+$imagetag[0].tagName);
+            if ($imagetag[0].tagName != "IMG"&& $imagetag[0].tagName != "img")
+                $imagetag = $imagetag.find("img");
+            $imagetag.attr("src",rightimage);
+            $imagetag.show();
+            setTimeout(next,1000);
+        });
+
+        $(".wrong").on("click",function(){
+            showchinese();
+            console.log("wrong");
+            //alert("wrong");
+            $imagetag = $(this);
+
+            if ($imagetag[0].tagName != "IMG" && $imagetag[0].tagName != "img")
+                $imagetag = $imagetag.find("img");
+
+            var imageurl = $imagetag.attr("src");
+
+            $imagetag.attr("src",wrongimage);
+            $imagetag.show();
+
+            setTimeout(function () {
+                if(imageurl != "")
+                    $imagetag.attr("src",imageurl);
+                else
+                    $imagetag.hide();
+                },
+                400);
+
+        });
+    }
+
+    $.getJSON("/demo3.json",function(data){
+        window.json = data
+        //current question index
+        window.qindex = 0;
+        console.log(data[0].sumary.title);
+        console.log(data[0].part1[0].type)
+        render(window.qindex);
+
+        bindevent();
+
+    });
+
+    // get question according to index
+    function getquestion(index)
+    {
+        return window.json[0].part1[index];
+    }
+
+    // get the answers of question index
+    function getanswers(index)
+    {
+        var q = getquestion(index);
+        var answers = q.answers;
+        return answers;
+    }
+
+    // get the right answer of question index
+    function getright(index)
+    {
+        var q = getquestion(index);
+        var right = q.right;
+        return right;
+    }
+
+    function showtype()
+    {
+        var q = getquestion(0);
+        var answers = getanswers(0)
+        var right = getright(0)
+        alert(q.type+","+answers[0]+","+right)
+    }
+
+    function renderQuestion(index)
+    {
+        // render quesion
+        var q = getquestion(index);
+        var type = q.type;
+        if (type == "picture")
+        {
+            $("#english").html(q.text1);
+            $("#chinese").html(q.text2);
+            $("#chinese").hide();
+        }
+        else
+        {
+            $("#english").html(q.text2);
+            $("#chinese").html("");
+            $("#english").attr("class","col-md-12 smallenglish")
+        }
+
+    }
+
+    function renderAnswers(index)
+    {
+        var q = getquestion(index);
+
+        var answers = getanswers(index);
+        var answers_html = ""
+
+        var right = getright(index);
+        right = right-1
+        if( q.type == "picture")  // picture question
+        {
+            answers_html = "<table><tr>"
+            var i = 0;
+            for (i = 0; i < answers.length; i++) {
+
+                if(right == i)
+                {
+                    answers_html += "<td style='border:solid 0px'><div class='answer picture' index="+i+"> <img class=right height=200 width=200 src='" +imgbase+ answers[i] + "'/></div></td>";
+                }
+                else
+                {
+                    answers_html += "<td style='border:solid 0px'><div class='answer picture' index="+i+"> <img class=wrong height=200 width=200 src='" +imgbase+ answers[i] + "'/></div></td>";
+                }
+
+
+                if (i == 1)
+                    answers_html += "</tr>";
+            }
+            answers_html += "</tr></table>"
+        }
+        else if (q.type == "question") // text question
+        {
+            answers_html = "<ul>"
+            var i = 0;
+            for (i = 0; i < answers.length; i++)
+            {
+                if(right-1  == i)
+                {
+                    answers_html += "<li><div class=' question right' index="+i+"> <img style='display:none' src='' />" + answers[i] + "</div></li>";
+                }
+                else
+                {
+                    answers_html += "<li><div class='question wrong' index="+i+"> <img style='display:none' src='' />" + answers[i] + "</div></li>";
+                }
+
+            }
+            answers_html += "</ul>"
+        }
+
+
+        $("#answers").html(answers_html);
+        //var right = getright(index);
+
+       // $("#right").html(right);
+        //  render answers
+
+    }
+    // ender all the  content of a question
+    function render(index)
+    {
+        renderQuestion(index);
+        renderAnswers(index);
+    }
+
+    function next()
+    {
+        window.qindex+=1;
+        render(window.qindex);
+        bindevent();
+    }
+
+</script>
+
+
+<div class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
+
+
+  <div id = "word" class="col-md-5 " style="border:solid 1px">
+    <div id="english" class="col-md-12"></div>
+    <div id="chinese" class="col-md-12" style="display:none"></div>
+  </div>
+  <div id="answers" class="col-md-7" style="border:solid 0px">
+
+  </div>
+</div>
+
+<!--<a onclick="next()">next</a>-->
+
+<div id="right">
+
+</div>
+
+
+<script>
+
+
+</script>

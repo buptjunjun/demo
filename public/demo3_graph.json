@@ -1,0 +1,502 @@
+[
+    {
+    "sumary": {
+        "title": "sunlight"
+    },
+    "part1": [
+        {
+            "type": "picture",
+            "text1": "expand",
+            "text2": "膨胀",
+            "answers": [
+                "5.jpg",
+                "6.jpg",
+                "7.jpg",
+                "8.jpg"
+            ],
+            "right": 4
+        },
+        {
+            "type": "picture",
+            "text1": "star",
+            "text2": "恒星",
+            "answers": [
+                "9.jpg",
+                "10.jpg",
+                "11.jpg",
+                "12.jpg"
+            ],
+            "right": 4
+        },
+        {
+            "type": "question",
+            "text1": "",
+            "text2": "whate is milkway whate is milkway whate is milkway whate is milkway？",
+            "answers": [
+                "answer1",
+                "answer2",
+                "answer3",
+                "answer4"
+            ],
+            "right": 3
+        }
+    ],
+
+    "part2": {
+        "width": 11,
+        "height": 9,
+        "contents": [
+            {
+                "x": 0,
+                "y": 6,
+                "type": "text",
+                "text": "太阳系",
+                "picture": "",
+                "voice": "",
+                "status": 0,
+                "path_number": -1
+            }
+            ,
+            {
+                "x": 1,
+                "y": 5,
+                "type": "text",
+                "text": "无法生存",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 1,
+                "y": 6,
+                "type": "link",
+                "text": "此处有链接",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 1,
+                "y": 8,
+                "type": "pointer",
+                "text": "属于",
+                "picture": "7",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 1,
+                "y": 9,
+                "type": "text",
+                "text": "沙尘暴",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 1,
+                "y": 10,
+                "type": "pointer",
+                "text": "",
+                "picture": "8",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 2,
+                "y": 5,
+                "type": "pointer",
+                "text": "",
+                "picture": "3",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 2,
+                "y": 6,
+                "type": "text",
+                "text": "行星",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 2,
+                "y": 7,
+                "type": "pointer",
+                "text": "",
+                "picture": "7",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 2,
+                "y": 8,
+                "type": "pointer",
+                "text": "",
+                "picture": "23",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 2,
+                "y": 9,
+                "type": "text",
+                "text": "氧化铁",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 2,
+                "y": 10,
+                "type": "text",
+                "text": "昼夜温差",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 3,
+                "type": "text",
+                "text": "低温",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 4,
+                "type": "pointer",
+                "text": "",
+                "picture": "1",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 5,
+                "type": "text",
+                "text": "缺乏水",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 6,
+                "type": "pointer",
+                "text": "",
+                "picture": "3",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 7,
+                "type": "text",
+                "text": "血红色",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 9,
+                "type": "pointer",
+                "text": "",
+                "picture": "3",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 3,
+                "y": 10,
+                "type": "pointer",
+                "text": "",
+                "picture": "3",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 4,
+                "y": 3,
+                "type": "pointer",
+                "text": "",
+                "picture": "3",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 4,
+                "y": 5,
+                "type": "pointer",
+                "text": "",
+                "picture": "9",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 4,
+                "y": 6,
+                "type": "text",
+                "text": "火星",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 4,
+                "y": 7,
+                "type": "pointer",
+                "text": "",
+                "picture": "5",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 4,
+                "y": 9,
+                "type": "text",
+                "text": "岩石",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 4,
+                "y": 10,
+                "type": "text",
+                "text": " 稀薄大气",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 2,
+                "type": "text",
+                "text": "此处有链接",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 3,
+                "type": "text",
+                "text": "气压低",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 4,
+                "type": "pointer",
+                "text": "",
+                "picture": "8",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 6,
+                "type": "pointer",
+                "text": "",
+                "picture": "20",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 7,
+                "type": "pointer",
+                "text": "",
+                "picture": "15",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 8,
+                "type": "pointer",
+                "text": "",
+                "picture": "15",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 9,
+                "type": "pointer",
+                "text": "",
+                "picture": "13",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 5,
+                "y": 10,
+                "type": "pointer",
+                "text": "",
+                "picture": "5",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 0,
+                "type": "text",
+                "text": "",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 1,
+                "type": "pointer",
+                "text": "",
+                "picture": "1",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 2,
+                "type": "text",
+                "text": "磁场消失",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 3,
+                "type": "pointer",
+                "text": "",
+                "picture": "21",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 4,
+                "type": "text",
+                "text": "稀薄大气",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 6,
+                "type": "text",
+                "text": "奥林匹斯山",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 6,
+                "y": 8,
+                "type": "text",
+                "text": "极地冰盖",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 7,
+                "y": 2,
+                "type": "text",
+                "text": "此处有链接",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 7,
+                "y": 3,
+                "type": "text",
+                "text": "太阳风",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 7,
+                "y": 6,
+                "type": "pointer",
+                "text": "",
+                "picture": "2",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 8,
+                "y": 2,
+                "type": "text",
+                "text": "太阳",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+            ,
+            {
+                "x": 8,
+                "y": 6,
+                "type": "text",
+                "text": "死火山",
+                "picture": "",
+                "voice": "",
+                "status": -1
+            }
+        ]
+      }
+    }
+]

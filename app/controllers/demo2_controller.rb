@@ -42,6 +42,24 @@ class Demo2Controller < ApplicationController
   end
 
 
+  def testdrag
+    if @count < @total
+        @question = Question.where(:qtype=>@q_type,:topic_id => @topic.id)[@count]
+        if @q_type == 2
+          answers = @question.answers
+          images = answers[0].text.split(",")
+          length = images.length
+          width = 12/length
+          render :template => "demo2/question4", locals: {:images=>images,:width=>width, :question=>@question}
+        else
+          redirect_to ("/demo2/index?t_id=#{@topic.id}&q_id=0&q_type=0")
+        end
+    else
+      redirect_to ("/demo2/index?t_id=#{@topic.id}&q_id=0&q_type=0")
+    end
+  end
+
+
 
   def upload
 

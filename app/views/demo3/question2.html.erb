@@ -1,0 +1,171 @@
+
+<style>
+
+    .answer
+    {
+        color:red;
+    }
+
+
+    /* Start by setting display:none to make this hidden.
+       Then we position it in relation to the viewport window
+       with position:fixed. Width, height, top and left speak
+       speak for themselves. Background we set to 80% white with
+       our animation centered, and no-repeating */
+    .modal {
+        display:    none;
+        position:   fixed;
+        z-index:    1000;
+        top:        0;
+        left:       0;
+        height:     100%;
+        width:      100%;
+        background: rgba( 255, 255, 255, .8 )
+        url('http://i.stack.imgur.com/FhHRx.gif')
+        50% 50%
+        no-repeat;
+    }
+
+    body.loading {
+        overflow: hidden;
+    }
+    .picture
+    {
+        width:80px;
+        display: inline;
+
+    }
+    .picture image
+    {
+        width:80px;
+        height:80px;
+    }
+    .right
+    {
+        border:solid 1px ;
+    }
+    .wrong
+    {
+        border:solid 1px ;
+    }
+    .picture:hover
+    {
+        border:solid 1px;
+        color:blue;
+
+    }
+
+    #word {
+        font-size: 30px;
+        color:#64a3dd;
+    }
+    .smallenglish
+    {
+        font-size: 15px;
+        color:#64a3dd;
+    }
+    /* Anytime the body has the loading class, our
+       modal element will be visible */
+    body.loading .modal {
+        display: block;
+    }
+    .question
+    {
+        border :solid 1px;
+        margin-top: 5px;
+        font-size:18px;
+        padding:5px;
+    }
+
+    ul { list-style-type: none; }
+</style>
+
+<script>
+    var imgbase = "/images/topic/";
+    var rightimage = " http://baicizhan.qiniudn.com/pack/assets/done-right.png";
+    var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
+    var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
+
+    $.getJSON("/demo3_graph.json",function(data){
+        window.json = data
+        //current question index
+        window.qindex = 0;
+        console.log(data[0].sumary.title);
+        console.log(data[0].part2.width);
+        console.log(getSquare(0).text);
+        renderTable();
+
+    });
+
+    function getSquare(index)
+    {
+           return window.json[0].part2.contents[index];
+    }
+
+    function renderTable()
+    {
+        var width = window.json[0].part2.width;
+        var height = window.json[0].part2.height;
+
+        var $t_body =  $("<table></table>");
+        var count = 0;
+        for(var i = 0;i < height; i++)
+        {
+            var $tr = $("<tr></tr>");
+            for (var j = 0; j < width; j++)
+            {
+                var position=i+","+j;
+                $td = $("<td id='"+position+"'>hello</td>");
+                $tr.append($td);
+                count+=1;
+            }
+            $t_body.append($tr);
+
+        }
+
+        $("#answers").append($t_body);
+    }
+
+    function renderContent()
+    {
+        var contents = window.json[0].part2.content;
+        var length = contents.length;
+        for (var i = 0; i < length; i++)
+        {
+            content = getSquare(i);
+            var x = content.x;
+            var y = content.y;
+            var id = x+","+y;
+        }
+
+
+    }
+
+    function render()
+    {
+
+    }
+
+
+</script>
+<div class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
+  <div id = "word" class="col-md-5 " style="border:solid 1px">
+    <div id="english" class="col-md-12"></div>
+    <div id="chinese" class="col-md-12" style="display:none"></div>
+  </div>
+  <div id="answers" class="col-md-7" style="border:solid 0px">
+
+  </div>
+</div>
+
+<!--<a onclick="next()">next</a>-->
+
+<div id="right">
+
+</div>
+
+
+<script>
+
+
+</script>

@@ -2,7 +2,11 @@ Untitled::Application.routes.draw do
   get "controller/demo2"
   get "demo2/index"=> "demo2#index"
   get "upload/index"=>"upload#index"
+  get "demo2/testdrag"=>"demo2#testdrag"
   post "upload/upload"=>"upload#upload"
+  get "demo3/index"=>"demo3#index"
+  get "demo3/index1"=>"demo3#index1"
+  get "demo3/freda"=>"demo3#freda"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,50 @@
+[
+    {
+        "sumary":  {
+            "title": "sunlight"
+        },
+
+        "part1":
+            [
+                [
+                    {
+                        "type":"picture",
+                        "text1": "太阳系",
+                        "text2": "solar system",
+                        "answers": [
+                            "11.jpg",
+                            "12.jpg",
+                            "13.jpg",
+                            "14.jpg"
+                        ],
+                        "right": 3
+                    },
+
+                    {
+                        "type":"picture",
+                        "text1": "银河大河",
+                        "text2": "milk way",
+                        "answers": [
+                            "22.jpg",
+                            "12.jpg",
+                            "13.jpg",
+                            "14.jpg"
+                        ],
+                        "right": 2
+                    },
+                    {
+                        "type":"question",
+                        "text1": "",
+                        "text2": "whate is milkway",
+                        "answers": [
+                            "answer1",
+                            "answer2",
+                            "answer3",
+                            "answer4"
+                        ],
+                        "right": 3
+                    }
+                ]//表示一个单元
+            ]
+    }
+]

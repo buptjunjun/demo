@@ -1,0 +1,25 @@
+[
+
+    {
+        "english": "What would cheetahs do when they are hungry?",
+        "chinese": "猎豹饿了会干吗？",
+        "audio":"track01.mp3",
+        "answers": [
+            "mate.jpg | mate.mp3 | 交配",
+            "hatch.jpg | hatch.mp3 | 孵化",
+            "prey.jpg | prey.mp3 | 捕食",
+            "hibernate.jpg | hibernate,mp3 | 冬眠"
+        ]
+    },
+    {
+        "english": "What would cheetahs do when they are hungry?",
+        "chinese": "猎豹饿了会干吗？",
+        "audio":"q1.mp3",
+        "answers": [
+            "mate.jpg | mate,mp3 | 交配",
+            "hatch.png | hatch.mp3 | 孵化",
+            "prey.jpg | prey.mp3 | 捕食",
+            "hibernate.jpg | hibernate,mp3 | 冬眠"
+        ]
+    }
+]
