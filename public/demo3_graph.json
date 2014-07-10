@@ -54,7 +54,7 @@
                 "picture": "",
                 "voice": "",
                 "status": 0,
-                "path_number": -1
+                "group":"0"
             }
             ,
             {
@@ -64,7 +64,8 @@
                 "text": "无法生存",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"0"
             }
             ,
             {
@@ -74,7 +75,8 @@
                 "text": "此处有链接",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"0"
             }
             ,
             {
@@ -84,8 +86,10 @@
                 "text": "属于",
                 "picture": "7",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"0"
             }
+
             ,
             {
                 "x": 1,
@@ -94,7 +98,8 @@
                 "text": "沙尘暴",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"0"
             }
             ,
             {
@@ -104,7 +109,8 @@
                 "text": "",
                 "picture": "8",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"0"
             }
             ,
             {
@@ -295,8 +301,7 @@
                 "picture": "",
                 "voice": "",
                 "status": -1
-            }
-            ,
+            },
             {
                 "x": 5,
                 "y": 2,
@@ -314,7 +319,8 @@
                 "text": "气压低",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {
@@ -324,7 +330,8 @@
                 "text": "",
                 "picture": "8",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {
@@ -381,10 +388,11 @@
                 "x": 6,
                 "y": 0,
                 "type": "text",
-                "text": "",
+                "text": "核心冷却",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {
@@ -394,7 +402,8 @@
                 "text": "",
                 "picture": "1",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {
@@ -404,7 +413,8 @@
                 "text": "磁场消失",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {
@@ -414,7 +424,8 @@
                 "text": "",
                 "picture": "21",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {
@@ -424,7 +435,8 @@
                 "text": "稀薄大气",
                 "picture": "",
                 "voice": "",
-                "status": -1
+                "status": -1,
+                "group":"1"
             }
             ,
             {

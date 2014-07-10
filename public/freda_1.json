@@ -1,0 +1,167 @@
+[
+       {
+        "english": "What is the largest type of ‘big cat’ in the world?",
+        "chinese": "世界上最大的“猫”（猫科动物）是？",
+        "audio": "track05.mp3",
+        "answers": [
+            "tiger.jpg | tiger.mp3 | 老虎",
+            "cat.jpg | cat.mp3 | 猫",
+            "lion.jpg | lion.mp3 | 狮子",
+            "dog.jpg | dog.mp3 | 狗"
+        ]
+    },
+    {
+        "english": "What is the fastest land animal in the world?",
+        "chinese": "陆地上跑最快的动物是？",
+        "audio": "track06.mp3",
+        "answers": [
+            "cheetah.jpg | cheetah.mp3 | 猎豹",
+            "rabbit.jpg | rabbit.mp3 | 兔子",
+            "tiger.jpg | tiger.mp3 | 老虎",
+            "sloth.jpg | sloth.mp3 | 树獭"
+        ]
+    },
+    {
+        "english": "What is the largest land animal in the world?",
+        "chinese": "陆地上体积最大的动物是？",
+        "audio": "track07.mp3",
+        "answers": [
+            "elephant.jpg | elephant.mp3 | 大象",
+            "dinosaur.jpg | dinosaur.mp3 | 恐龙",
+            "transformer.jpg | transformer.mp3 | 变形金刚",
+            "bulk.jpg | bulk.mp3 | 大块"
+        ]
+    },
+    {
+        "english": "What animal has 8 legs?",
+        "chinese": "神马动物有8条腿？",
+        "audio": "track08.mp3",
+        "answers": [
+            "spider.jpg | spider.mp3 | 蜘蛛",
+            "centipede.jpg | centipede.mp3 | 蜈蚣",
+            "starfish.jpg | starfish.mp3 | 海星",
+            "caterpillar.jpg | caterpillar.mp3 | 毛虫"
+        ]
+    },
+     {
+        "english": "What would cheetahs do when they are hungry?",
+        "chinese": "猎豹饿了会干吗？",
+        "audio": "track01.mp3",
+        "answers": [
+            "prey.jpg | prey.mp3 | 捕食",
+            "hatch.jpg | hatch.mp3 | 孵化",
+            "mate.jpg | mate.mp3 | 交配",
+            "hibernate.jpg | hibernate.mp3 | 冬眠"
+        ]
+    },
+    {
+        "english": "What would birds do to find food and a safe place to breed?",
+        "chinese": "如果鸟儿要找食物以及找安全的地方哺育下一代，他们会怎么做？",
+        "audio": "track02.mp3",
+        "answers": [
+            "migrate.jpg | migrate.mp3 | 迁移",
+            "mate.jpg | mate.mp3 | 交配",
+            "prey.jpg | prey.mp3 | 捕食",
+            "hibernate.jpg | hibernate.mp3 | 冬眠"
+        ]
+    },
+    {
+        "english": " What would black bears do to survive through winter?",
+        "chinese": "黑熊会怎样度过凄凉寂寞冷的冬天？",
+        "audio": "track03.mp3",
+        "answers": [
+            "hibernate.jpg | hibernate.mp3 | 冬眠",
+            "mate.jpg | mate.mp3 | 交配",
+            "hatch.jpg | hatch.mp3 | 孵化",
+            "camouflage.jpg | camouflage.mp3 | 伪装"
+        ]
+    },
+    {
+        "english": "What would lizards do to avoid its predators?",
+        "chinese": "蜥蜴如何躲避它的天敌？？",
+        "audio": "track04.mp3",
+        "answers": [
+            "camouflage.jpg | camouflage.mp3 | 伪装",
+            "mate.jpg | mate.mp3 | 交配",
+            "hatch.jpg | hatch.mp3 | 孵化",
+            "hibernate.jpg | hibernate.mp3 | 冬眠"
+        ]
+    },
+    {
+        "english": "Please put toad into its category",
+        "chinese": "请把蟾蜍放到正确的分类下",
+        "audio": "track09.mp3",
+        "answers": [
+            "amphibian.jpg | amphibian.mp3 | 两栖动物",
+            "reptile.jpg | reptile.mp3 | 爬行动物",
+            "mammal.jpg | mammal.mp3 | 哺乳动物",
+            "primate.jpg | primate.mp3 | 灵长类动物"
+        ]
+    },
+    {
+        "english": "Please put squirrel into its category",
+        "chinese": "请把松鼠放到正确的分类下",
+        "audio": "track10.mp3",
+        "answers": [
+            "rodent.jpg | rodent.mp3 | 啮齿目动物",
+            "insect.jpg | insect.mp3 | 昆虫",
+            "amphibian.jpg | amphibian.mp3 | 两栖动物",
+            "primate.jpg | primate.mp3 | 灵长类动物"
+        ]
+    },
+    {
+        "english": "What species is a moth in?",
+        "chinese": "飞蛾是什么物种？",
+        "audio": "track11.mp3",
+        "answers": [
+            "insect.jpg | insect.mp3 | 昆虫",
+            "rodent.jpg | rodent.mp3 | 啮齿目动物",
+            "bird.jpg | bird.mp3 | 鸟类",
+            "primate.jpg | primate.mp3 | 灵长类动物"
+        ]
+    },
+    {
+        "english": "What species is a crocodile in?",
+        "chinese": "鳄鱼是什么物种？",
+        "audio": "track12.mp3",
+        "answers": [
+            "reptile.jpg | reptile.mp3 | 爬行动物",
+            "mammal.jpg | mammal.mp3 | 哺乳动物",
+            "insect.jpg | insect.mp3 | 昆虫",
+            "primate.jpg | primate.mp3 | 灵长类动物"
+        ]
+    },
+    {
+        "english": "What kind of animal does deer belong to?",
+        "chinese": "鹿是哪种类型的动物？",
+        "audio": "track13.mp3",
+        "answers": [
+            "herbivore.jpg | herbivore.mp3 | 食草动物",
+            "carnivore.jpg | carnivore.mp3 | 食肉动物",
+            "omnivore.jpg | omnivore.mp3 | 杂食动物",
+            "scavenger.jpg | scavenger.mp3 | 食腐动物"
+        ]
+    },
+    {
+        "english": "What kind of animal does cheetah belong to?",
+        "chinese": "猎豹是哪种类型的动物？",
+        "audio": "track14.mp3",
+        "answers": [
+            "carnivore.jpg | carnivore.mp3 | 食肉动物",
+            "herbivore.jpg | herbivore.mp3 | 食草动物",
+            "omnivore.jpg | omnivore.mp3 | 杂食动物昆虫",
+            "scavenger.jpg | scavenger.mp3 | 食腐动物"
+        ]
+    },
+    {
+        "english": "What kind of animal does earthworm belong to?",
+        "chinese": "蚯蚓是哪种类型的动物？",
+        "audio": "track15.mp3",
+        "answers": [
+            "scavenger.jpg | scavenger.mp3 | 食腐动物",
+            "herbivore.jpg | herbivore.mp3 | 食草动物",
+            "omnivore.jpg | omnivore.mp3 | 杂食动物昆虫",
+            "carnivore.jpg | carnivore.mp3 | 食肉动物"
+        ]
+    }
+]

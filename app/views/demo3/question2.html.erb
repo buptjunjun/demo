@@ -5,8 +5,7 @@
     {
         color:red;
     }
-
-
+    
     /* Start by setting display:none to make this hidden.
        Then we position it in relation to the viewport window
        with position:fixed. Width, height, top and left speak
@@ -78,10 +77,39 @@
     }
 
     ul { list-style-type: none; }
+
+    td
+    {
+        text-align:center;
+        vertical-align: middle;
+        width:80px;
+        height:80px;
+    }
+    .tddivcontent
+    {
+        width:80px;
+        text-align:center;
+        vertical-align: middle;
+        align:center;
+    }
+
+    .tddiv
+    {
+        width:80px;
+        height:80px;
+        text-align:center;
+        vertical-align: middle;
+        align:center;
+    }
+
+    .pointer img
+    {
+        display: none;
+    }
 </style>
 
 <script>
-    var imgbase = "/images/topic/";
+    var imgbase = "/images/pointer/";
     var rightimage = " http://baicizhan.qiniudn.com/pack/assets/done-right.png";
     var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
     var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
@@ -93,7 +121,12 @@
         console.log(data[0].sumary.title);
         console.log(data[0].part2.width);
         console.log(getSquare(0).text);
-        renderTable();
+        render();
+        parsegroups();
+        addEvent();
+        console.log("group",getgroup("1"));
+        console.log("group",getgroup("2"));
+        //activeGroup("1");
 
     });
 
@@ -102,20 +135,20 @@
            return window.json[0].part2.contents[index];
     }
 
-    function renderTable()
+    // create a table with tableid
+    // and set its prefix id of td to diprefix
+    // and
+    function renderTable(idprefix,tableid,divid,width, height)
     {
-        var width = window.json[0].part2.width;
-        var height = window.json[0].part2.height;
-
-        var $t_body =  $("<table></table>");
+        var $t_body =  $("<table border=1 id='"+tableid+"'></table>");
         var count = 0;
         for(var i = 0;i < height; i++)
         {
             var $tr = $("<tr></tr>");
             for (var j = 0; j < width; j++)
             {
-                var position=i+","+j;
-                $td = $("<td id='"+position+"'>hello</td>");
+                var position=i+""+j;
+                $td = $("<td id='"+idprefix+position+"'  ondrop='drop(event)' ondragover='allowDrop(event)'></td>");
                 $tr.append($td);
                 count+=1;
             }
@@ -123,37 +156,203 @@
 
         }
 
-        $("#answers").append($t_body);
+        $("#"+divid).append($t_body);
     }
+
 
     function renderContent()
     {
-        var contents = window.json[0].part2.content;
+        var contents = window.json[0].part2.contents;
         var length = contents.length;
+        var $tds = $("#table1 td");
+        var count = 0;
+
+        for (var i = 0; i < length; i++) {
+            content = getSquare(i);
+            var x = content.x;
+            var y = content.y;
+            var id = "a" + x + "" + y;
+
+
+            var type = content.type
+            if (type == "text")
+            {
+                var id = "from"+x+y;
+                var innercontent = "<div class='tddivcontent' draggable='true' ondragstart='drag(event)' id="+id+" >";
+                $td = $tds[count++];
+                innercontent += "<span>" + content.text + "</span>";
+                innercontent+="</div>";
+                $($td).html(innercontent);
+             }
+        }
+    }
+
+    /* get the group json and save it to window.groups
+
+    {
+       groupid1:["00","11","12"],
+       groupid2:["33","44"];
+    }
+    */
+
+    function parsegroups()
+    {
+        window.groups = {};
+        window.currentgroup = 0;
+
+        var contents = window.json[0].part2.contents;
+        var length = contents.length;
+
+        var count = 0;
+
+        for (var i = 0; i < length; i++) {
+            var content = getSquare(i);
+            var groups = content.group;
+
+            if (groups == undefined || groups == null)
+                continue;
+
+            var gs = groups.split(",");
+
+            var x = content.x;
+            var y = content.y;
+            var id = x + "" + y;
+
+            for(var c = 0; c < gs.length; c++)
+            {
+                var key = gs[c];
+                if( window.groups[key] == undefined || window.groups[key] == null)
+                {
+                    window.groups[key] = [];
+                }
+                var ithgroup = window.groups[key];
+                ithgroup.push(id);
+            }
+        }
+    }
+
+    // get group according to groupid
+    function getgroup(groupid)
+    {
+        return window.groups[groupid];
+    }
+
+    // active gourp by set them to different color;
+    function activeGroup(groupid)
+    {
+        var group = getgroup(groupid);
+        for (i = 0;i < group.length; i++)
+        {
+            var id = group[i];
+
+            var $left = $("#from"+id);
+            $left.animate({fontSize:'22px'},"slow");
+            $left.animate({fontSize:'18px'},"slow");
+            $left.css("color","green");
+            //$left.css("border","solid 5px red");
+            var $right = $("#"+id);
+            $right.find("img").show();
+            $right.css("border","solid 3px red");
+        }
+
+    }
+
+    // render the pointer vim in the table2
+    function renderPointer()
+    {
+        var contents = window.json[0].part2.contents;
+        var length = contents.length;
+
         for (var i = 0; i < length; i++)
         {
             content = getSquare(i);
             var x = content.x;
             var y = content.y;
-            var id = x+","+y;
-        }
+            var id = x+""+y;
 
+            var innercontent = "<div class='tddiv'>";
+            var type = content.type
+
+            if( type == "pointer")
+            {
+                var picture = content.picture;
+                picture = imgbase+picture+".png";
+                innercontent += "<img src='"+picture+"'>";
+            }
+            else if( type == "link")
+                innercontent += content.text;
+
+            innercontent+="</div>";
+            $("#"+id).html(innercontent);
+            $("#"+id).attr("class","pointer");
+        }
+    }
+
+    function addDragDropAction()
+    {
+//        var $tds = $("#table2 td").not(".pointer");
+//        $tds.on("drop","drop(event)");
+//        $tds.on("dragover","allowDrop(event)");
+//
+//        var $tds1 = $("#table1 div");
+//        $tds1.attr("draggable","true").on("ondragstart","drag(event)");
+
+    }
+
+    function addEvent()
+    {
+        $("#active").on("click",function(){
+            activeGroup("1");
+        });
 
     }
 
     function render()
     {
+        var width = window.json[0].part2.width;
+        var height = window.json[0].part2.height;
+        renderTable("","table2","answers",width,height);
+        renderTable("a","table1","picture",3,height);
+        renderContent();
+        renderPointer();
+        addDragDropAction();
+    }
+</script>
 
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
     }
 
+    function drag(ev) {
+        var targetid = ev.target.id;
+        ev.dataTransfer.setData("Text", targetid);
+       // alert("drag");
+    }
 
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        var targetdata = $(ev.target).parent().attr("id");
+
+
+        console.log("orignalid = " + data + " targetid:"+targetdata);
+        result = data == "from"+targetdata;
+        console.log("right="+result);
+
+        if(result == true)
+            ev.target.appendChild(document.getElementById(data));
+
+    }
 </script>
-<div class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
-  <div id = "word" class="col-md-5 " style="border:solid 1px">
-    <div id="english" class="col-md-12"></div>
-    <div id="chinese" class="col-md-12" style="display:none"></div>
+
+
+<div id="active">active</div>
+<div class="col-md-12 " style="margin-top:30px;" >
+  <div id = "picture" class="col-md-3 ">
+
   </div>
-  <div id="answers" class="col-md-7" style="border:solid 0px">
+  <div id="answers" class="col-md-9" style="border:solid 0px">
 
   </div>
 </div>
@@ -163,7 +362,6 @@
 <div id="right">
 
 </div>
-
 
 <script>
 

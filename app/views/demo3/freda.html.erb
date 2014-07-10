@@ -42,11 +42,11 @@
   }
   .right
   {
-      border:solid 1px ;
+      //border:solid 1px ;
   }
   .wrong
   {
-      border:solid 1px ;
+      //border:solid 1px ;
   }
   .picture:hover
   {
@@ -133,6 +133,8 @@
 
     function playaudio(audioname)
     {
+        var paused = $('#jquery_jplayer_1').data().jPlayer.status.paused;
+        if (paused == true)
         $("#jquery_jplayer_1").jPlayer("setMedia", {
             title: "Bubble",
             mp3: audiobase+ audioname
