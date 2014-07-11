@@ -298,7 +298,12 @@
         var answers = getanswers(index);
         var answers_html = ""
 
-        var right = 0;
+        var random = Math.floor(Math.random()*4);
+
+        var tmp = answers[random];
+        answers[random] = answers[0];
+        answers[0] = tmp;
+        var right = random;
 
         answers_html = "<table><tr>"
         var i = 0;

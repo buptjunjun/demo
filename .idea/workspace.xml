@@ -133,14 +133,14 @@
       <file leaf-file-name="freda.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/demo3/freda.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.018324608" vertical-offset="728" max-vertical-offset="5730">
-              <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.7251309" vertical-offset="4298" max-vertical-offset="5805">
+              <caret line="305" column="26" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <marker date="1405044386000" expanded="true" signature="7992:8008" placeholder="..." />
-                <marker date="1405044386000" expanded="true" signature="8261:8277" placeholder="..." />
+                <marker date="1405044829000" expanded="true" signature="8147:8163" placeholder="..." />
+                <marker date="1405044829000" expanded="true" signature="8416:8432" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1096,14 +1096,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/demo3/freda.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.018324608" vertical-offset="728" max-vertical-offset="5730">
-          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.7251309" vertical-offset="4298" max-vertical-offset="5805">
+          <caret line="305" column="26" selection-start-line="305" selection-start-column="26" selection-end-line="305" selection-end-column="26" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <marker date="1405044386000" expanded="true" signature="7992:8008" placeholder="..." />
-            <marker date="1405044386000" expanded="true" signature="8261:8277" placeholder="..." />
+            <marker date="1405044829000" expanded="true" signature="8147:8163" placeholder="..." />
+            <marker date="1405044829000" expanded="true" signature="8416:8432" placeholder="..." />
           </folding>
         </state>
       </provider>
