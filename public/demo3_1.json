@@ -302,6 +302,7 @@
                     "y": 3,
                     "type": "text",
                     "text": "液态水",
+                    "words": "liquid water",
                     "picture": "14.jpg",
                     "voice": "",
                     "status": -1,

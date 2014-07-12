@@ -6,7 +6,8 @@
 /**
  *  usage: set class to tooltip
  */
-    $(function(){
+    function loadtips()
+    {
         var x = 10;
         var y = 20;
         $(".mytips").on("mouseover",function(e){
@@ -18,7 +19,7 @@
                 .css({
                     "top": (e.pageY+y) + "px",
                     "left": (e.pageX+x)  + "px"
-                }).show("fast");      //设置x坐标和y坐标，并且显示
+                }).show(0);      //设置x坐标和y坐标，并且显示
         }).on("mouseout",function(){
             this.title = this.myTitle;
             $("#tooltip").remove();   //移除
@@ -29,4 +30,8 @@
                     "left": (e.pageX+x)  + "px"
                 });
         });
+    }
+
+    $(function(){
+        loadtips();
     })

@@ -102,19 +102,36 @@
         display: none;
     }
 
+    #table1 tr
+    {
+        border:0px;
+    }
     #table1 td
     {
-        width:200px;
-        height:200px;
+        width:250px;
+        height:100px;
+        border:0px;
+    }
+
+    /*.mytips*/
+    /*{*/
+        /*width:78px;*/
+        /*height:78px;*/
+    /*}*/
+    em{
+        color:#ff0000;
+        font-size: 20px ;
     }
 </style>
 
 <script>
     var imgbase = "/images/pointer/";
+    var imgbaseContent = "/images/mars/";
     var rightimage = " http://baicizhan.qiniudn.com/pack/assets/done-right.png";
     var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
     var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
 
+    window.word2pic = {};
     $.getJSON("/demo3_1.json",function(data){
         window.json = data
         //current question index
@@ -178,11 +195,14 @@
             if (type == "text")
             {
                 var id = "from"+x+y;
-                var innercontent = "<div class='tddivcontent' draggable='true' ondragstart='drag(event)' id="+id+" >";
+                var innercontent = "<div class='tddivcontent col-md-12' draggable='true' ondragstart='drag(event)' id="+id+" >";
                 $td = $tds[count++];
                 innercontent += "";
-                innercontent += "<span>" + content.text + "</span>";
-                innercontent+="</div>";
+                innercontent += "<div class='col-md-6 words' style='border: solid 3px; '><p>" + content.words + "</p>";
+                innercontent += "<p>" + content.text + "</p></div>";
+
+                innercontent += "<div class='col-md-6'><img src='"+imgbaseContent+content.picture+"' width=80 height=80></img>"
+                innercontent+="</div></div>";
                 $($td).html(innercontent);
              }
         }
@@ -243,7 +263,7 @@
     }
 
 
-    window.colors = ['red','green','blue','yellow']
+    window.colors = ['red']
     window.colorcount = 0;
     window.groupcount=0;
     function testAndActiveGroup()
@@ -293,19 +313,35 @@
         var group = getgroup(groupid);
         var color = window.colors[window.colorcount%window.colors.length];
         window.colorcount+=1;
+        var $firsttd = $($("#table1 tr")[0]);
+
         for (i = 0;i < group.length; i++)
         {
             var id = group[i];
 
             var $left = $("#from"+id);
-            $left.animate({fontSize:'22px'},"slow");
-            $left.animate({fontSize:'18px'},"slow");
+
+            var $tdparent = $left.parent().parent();
+
+            $left.animate({fontSize:'14px'},"slow");
             $left.css("color",color);
             //$left.css("border","solid 5px red");
             var $right = $("#"+id);
             $right.find("img").show();
             $right.css("border","solid 3px "+color);
+            $tdparent.insertBefore($firsttd);
         }
+
+
+        $("#table1 td").each(function(){
+            $div = $(this).find("div");
+            if( $div == null || $div == undefined || $div.length == 0)
+                $(this).parent().hide();
+        });
+
+
+
+
 
     }
 
@@ -322,7 +358,6 @@
             var y = content.y;
             var id = x+""+y;
 
-
             var type = content.type
             var innercontent = "";
             if( type == "pointer")
@@ -330,8 +365,8 @@
                 //innercontent = "<div class='tddiv'>";
                 innercontent = "<div class='tddiv mytips' style='display:inline' title='"+content.tips+"'>";
                 var picture = content.picture;
-                picture = imgbase+picture+".png";
-                innercontent += "<img src='"+picture+"'>";
+                picture = imgbase+picture+".jpg";
+                innercontent += "<img width=78 src='"+picture+"'>";
             }
             else if( type == "clue") {
                 innercontent = "<div class='tddiv mytips' style='display:inline' title='"+content.text+"'>";
@@ -370,8 +405,9 @@
     {
         var width = window.json[0].part2.width;
         var height = window.json[0].part2.height;
+        var length = window.json[0].part2.contents.length;
         renderTable("","table2","answers",width,height);
-        renderTable("a","table1","picture",1,height);
+        renderTable("a","table1","picture",1,length);
         renderContent();
         renderPointer();
         addDragDropAction();
@@ -401,21 +437,57 @@
 
         if(result == true)
         {
+
             var component = document.getElementById(data);
-            ev.target.appendChild(component);
+
+            //reorganize the drag content
+            $fromcomponent = $(component);
+
+           $img =  $fromcomponent.find("img").first();
+           $english = $fromcomponent.find("p").first().text();
+           $chinese = $fromcomponent.find("p").last().text();
+
+           // var content = "<div class='mytips' style='font-size:14px;font:bold' title='"+$chinese+"'><p>"+$english+"</p><p>"+$chinese+"</p></div>"
+            var imgurl = $img.attr("src");
+            //var newimg = "<img width='78' height='78' style='display:none' src='"+imgurl+ "'</img>";
+            var content =  "<div class='mytips' title='"+$chinese+"," + $english + "'>"
+                    +"<img width=78 height=78 src='"+imgurl+"' style='display: inline;'/>"
+                    +" </div>";
+            $(ev.target).html(content);
+            $("#trash").append(component);
             $(component).attr("css","");
             console.log("drag true");
             testAndActiveGroup();
         }
-        else
+        else {
             console.log("drag false");
+            showerror();
+        }
+
+    //        loadtips();
     }
+
+
+   function showerror()
+   {
+
+       $("#error").show(1000).hide(1000);
+
+   }
 </script>
 
+<!--<div id="active">active</div>-->
+<!--<a class="mytips" title="i am title"> title </a>-->
+<div id="error" class='alert alert-danger' style="display:none;width:150px;position:absolute;right:20px;top:400px">
+  没放对位置,继续吧~
+</div>
+<div class="col-md-12 " style="margin-top:0px;" >
+  <div id="useagetips" class="col-md-8 col-md-offset-3" style="display:none;margin-top:5px; font-size:13px;" >
+    请用鼠标将左边<em>红色</em>格子里的<em style="color:green">文字</em><em>拖到</em>右边对应的<em>红色</em>格子里(鼠标放到右边图片和文字上会有<em>惊喜</em>喔~)
+   </div>
+</div>
 
-<div id="active">active</div>
-<a class="mytips" title="i am title"> title </a>
-<div class="col-md-12 " style="margin-top:30px;" >
+<div class="col-md-12 " style="margin-top:5px;" >
   <div id = "picture" class="col-md-3 ">
 
   </div>
@@ -430,6 +502,12 @@
 
 </div>
 
+<div id="trash" style="display: none">
 
+</div>
 <script type="text/javascript" src="/js/mytools.js"></script>
 <link rel="stylesheet" href="/css/mytools.css">
+<script>
+  $("#useagetips").show(1000);
+  //$("#error").pin({containerSelector: "#answers"})
+</script>
