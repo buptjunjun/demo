@@ -111,14 +111,48 @@
 
   ul { list-style-type: none; }
 </style>
-
+<script type="text/javascript" src="/js/mytools.js"></script>
 <script>
     var imgbase = "/images/mars/";
     var rightimage = " http://baicizhan.qiniudn.com/pack/assets/done-right.png";
     var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
     var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
+    var imgbaseContent = "/images/mars/";
+    var imgbasePointer = "/images/pointer/";
+    function loadAllImg()
+    {
+        var contents = window.json[0].part2.contents;
+        var count = 0;
+        var imgs  = [];
+        for(var i = 0; i<contents.length;i++)
+        {
+            var content = contents[i];
+            var imgurl = "";
+            if(content.type == "pointer") {
+                imgurl = imgbasePointer + content.picture + ".jpg";
+                imgs.push(imgurl);
+            }
+        }
 
+        var contentsPart1 = window.json[0].part1;
+        //picture
+        for(var j = 0; j < contentsPart1.length; j++)
+        {
+            var p1 = contentsPart1[j];
+            if(p1.type == "picture")
+            {
+                var answers = p1.answers;
+                for(var k = 0; k < answers.length;k++)
+                {
+                    var imgurl = imgbaseContent+answers[k];
+                    if(imgs.indexOf(imgurl) < 0 )
+                        imgs.push(imgurl);
+                }
+            }
+        }
 
+        preloadimages(imgs);
+    }
 
     function showhide()
     {
@@ -168,6 +202,7 @@
 
     $.getJSON("/demo3_1.json",function(data){
         window.json = data
+        loadAllImg();
         //current question index
         window.qindex = 0;
         console.log(data[0].sumary.title);
