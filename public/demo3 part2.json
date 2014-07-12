@@ -1,0 +1,378 @@
+{
+    "x": 8,
+    "y": 1,
+    "type": "text",
+    "text": "奥林匹斯山是太阳系的最高峰。",
+    "words": "Olympus Mons"
+    "picture": "1.jpg",
+    "voice": "",
+    "status": -1,
+    "group":"1"
+}
+,
+{
+"x": 7,
+"y": 1,
+"type": "pointer",
+"text": "",
+"picture": "10",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+{
+"x": 9,
+"y": 1,
+"type": "clue",
+"text": "死火山是已丧失活动能力的火山。通常在人类历史上没有活动过的火山都叫做死火山。最有名的莫过于非洲最高峰——乞力马扎罗山啦。",
+"picture": "2.jpg",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+{
+"x": 2,
+"y": 2,
+"type": "clue",
+"text": "液态水被认为是生命存在的必要因素。缺乏液态水的火星表面则变成了生命的荒漠。",
+"picture": "",
+"voice": "",
+"status": -1,
+"group":"2"
+}
+,
+{
+"x": 3,
+"y": 2,
+"type": "text",
+"text": "液态水",
+"picture": "14.jpg",
+"voice": "",
+"status": -1,
+"group":"2"
+}
+,
+{
+"x": 4,
+"y": 2,
+"type": "pointer",
+"text": "",
+"picture": "8",
+"voice": "",
+"status": -1
+"group": 2
+}
+,
+{
+"x": 5,
+"y": 2,
+"type": "clue",
+"text": "很早我们就观察到了火星，那时的人们认为地球是宇宙的中心。然而夜空中火星的轨迹与其他星星都不同，它忽前忽后，看似毫无规律。于是人们将这一类星星都称作“Planet”，行星，意为“漫游者”。但如果将太阳作为中心，则很容易解释它的运动轨迹。",
+"picture": "3.jpg",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+
+"x": 6,
+"y": 2,
+"type": "clue",
+"text": "火星是和地球一样的岩石行星，我们称之为类地行星。但火星却只有地球的一半大。",
+"picture": "3.jpg",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+{
+"x": 7,
+"y": 2,
+"type": "pointer",
+"text": "",
+"picture": "14",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+{
+"x": 8,
+"y": 2,
+"type": "text",
+"text": "水手谷",
+"words": "Valles Marineris"
+"picture": "4.jpg",
+"voice": "",
+"status": -1
+"group": 1
+}
+,
+{
+"x": 9,
+"y": 2,
+"type": "clue",
+"text": "水手谷有多宽呢？如果水手谷在地球上，那么美国大陆能够刚刚好放在水手谷里。",
+"picture": "",
+"voice": "",
+"status": -1
+"group": 1
+}
+,
+{
+"x": 3,
+"y": 3,
+"type": "pointer",
+"text": "",
+"picture": "3",
+"voice": "",
+"status": -1
+"group": 2
+}	,
+{
+"x": 4,
+"y": 3,
+"type": "text",
+"text": "火星",
+"words": "Mars"
+"picture": "5.jpg",
+"voice": "",
+"status": -1
+"group": 1
+}	,
+{
+"x": 5,
+"y": 3,
+"type": "pointer",
+"text": "",
+"picture": "1",
+"voice": "",
+"status": -1
+"group": 1
+}	,
+{
+"x": 6,
+"y": 3,
+"type": "text",
+"text": "类地行星",
+"words": "terrestrial planet",
+"picture": "6.jpg",
+"voice": "",
+"status": -1
+"group": 1
+}	,
+{
+"x": 7,
+"y": 3,
+"type": "pointer",
+"text": "",
+"picture": "19",
+"voice": "",
+"status": -1
+"group": 1
+}.
+{
+"x": 8,
+"y": 3,
+"type": "text",
+"text": "极地冰盖",
+"words": "polar caps"
+"picture": "7.jpg",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+{
+"x": 9,
+"y": 3,
+"type": "clue",
+"text": "极地冰盖是一层薄薄的二氧化碳结晶，但在其下面，很有可能存在大量的水。卫星扫描显示，在极地冰盖下的土壤中潜藏着大量的氢。而氢则通常存在于水中。",
+"picture": "",
+"voice": "",
+"status": -1,
+"group":"1"
+}
+,
+{
+"x": 2,
+"y": 4,
+"type": "pointer",
+"text": "",
+"picture": "10",
+"voice": "",
+"status": -1,
+"group":"2"
+}
+,
+{
+"x": 3,
+"y": 4,
+"type": "text",
+"text": "火星大气",
+"words": "Martian atomosphere"
+"picture": "8.jpg",
+"voice": "",
+"status": -1,
+"group":"2"
+}
+,
+{
+"x": 4,
+"y": 4,
+"type": "pointer",
+"text": "",
+"picture": "12",
+"voice": "",
+"status": -1,
+"group":"2"
+},
+{
+"x": 5,
+"y": 4,
+"type": "text",
+"text": "氧化铁",
+"words": "ferric oxide"
+"picture": "9.jpg",
+"voice": "",
+"status": -1
+"group": 3
+},
+{
+"x": 6,
+"y": 4,
+"type": "pointer",
+"text": "",
+"picture": "12",
+"voice": "",
+"status": -1
+"group": 3
+}
+,
+{
+"x": 1,
+"y": 5,
+"type": "clue",
+"text": "随着火星内核慢慢冷却，磁场也慢慢消失，不再为火星阻挡强烈的太阳风。也导致了火星大气无比稀薄。",
+"picture": "",
+"voice": "",
+"status": -1
+"group": 2
+}
+,
+{
+"x": 2,
+"y": 5,
+"type": "text",
+"text": "太阳风",
+"words": "solar wind"
+"picture": "10.jpg",
+"voice": "",
+"status": -1
+"group": 2
+}
+,
+{
+"x": 3,
+"y": 5,
+"type": "pointer",
+"text": "",
+"picture": "14",
+"voice": "",
+"status": -1
+"group": 2,3
+}
+,
+{
+"x": 4,
+"y": 5,
+"type": "text",
+"text": "沙尘暴",
+"words": "sand storm"
+"picture": "11.jpg",
+"voice": "",
+"status": -1
+"group": 3
+}
+,
+{
+"x": 5,
+"y": 5,
+"type": "pointer",
+"text": "",
+"picture": "19",
+"voice": "",
+"status": -1
+"group": 3
+}
+,
+{
+"x": 6,
+"y": 5,
+"type": "text",
+"text": "锈红色",
+"words": "rusty"
+"picture": "13.jpg",
+"voice": "",
+"status": -1
+"group": 3
+}
+,
+{
+"x": 7,
+"y": 5,
+"type": "clue",
+"text": "强烈的沙尘暴，卷起火星地表的氧化铁尘埃，使火星看起来就像是一颗锈红色的铁球一样。",
+"picture": "",
+"voice": "",
+"status": -1
+"group": 3
+}
+,
+{
+"x": 2,
+"y": 6,
+"type": "clue",
+"text": "太阳风暴包含着从太阳喷射出来的高能粒子和宇宙射线。它们将会破坏行星的大气层。",
+"picture": "",
+"voice": "",
+"status": -1
+"group": 2
+}
+,
+{
+"x": 3,
+"y": 6,
+"type": "pointer",
+"text": "",
+"picture": "6",
+"voice": "",
+"status": -1
+"group": 2
+}
+,
+{
+"x": 4,
+"y": 6,
+"type": "text",
+"text": "二氧化碳",
+"words": "carbon dioxide"
+"picture": "12.jpg",
+"voice": "",
+"status": -1
+"group": 2
+}
+,
+{
+"x": 4,
+"y": 6,
+"type": "clue",
+"text": "火星大气几乎全是二氧化碳。由于火星温度很低，所以能够看到干冰雪。",
+"picture": "",
+"voice": "",
+"status": -1
+"group": 2
+}
+            

@@ -29,6 +29,10 @@
   body.loading {
       overflow: hidden;
   }
+  td
+  {
+      padding:8px;
+  }
   .picture
   {
       width:80px;
@@ -81,21 +85,23 @@
 </style>
 
 <script>
-    var imgbase = "/images/topic/";
+    var imgbase = "/images/mars/";
     var rightimage = " http://baicizhan.qiniudn.com/pack/assets/done-right.png";
     var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
     var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
 
 
-    function showchinese()
+
+    function showhide()
     {
         $("#chinese").show(300);
+        $("#wiki").show(300);
     }
 
     function bindevent()
     {
         $(".right").on("click",function(){
-            showchinese();
+            showhide();
             console.log("right");
             //alert("right");
             $imagetag = $(this);
@@ -108,7 +114,7 @@
         });
 
         $(".wrong").on("click",function(){
-            showchinese();
+            showhide();
             console.log("wrong");
             //alert("wrong");
             $imagetag = $(this);
@@ -128,11 +134,10 @@
                     $imagetag.hide();
                 },
                 400);
-
         });
     }
 
-    $.getJSON("/demo3.json",function(data){
+    $.getJSON("/demo3_1.json",function(data){
         window.json = data
         //current question index
         window.qindex = 0;
@@ -178,17 +183,29 @@
     {
         // render quesion
         var q = getquestion(index);
+
         var type = q.type;
+        var chinese = q.text1
+        var english = q.text2
+
+        wiki = "";
+        if (q.wiki != null && q.wiki != undefined)
+            wiki = "<span>"+ q.wiki+"</span>";
         if (type == "picture")
         {
-            $("#english").html(q.text1);
-            $("#chinese").html(q.text2);
+
+            $("#english").html(english);
+            $("#chinese").html(chinese);
+            $("#wiki").html(wiki);
+            $("#wiki").hide();
             $("#chinese").hide();
         }
         else
         {
-            $("#english").html(q.text2);
-            $("#chinese").html("");
+            $("#english").html(english);
+            $("#chinese").html(chinese);
+            $("#wiki").html(wiki);
+            $("#wiki").hide();
             $("#english").attr("class","col-md-12 smallenglish")
         }
 
@@ -196,6 +213,7 @@
 
     function renderAnswers(index)
     {
+
         var q = getquestion(index);
 
         var answers = getanswers(index);
@@ -230,7 +248,7 @@
             var i = 0;
             for (i = 0; i < answers.length; i++)
             {
-                if(right-1  == i)
+                if(right  == i)
                 {
                     answers_html += "<li><div class=' question right' index="+i+"> <img style='display:none' src='' />" + answers[i] + "</div></li>";
                 }
@@ -261,6 +279,8 @@
     function next()
     {
         window.qindex+=1;
+        if ( window.qindex >= window.json[0].part1.length )
+            window.location.href = "/demo3/index1"
         render(window.qindex);
         bindevent();
     }
@@ -271,9 +291,10 @@
 <div class="col-md-10 col-md-offset-1" style="margin-top:30px;" >
 
 
-  <div id = "word" class="col-md-5 " style="border:solid 1px">
+  <div id = "word" class="col-md-5 " style="border:solid 0px">
     <div id="english" class="col-md-12"></div>
     <div id="chinese" class="col-md-12" style="display:none"></div>
+    <div id="wiki" class="wiki" style="display:none"></div>
   </div>
   <div id="answers" class="col-md-7" style="border:solid 0px">
 

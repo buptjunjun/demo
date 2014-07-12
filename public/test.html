@@ -6,7 +6,6 @@
     <title>无标题文档</title>
     <style>
     </style>
-
     <script type="application/javascript">
         json = {};
         json.attr1 = "attr1";
@@ -17,6 +16,23 @@
         console.log(json.attr2[2]);
     </script>
 
+    <!-- 引用jQuery -->
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+        body{
+            margin:0;
+            padding:40px;
+            background:#fff;
+            font:80% Arial, Helvetica, sans-serif;
+            color:#555;
+            line-height:180%;
+        }
+        p{
+            clear:both;
+            margin:0;
+            padding:.5em 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,6 +41,12 @@
         <td style="width:200px; text-align:center;"><div><input type="button" value="CLICK" /></div><img src="http://d1.yihaodian.com/t1/2011/08/18/2373608_60x60.jpg" width="50px" /></td>
     </tr>
 </table>
-
+    <div id = "tooltip"></div>
+    <a class="aaa tooltip" title="title" style="display: inline">
+        this is tips ssssssssssssssss
+    </a>
 </body>
+
+<script type="text/javascript" src="/js/mytools.js"></script>
+<link rel="stylesheet" href="/css/mytools.css">
 </html>

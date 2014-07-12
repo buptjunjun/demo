@@ -78,20 +78,15 @@
 
     ul { list-style-type: none; }
 
-    td
+     td
     {
         text-align:center;
         vertical-align: middle;
         width:80px;
         height:80px;
     }
-    .tddivcontent
-    {
-        width:80px;
-        text-align:center;
-        vertical-align: middle;
-        align:center;
-    }
+
+ 
 
     .tddiv
     {
@@ -106,6 +101,12 @@
     {
         display: none;
     }
+
+    #table1 td
+    {
+        width:200px;
+        height:200px;
+    }
 </style>
 
 <script>
@@ -114,7 +115,7 @@
     var wrongimage = " http://baicizhan.qiniudn.com/pack/assets/bg-wrong-status.png";
     var imageplaceholder = "http://assets.baicizhan.com/pack/assets/header_ico_set.png";
 
-    $.getJSON("/demo3_graph.json",function(data){
+    $.getJSON("/demo3_1.json",function(data){
         window.json = data
         //current question index
         window.qindex = 0;
@@ -126,8 +127,7 @@
         addEvent();
         console.log("group",getgroup("1"));
         console.log("group",getgroup("2"));
-        //activeGroup("1");
-
+        activeGroup(window.groupids[0]);
     });
 
     function getSquare(index)
@@ -180,6 +180,7 @@
                 var id = "from"+x+y;
                 var innercontent = "<div class='tddivcontent' draggable='true' ondragstart='drag(event)' id="+id+" >";
                 $td = $tds[count++];
+                innercontent += "";
                 innercontent += "<span>" + content.text + "</span>";
                 innercontent+="</div>";
                 $($td).html(innercontent);
@@ -195,6 +196,7 @@
     }
     */
 
+    window.groupids=[];
     function parsegroups()
     {
         window.groups = {};
@@ -205,9 +207,10 @@
 
         var count = 0;
 
-        for (var i = 0; i < length; i++) {
+        for (var i = 0; i < length; i++)
+        {
             var content = getSquare(i);
-            var groups = content.group;
+            var groups = content.group+"";
 
             if (groups == undefined || groups == null)
                 continue;
@@ -223,12 +226,14 @@
                 var key = gs[c];
                 if( window.groups[key] == undefined || window.groups[key] == null)
                 {
+                    window.groupids.push(key);
                     window.groups[key] = [];
                 }
                 var ithgroup = window.groups[key];
                 ithgroup.push(id);
             }
         }
+        window.groupids = window.groupids.sort();
     }
 
     // get group according to groupid
@@ -237,10 +242,57 @@
         return window.groups[groupid];
     }
 
+
+    window.colors = ['red','green','blue','yellow']
+    window.colorcount = 0;
+    window.groupcount=0;
+    function testAndActiveGroup()
+    {
+        var groupid = window.groupids[window.groupcount]
+        var group = getgroup(groupid);
+        var ret = true;
+        for (i = 0;i < group.length; i++)
+        {
+            var id = group[i];
+            var $left = $("#table1 #from"+id);
+            if( $left.length != 0)
+                ret = false;
+        }
+
+        if (ret == true)
+        {
+            disactiveGroup(groupid);
+            window.groupcount += 1;
+            groupid = window.groupids[window.groupcount];
+            activeGroup(groupid);
+
+        }
+    }
+
+    function disactiveGroup(groupid)
+    {
+        window.currentgroupid = groupid;
+        var group = getgroup(groupid);
+        var color = window.colors[window.colorcount%window.colors.length];
+        window.colorcount+=1;
+        for (i = 0;i < group.length; i++)
+        {
+            var id = group[i];
+
+            var $left = $("#from"+id);
+            //$left.css("color","black");
+            //$left.css("border","solid 5px red");
+            var $right = $("#"+id);
+            $right.css("border","solid 1px "+color);
+        }
+    }
     // active gourp by set them to different color;
     function activeGroup(groupid)
     {
+        window.currentgroupid = groupid;
         var group = getgroup(groupid);
+        var color = window.colors[window.colorcount%window.colors.length];
+        window.colorcount+=1;
         for (i = 0;i < group.length; i++)
         {
             var id = group[i];
@@ -248,11 +300,11 @@
             var $left = $("#from"+id);
             $left.animate({fontSize:'22px'},"slow");
             $left.animate({fontSize:'18px'},"slow");
-            $left.css("color","green");
+            $left.css("color",color);
             //$left.css("border","solid 5px red");
             var $right = $("#"+id);
             $right.find("img").show();
-            $right.css("border","solid 3px red");
+            $right.css("border","solid 3px "+color);
         }
 
     }
@@ -270,17 +322,25 @@
             var y = content.y;
             var id = x+""+y;
 
-            var innercontent = "<div class='tddiv'>";
-            var type = content.type
 
+            var type = content.type
+            var innercontent = "";
             if( type == "pointer")
             {
+                //innercontent = "<div class='tddiv'>";
+                innercontent = "<div class='tddiv mytips' style='display:inline' title='"+content.tips+"'>";
                 var picture = content.picture;
                 picture = imgbase+picture+".png";
                 innercontent += "<img src='"+picture+"'>";
             }
-            else if( type == "link")
-                innercontent += content.text;
+            else if( type == "clue") {
+                innercontent = "<div class='tddiv mytips' style='display:inline' title='"+content.text+"'>";
+                innercontent += content.text.substr(0,15);
+//                var length = 10;
+//                if (length > text.length)
+//                    length = text.length;
+//                 += text.substr(0,length);
+            }
 
             innercontent+="</div>";
             $("#"+id).html(innercontent);
@@ -304,7 +364,6 @@
         $("#active").on("click",function(){
             activeGroup("1");
         });
-
     }
 
     function render()
@@ -312,7 +371,7 @@
         var width = window.json[0].part2.width;
         var height = window.json[0].part2.height;
         renderTable("","table2","answers",width,height);
-        renderTable("a","table1","picture",3,height);
+        renderTable("a","table1","picture",1,height);
         renderContent();
         renderPointer();
         addDragDropAction();
@@ -333,7 +392,7 @@
     function drop(ev) {
         ev.preventDefault();
         var data = ev.dataTransfer.getData("Text");
-        var targetdata = $(ev.target).parent().attr("id");
+        var targetdata = $(ev.target).attr("id");
 
 
         console.log("orignalid = " + data + " targetid:"+targetdata);
@@ -341,13 +400,21 @@
         console.log("right="+result);
 
         if(result == true)
-            ev.target.appendChild(document.getElementById(data));
-
+        {
+            var component = document.getElementById(data);
+            ev.target.appendChild(component);
+            $(component).attr("css","");
+            console.log("drag true");
+            testAndActiveGroup();
+        }
+        else
+            console.log("drag false");
     }
 </script>
 
 
 <div id="active">active</div>
+<a class="mytips" title="i am title"> title </a>
 <div class="col-md-12 " style="margin-top:30px;" >
   <div id = "picture" class="col-md-3 ">
 
@@ -363,7 +430,6 @@
 
 </div>
 
-<script>
 
-
-</script>
+<script type="text/javascript" src="/js/mytools.js"></script>
+<link rel="stylesheet" href="/css/mytools.css">

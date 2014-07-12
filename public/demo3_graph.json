@@ -65,7 +65,7 @@
                 "picture": "",
                 "voice": "",
                 "status": -1,
-                "group":"0"
+                "group":"1"
             }
             ,
             {
@@ -76,7 +76,7 @@
                 "picture": "",
                 "voice": "",
                 "status": -1,
-                "group":"0"
+                "group":"2"
             }
             ,
             {
@@ -87,7 +87,7 @@
                 "picture": "7",
                 "voice": "",
                 "status": -1,
-                "group":"0"
+                "group":"3"
             }
 
             ,
@@ -100,7 +100,7 @@
                 "picture": "",
                 "voice": "",
                 "status": -1,
-                "group":"0"
+                "group":"4"
             }
             ,
             {
@@ -111,7 +111,7 @@
                 "picture": "8",
                 "voice": "",
                 "status": -1,
-                "group":"0"
+                "group":"5"
             }
             ,
             {
@@ -306,7 +306,7 @@
             {
                 "x": 5,
                 "y": 2,
-                "type": "text",
+                "type": "link",
                 "text": "此处有链接",
                 "picture": "",
                 "voice": "",
@@ -463,7 +463,7 @@
             {
                 "x": 7,
                 "y": 2,
-                "type": "text",
+                "type": "link",
                 "text": "此处有链接",
                 "picture": "",
                 "voice": "",
