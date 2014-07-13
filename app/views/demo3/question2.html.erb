@@ -469,10 +469,15 @@
     }
 
 
+   var timeout = undefined;
    function showerror()
    {
 
-       $("#error").show(1000).hide(1000);
+       $("#error").show(200);
+       timeout = setTimeout(function()
+       {
+           $("#error").hide(500);
+       },1500);
 
    }
 </script>
