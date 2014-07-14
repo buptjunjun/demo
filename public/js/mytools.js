@@ -46,3 +46,24 @@
             newimages[i].src=arr[i]
         }
     }
+
+function renderTable(idprefix,tableid,divid,width, height)
+{
+    var $t_body =  $("<table border=1 id='"+tableid+"'></table>");
+    var count = 0;
+    for(var i = 0;i < height; i++)
+    {
+        var $tr = $("<tr></tr>");
+        for (var j = 0; j < width; j++)
+        {
+            var position=i+""+j;
+            $td = $("<td id='"+idprefix+position+"'  ondrop='drop(event)' ondragover='allowDrop(event)'></td>");
+            $tr.append($td);
+            count+=1;
+        }
+        $t_body.append($tr);
+
+    }
+
+    $("#"+divid).append($t_body);
+}

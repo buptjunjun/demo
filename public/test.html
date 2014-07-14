@@ -1,5 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-tdansitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,12 +8,12 @@
     </style>
     <script type="application/javascript">
         json = {};
-        json.attr1 = "attr1";
-        json.attr2 = [];
-        json.attr2[1] = "attr21";
-        json.attr2[2] = "attr22";
-        console.log(json.attr2[0]);
-        console.log(json.attr2[2]);
+        json.attd1 = "attd1";
+        json.attd2 = [];
+        json.attd2[1] = "attd21";
+        json.attd2[2] = "attd22";
+        console.log(json.attd2[0]);
+        console.log(json.attd2[2]);
     </script>
 
     <!-- 引用jQuery -->
@@ -27,25 +27,41 @@
             color:#555;
             line-height:180%;
         }
-        p{
-            clear:both;
-            margin:0;
-            padding:.5em 0;
+        .testspan
+        {
+            border:1px solid ;
+
+        }
+        td
+        {
+            width:20px;
+            height: 20px;
+            border:1px solid;
         }
     </style>
 </head>
 
 <body>
 <table border="1" width="500px">
-    <tr>
+    <td>
         <td style="width:200px; text-align:center;"><div><input type="button" value="CLICK" /></div><img src="http://d1.yihaodian.com/t1/2011/08/18/2373608_60x60.jpg" width="50px" /></td>
-    </tr>
+    </td>
 </table>
     <div id = "tooltip"></div>
     <a class="aaa tooltip" title="title" style="display: inline">
         this is tips ssssssssssssssss
     </a>
+
+    <table  class="testspan">
+        <tr>
+            <td >1</td><td>2</td><td>3</td>
+        </tr>
+        <tr>
+            <td>1</td><td colspan=2 >2</td><td>3</td>
+        </tr>
+    </table>
 </body>
+
 
 <script type="text/javascript" src="/js/mytools.js"></script>
 <link rel="stylesheet" href="/css/mytools.css">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140630064230) do
+ActiveRecord::Schema.define(:version => 20140707023748) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -25,8 +25,34 @@ ActiveRecord::Schema.define(:version => 20140630064230) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "demo3answers", :force => true do |t|
+    t.integer  "atype"
+    t.text     "picture"
+    t.text     "text"
+    t.text     "audio"
+    t.boolean  "isright"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "demo3groups", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "demo3questions", :force => true do |t|
+    t.text     "text1"
+    t.text     "text2"
+    t.text     "picture"
+    t.text     "audio"
+    t.integer  "qtype"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.integer  "topic_id"
+    t.integer  "qtype"
     t.integer  "contenttype"
     t.text     "text"
     t.text     "voice"
@@ -34,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20140630064230) do
     t.text     "gif"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "qtype"
   end
 
   create_table "topics", :force => true do |t|
@@ -42,6 +67,11 @@ ActiveRecord::Schema.define(:version => 20140630064230) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "uploadfiles", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

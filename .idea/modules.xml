@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Downloads/Skills/.idea/Skills.iml" filepath="$USER_HOME$/Downloads/Skills/.idea/Skills.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/Skilltree/.idea/Skilltree.iml" filepath="$USER_HOME$/Downloads/Skilltree/.idea/Skilltree.iml" />
       <module fileurl="file://$PROJECT_DIR$/../firstgit/.idea/firstgit.iml" filepath="$PROJECT_DIR$/../firstgit/.idea/firstgit.iml" />
       <module fileurl="file://$PROJECT_DIR$/../railstest/.idea/railstest.iml" filepath="$PROJECT_DIR$/../railstest/.idea/railstest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/untitled.iml" filepath="$PROJECT_DIR$/.idea/untitled.iml" />
