@@ -1,7 +1,9 @@
 class Question1sController < ApplicationController
 
+  @@lasttag= "";
   def create
     @question1 = Question1.new(params[:question1])
+    @@lasttag = @question1.tag
     if @question1.save
       redirect_to :action => :index
     else
@@ -12,6 +14,7 @@ class Question1sController < ApplicationController
   #new.html.erb
   def new
     @question1 = Question1.new
+    @question1.tag= @@lasttag;
   end
 
   def update

@@ -6,11 +6,11 @@ class Question1 < ActiveRecord::Base
       answer1s = search('text1',q)
   end
   def self.searchAnswersByImage(q)
-     answer1s = Answer1.where([field+" like ?","%#{q}%"]).limit(20)
+     answer1s = Answer1.where([field+" like ?","%#{q}%"])#.limit(20)
   end
 
   def self.search(field,q)
-      answer1s = Answer1.where([field+" like ?","%#{q}%"]).limit(20)
+      answer1s = Answer1.where([field+" like ?","%#{q}%"])#.limit(20)
   end
 
 end
