@@ -7,4 +7,8 @@ module Demo2Helper
   def text_decorate(text)
     return text.sub("{" , "<span class='redspan'>").sub("}" , "</span>").sub("[","<span class='greenspan'>").sub("]","</span>")
   end
+
+  def nbsp()
+    return "&nbsp"
+  end
 end

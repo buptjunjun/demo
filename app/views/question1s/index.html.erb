@@ -1,0 +1,29 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">问题列表:   <%=link_to "添加问题", :controller=>"question1s" , :action => "new"%> <%=link_to "答案列表", :controller=>"answer1s" , :action => "index"%></div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>tag</th>
+        <th>answer</th>
+        <th>english</th>
+        <th>chinese</th>
+        <th>wiki</th>
+        <th>audio</th>
+        <th>image</th>
+        <th>操作</th>
+        <th>操作</th>
+        <th>操作</th>
+      </tr>
+      <% @question1s.each do |q|%>
+          <tr>
+            <%=render :partial => "single",:locals => {:question1=>q}%>
+            <td> <%=link_to 'show', :controller => 'question1s',:action => 'show',:id=>q.id %></td>
+            <td><%=link_to 'edit', :controller => 'question1s',:action => 'edit',:id=>q.id %></td>
+            <td> <%=link_to 'destroy', :controller => 'question1s',:action => 'destroy',:id=>q.id %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

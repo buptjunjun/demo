@@ -1,0 +1,30 @@
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <span class="label label-success"> 答案:</span>
+   <%=link_to '问题列表' ,:controller => 'question1s',:action => 'index'%>
+    <%=link_to '答案列表' ,:controller => 'answer1s',:action => 'index'%>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <th>id</th>
+        <th>tag</th>
+        <th>english</th>
+        <th>chinese</th>
+        <th>wiki</th>
+        <th>audio</th>
+        <th>image</th>
+        <th>操作</th>
+        <th>操作</th>
+      </tr>
+          <tr>
+            <%=render :partial => 'single',:locals=>{:answer=>@answer1}%>
+            <td><%=link_to "edit" ,:action => 'edit',:id=>@answer1.id%></td>
+            <td><%=link_to "index" ,:action => 'index'%></td>
+          </tr>
+    </table>
+  </div>
+</div>

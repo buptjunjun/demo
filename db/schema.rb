@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140707023748) do
+ActiveRecord::Schema.define(:version => 20140718030058) do
+
+  create_table "answer1s", :force => true do |t|
+    t.string   "text1"
+    t.string   "text2"
+    t.string   "text3"
+    t.string   "audio"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "tag"
+  end
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -48,6 +59,25 @@ ActiveRecord::Schema.define(:version => 20140707023748) do
     t.integer  "qtype"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "question1_answer1ships", :force => true do |t|
+    t.integer  "question1_id"
+    t.integer  "answer1_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "question1s", :force => true do |t|
+    t.string   "text1"
+    t.string   "text2"
+    t.string   "text3"
+    t.string   "audio"
+    t.string   "image"
+    t.integer  "answer"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "tag"
   end
 
   create_table "questions", :force => true do |t|

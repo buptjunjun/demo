@@ -1,7 +1,7 @@
 class ChangeTypeToQtype < ActiveRecord::Migration
   def up
-    #remove_column :questions, :type
-    #add_column :questions, :qtype, :integer
+    #remove_column :question1s, :type
+    #add_column :question1s, :qtype, :integer
   end
 
   def down

@@ -1,0 +1,22 @@
+
+<style>
+    input
+    {
+        display: block;
+        width:500px;
+        margin:2px;
+    }
+</style>
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">编辑问题:</div>
+    <div class="panel-body">
+    <%=form_for @question1, :url => { :controller => 'question1s', :action => 'update' }  do |f|%>
+    <input style="display:none" name="id" value="<%=@question1.id%>" />
+    <%=render :partial =>'form' , :locals => {:f=>f}%>
+    <%=f.submit 'submit'%>
+    <% end %>
+
+    </div>
+  </div>
+</div>

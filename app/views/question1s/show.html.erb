@@ -1,0 +1,84 @@
+
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">问题:</div>
+    <div class="panel-body">
+        <table class="table">
+          <tr>
+          <%=render :partial => "single" , :locals => {:question1=>@question1}%>
+          <td><%=link_to 'edit', :controller => 'question1s',:action => 'edit',:id=>@question1.id %></td>
+          <td><%=link_to 'destroy', :controller => 'question1s',:action => 'destroy',:id=>@question1.id %></td>
+          <td><%=link_to 'index', :controller => 'question1s',:action => 'index' %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+</div>
+
+<% if @qanswer1s.blank? == false%>
+   <div class="panel panel-default">
+     <div class="panel-heading">答案:</div>
+     <div class="panel-body">
+        <table class="table">
+            <tr>
+              <th>操作</th>
+              <th>操作</th>
+              <th>操作</th>
+              <th>id</th>
+              <th>text1</th>
+              <th>text2</th>
+              <th>text3</th>
+              <th>audio</th>
+              <th>image</th>
+            </tr>
+            <%@qanswer1s.each do |answer|%>
+                <tr>
+               <td> <a href="/question1s/markanswer?qid=<%=@question1.id%>&aid=<%=answer.id%>">标记为答案</a></td>
+               <td> <a href="/question1s/delanswers?qid=<%=@question1.id%>&aid=<%=answer.id%>">删除</a></td>
+               <td> <%=link_to 'edit',:controller => 'answer1s',:action => 'edit',:id=>answer.id %></td>
+                <%=render :partial => 'answer1s/single',:locals => {:answer => answer}%>
+                </tr>
+            <%end%>
+        </table>
+       </div>
+     </div>
+<%else%>
+    no answers
+<%end %>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <form  method="get">
+    <input name="q" placeholder="搜索答案:"/>
+    <input type="submit" value="submit" />
+  </form>
+  </div>
+<div class="panel-body">
+  <% if @answer1s.blank? == false%>
+      <table class="table">
+        <tr>
+          <th>操作</th>
+          <th>操作</th>
+          <th>id</th>
+          <th>english</th>
+          <th>chinese</th>
+          <th>wiki</th>
+          <th>audio</th>
+          <th>image</th>
+        </tr>
+        <%@answer1s.each do |answer|%>
+            <tr>
+            <td><a href="/question1s/addanswers?qid=<%=@question1.id%>&aid=<%=answer.id%>">添加</a></td>
+            <td><%=link_to 'edit',:controller => 'answer1s',:action => 'edit',:id=>answer.id %></td>
+            <%=render :partial => 'answer1s/single',:locals => {:answer => answer}%>
+            </tr>
+        <%end%>
+      </table>
+  <%else%>
+      no data
+  <%end %>
+</div>
+</div>
+

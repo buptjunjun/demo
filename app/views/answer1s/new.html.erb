@@ -1,0 +1,21 @@
+
+<style>
+  input
+  {
+      display: block;
+      width:500px;
+      margin:2px;
+  }
+</style>
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">新建答案:</div>
+        <div class="panel-body">
+
+            <%= form_for @answer1, :url=>{:controller=>'answer1s',:action =>'create'}  do |f|%>
+                <%=render :partial => 'form' ,:locals => {:f=>f}%>
+                <%=f.submit 'submit' %>
+            <% end %>
+        </div>
+    </div>
+</div>

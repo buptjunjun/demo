@@ -48,7 +48,7 @@ INSERT INTO `answers` VALUES (1,1,NULL,NULL,'a.png,b.png,c.png,d.png',NULL,NULL,
 UNLOCK TABLES;
 
 --
--- Table structure for table `questions`
+-- Table structure for table `question1s`
 --
 
 DROP TABLE IF EXISTS `questions`;
@@ -70,13 +70,13 @@ CREATE TABLE `questions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `questions`
+-- Dumping data for table `question1s`
 --
 
 LOCK TABLES `questions` WRITE;
-/*!40000 ALTER TABLE `questions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `question1s` DISABLE KEYS */;
 INSERT INTO `questions` VALUES (1,2,NULL,'{宇宙}由密度大温度高的状态演变而来，并不断[膨胀]到现在的状态。||  The {universe} emerged from a dense and hot state, then it continued to [expand].',NULL,NULL,'bigbang.gif','2014-06-29 13:34:08','2014-06-29 13:39:47',0),(2,2,NULL,'atom',NULL,NULL,NULL,'2014-06-30 03:24:24','2014-06-30 03:24:24',1),(3,2,NULL,'question3',NULL,NULL,NULL,'2014-06-30 05:36:55','2014-06-30 05:36:55',2);
-/*!40000 ALTER TABLE `questions` ENABLE KEYS */;
+/*!40000 ALTER TABLE `question1s` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

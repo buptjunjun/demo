@@ -1,0 +1,129 @@
+
+
+
+<script type="text/javascript" src="/js/mytools.js"></script>
+<!--<a onclick="next()">next</a>-->
+<style>
+  .english
+  {
+    //display: none;
+      font-size: 12px;
+  }
+  .translate
+  {
+     // display: none;
+  }
+  .wiki
+  {
+      font-size: 12px;
+      display: none;
+  }
+  .picture
+  {
+      //display: none;
+      width: 78px;
+  }
+  .inputform
+  {
+      background-color: blue;
+  }
+  td
+  {
+      width:80px;
+      height:80px;
+  }
+  .questionform
+  {
+      font-size: 11px;
+      width: 200px;
+      height:200px;
+  }
+  .answers input
+  {
+      width:200px;
+  }
+  .border-bottom
+  {
+     // border-bottom: 1px solid royalblue;
+  }
+</style>
+
+
+
+<div class="col-md-12">
+    <div class="col-md-8 col-md-offset-2">
+      <div id="form" class="alert alert-info margintop20px" >
+        <form role="form questionform" method="post" enctype="multipart/form-data" action="/demo3/updatequestion1" accept-charset="UTF-8">
+
+          <div class="form-group">
+            <input name="id" style="display: none" name="id" value="<%=q1.id%>" />
+            <input class="form-control" id="text1" name="text1" placeholder="english" value="<%=q1.text1 %>"/>
+          </div>
+          <div class="form-group">
+            <input class="form-control" id="text2" name="text2" placeholder="翻译"  value="<%=q1.text2 %>" />
+          </div>
+          <div class="form-group">
+            <input class="form-control" id="text3" name="text3" placeholder="wiki"  value="<%=q1.text3 %>" ></textarea>
+          </div>
+          <div class="form-group">
+            <span class="label label-primary">音频:</span> <%=nbsp().html_safe%> <span><%=q1.audio %></span>
+            <span class="label label-success">图片:</span><%=nbsp().html_safe%> <span><%=q1.image %></span>
+            <br>
+
+            <span>音频:</span>
+            <input  type="file" style="display:inline" id="audio" name="audio" placeholder="english"  value="<%=q1.audio %>" />
+            <span>图片:</span>
+            <input  type="file" style="display:inline" id="image" name="image" placeholder="english" value="<%=q1.image %>" />
+          </div>
+          <button type="submit" class="btn btn-default">SAVE</button>
+        </form>
+      </div>
+  </div>
+
+
+  <div class="col-md-8 col-md-offset-2" >
+
+    <h3><a class="label label-success" href="/demo3/addanswer1">添加一个答案</a></h3>
+        <!-- one answer-->
+        <div class="col-md-12 border-bottom panel panel-success">
+          <div class="col-md-10">
+            <div class="col-md-8">
+                <span > terrestrial planet; Valles Marineris; Olympus Mons</span>
+            </div>
+            <div class="col-md-4">
+              <img height=60  src="http://127.0.0.1:3000/images/mars/5.jpg"><br>
+              <span class="glyphicon glyphicon-volume-up">aaaaa.jpg</span>
+            </div>
+
+          </div>
+          <div class="col-md-2">
+             <div style="margin-top: 20px">
+                  <a class="label label-default">modify</a>
+                  <a class="label label-default">delete</a>
+             </div>
+          </div>
+        </div>
+
+
+    <!-- one answer-->
+    <div class="col-md-12 border-bottom panel">
+      <div class="col-md-10">
+        <div class="col-md-8">
+          <span > terrestrial planet; Valles Marineris; Olympus Mons</span>
+        </div>
+        <div class="col-md-4">
+          <img height=60  src="http://127.0.0.1:3000/images/mars/5.jpg"><br>
+          <span class="glyphicon glyphicon-volume-up">aaaaa.jpg</span>
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <a class="label label-default">modify</a>
+        <a class="label label-default">delete</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

@@ -1,4 +1,5 @@
 Untitled::Application.routes.draw do
+  #get "question1s/new"=>"question1s#new"
   get "controller/demo2"
   get "demo2/index"=> "demo2#index"
   get "upload/index"=>"upload#index"
@@ -10,6 +11,18 @@ Untitled::Application.routes.draw do
   get "demo3/listdata"=>"demo3#listdata"
   get "demo3/adddata"=>"demo3#adddata"
   post "demo3/addquestion"=>"demo3#addQuestion"
+  post "demo3/addquestion1"=>"demo3#addquestion1"
+  post  "demo3/updatequestion1(/:id)"=>"demo3#updatequestion1"
+  get  "demo3/showquestion1(/:id)"=>"demo3#showquestion1"
+  get "demo3/newquestion1"=>"demo3#newquestion1"
+  post "demo3/addquestion1"=>"demo3#addquestion1"
+
+  get "demo3/newanswer1"=>"demo3#newanswer1"
+  post "demo3/newanswer1"=>"demo3#newanswer1"
+  get "demo3/showanswer1/(:id)"=>"demo3#showanswer1"
+  post "demo3/updateanswer1"=>"demo3#updateanswer1"
+  get "demo3/editanswer1/(:id)"=>"demo3#editanswer1"
+  match ':controller(/:action(/:id))(.:format)'
 
 
   # The priority is based upon order of creation:
@@ -67,5 +80,5 @@ Untitled::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+
 end
