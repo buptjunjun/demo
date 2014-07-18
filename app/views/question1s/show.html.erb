@@ -5,6 +5,18 @@
     <div class="panel-body">
         <table class="table">
           <tr>
+            <th>id</th>
+            <th>tag</th>
+            <th>english</th>
+            <th>chinese</th>
+            <th>wiki</th>
+            <th>audio</th>
+            <th>image</th>
+            <th>操作</th>
+            <th>操作</th>
+            <th>操作</th>
+          </tr>
+          <tr>
           <%=render :partial => "single" , :locals => {:question1=>@question1}%>
           <td><%=link_to 'edit', :controller => 'question1s',:action => 'edit',:id=>@question1.id %></td>
           <td><%=link_to 'destroy', :controller => 'question1s',:action => 'destroy',:id=>@question1.id %></td>
@@ -25,9 +37,10 @@
               <th>操作</th>
               <th>操作</th>
               <th>id</th>
-              <th>text1</th>
-              <th>text2</th>
-              <th>text3</th>
+              <th>tag</th>
+              <th>english</th>
+              <th>chinese</th>
+              <th>wiki</th>
               <th>audio</th>
               <th>image</th>
             </tr>
@@ -62,6 +75,7 @@
           <th>操作</th>
           <th>操作</th>
           <th>id</th>
+          <th>tag</th>
           <th>english</th>
           <th>chinese</th>
           <th>wiki</th>

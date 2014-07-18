@@ -61,7 +61,7 @@ class Question1sController < ApplicationController
     end
 
     begin
-      if @answer1 != nil && @question1 != nil && (@question1.answer1s.length == 0 || @question1.answer1s.where(:id=>aid).length)
+      if @answer1 != nil && @question1 != nil && (@question1.answer1s.length == 0 || @question1.answer1s.where(:id=>aid).length==0)
         @question1.answer1s<<@answer1
       end
     rescue => e
