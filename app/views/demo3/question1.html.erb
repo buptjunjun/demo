@@ -200,7 +200,7 @@
         });
     }
 
-    $.getJSON("/demo3_1.json",function(data){
+    $.getJSON("/demo3_2.json",function(data){
         window.json = data
         loadAllImg();
         //current question index
@@ -259,7 +259,7 @@
             $("#english").html(english);
             $("#chinese").html(chinese);
             $("#wiki").html(wiki);
-            $("#wiki").hide();
+            $("#wiki").show();
             $("#chinese").hide();
             $("#english").attr("class","col-md-12 english")
             $("#chinese").attr("class","col-md-12 chinese")
@@ -340,11 +340,18 @@
         renderAnswers(index);
     }
 
+    function playquestion(index)
+    {
+        var q = getquestion(index)
+        playaudio(q.audio);
+    }
+
     function next()
     {
         window.qindex+=1;
         if ( window.qindex >= window.json[0].part1.length )
             window.location.href = "/demo3/index1";
+        playquestion(window.qindex);
         render(window.qindex);
         bindevent();
     }
@@ -366,17 +373,52 @@
     <div id="english" class="col-md-12"></div>
     <div id="chinese" class="col-md-12" style="display:none"></div>
     <div id="wiki" class=" col-md-12 wiki" style="display:none"></div>
+    <div id="play"></div>
     <div id="next" class="col-md-4 btn btn-default" style="margin-top: 20px;font-size: 20px; color:red" onclick="hideNextAndeNext()"><a >next</a></div>
   </div>
   <div id="answers" class="col-md-7 " style="border:solid 0px">
   </div>
 </div>
-
+<div id="jquery_jplayer_1"></div>
 <script>
     $("#next").hide();
+
+
+    var audiobase = "/audio/";
+    function loadaudio(audioname)
+    {
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+                $(this).jPlayer("setMedia", {
+                    title: "Bubble",
+                    mp3: audiobase+ audioname
+                }).jPlayer("play");  //在页面load播放的时候自动播放
+
+            },
+            swfPath: "/js/jplayer",
+            supplied: "mp3",
+            wmode: "window",
+            smoothPlayBar: true,
+            keyEnabled: true,
+            remainingDuration: true,
+            toggleDuration: true
+        });
+
+    }
+
+    function playaudio(audioname)
+    {
+        var paused = $('#jquery_jplayer_1').data().jPlayer.status.paused;
+        if (paused == true)
+            $("#jquery_jplayer_1").jPlayer("setMedia", {
+                title: "Bubble",
+                mp3: audiobase+ audioname
+            }).jPlayer("play");  //在页面load播放的时候自动播放
+    }
+
+    loadaudio();
+    setTimeout(function(){playquestion(0);},400);
 </script>
-
-
 
 <div id="right">
 

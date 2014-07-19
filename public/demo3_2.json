@@ -1,0 +1,154 @@
+[{
+    "sumary": {
+        "title": "test"
+    },
+    "part1": [
+        {
+            "type": "picture",
+            "text1": "木星",
+            "text2": "Jupiter",
+            "audio": "1.mp3",
+            "wiki": "Jupiter is the largest planet in solar system.",
+            "answers": [
+                "j011.jpg",
+                "j012.jpg",
+                "j013.jpg",
+                "j014.jpg"
+            ],
+            "right": 1
+        },
+        {
+            "type": "picture",
+            "text1": "气态行星",
+            "text2": "Gas giant",
+            "audio": "2.mp3",
+            "wiki": "Gas giant is a large planet that is composed mostly of gas.",
+            "answers": [
+                "j022.jpg",
+                "j023.jpg",
+                "j024.jpg",
+                "j021.jpg"
+            ],
+            "right": 4
+        },
+        {
+            "type": "picture",
+            "text1": "大红斑",
+            "text2": "great red spot",
+            "audio": "3.mp3",
+            "wiki": "great red spot is a gigantic storm, the best known feature of Jupiter.",
+            "answers": [
+                "j031.jpg",
+                "j032.jpg",
+                "j033.jpg",
+                "j034.jpg"
+            ],
+            "right": 2
+        },
+        {
+            "type": "picture",
+            "text1": "磁层",
+            "text2": "magnetosphere",
+            "audio": "4.mp3",
+            "wiki": "The magnetosphere is a region affected by the magnetic field of the celestrial body.",
+            "answers": [
+                "j041.jpg",
+                "j042.jpg",
+                "j043.jpg",
+                "j044.jpg"
+            ],
+            "right": 2
+        },
+        {
+            "type": "picture",
+            "text1": "极光",
+            "text2": "aurora",
+            "audio": "5.mp3",
+            "wiki": "Aurora happens usually in polar areas, when solar wind collide with magnetosphere.",
+            "answers": [
+                "j051.jpg",
+                "j052.jpg",
+                "j053.jpg",
+                "j054.jpg"
+            ],
+            "right": 1
+        },
+        {
+            "type": "picture",
+            "text1": "伽利略卫星",
+            "text2": "Galilean moons",
+            "audio": "6.mp3",
+            "wiki": "The Galilean moons are the four moons of Jupiter discovered by Galileo Galilei( Io, Europa, Ganymede, and Callisto).",
+            "answers": [
+                "j064.jpg",
+                "j063.jpg",
+                "j062.jpg",
+                "j061.jpg"
+            ],
+            "right": 2
+        },
+        {
+            "type": "question",
+            "text1": "木星是一颗气态行星。",
+            "text2": "Jupiter is a __________",
+            "audio": "",
+            "wiki": "",
+            "answers": [
+                "terrestrial planet",
+                "gas giant",
+                "star",
+                "super massive black hole"
+            ],
+            "right": 2
+        },
+        {
+            "type": "question",
+            "text1": "木星的快速自转产生了大红斑。",
+            "text2": "The fast rotation of Jupiter causes _________",
+            "audio": "",
+            "wiki": "",
+            "answers": [
+                "aurora",
+                "great red spot",
+                "Jupiter spot",
+                "revolution"
+            ],
+            "right": 2
+        },
+        {
+            "type": "question",
+            "text1": "太阳风与木星磁层的碰撞在木星上产生了极光。",
+            "text2": "the collision of solar wind and magnetosphere causes_______on Jupiter.",
+            "audio": "",
+            "wiki": "",
+            "answers": [
+                "rotation",
+                "great red spot",
+                "aurora",
+                "revolution"
+            ],
+            "right": 3
+        },
+        {
+            "type": "question",
+            "text1": "伽利略卫星一共有四颗。",
+            "text2": "There are _____Galilean moons.",
+            "audio": "",
+            "wiki": "",
+            "answers": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "right": 4
+        }
+    ],
+
+    "part2": {
+        "width": 9,
+        "height": 9,
+        "contents": []
+    }
+}
+]
