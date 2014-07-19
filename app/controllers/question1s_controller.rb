@@ -146,7 +146,7 @@ class Question1sController < ApplicationController
         if answer1s != nil
             answerid = q.answer
             type = "picture"
-            if  answer1s[0].image == nil
+            if  answer1s[0].audio == nil
               type = "question"
               hq['type']="question"
             end
