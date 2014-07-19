@@ -18,6 +18,7 @@ class Question1sController < ApplicationController
   end
 
   def update
+    create_json_demo3('Jupiter')
     @question1 = Question1.find(params[:id])
     if @question1.update_attributes(params[:question1])
       redirect_to :action => :show, :id=>@question1
@@ -104,9 +105,76 @@ class Question1sController < ApplicationController
     redirect_to :controller => :question1s, :action => :show, :id=>@question1
   end
 
+
+  def download
+     tag = params[:tag]
+     if tag != nil
+       filepath = create_json_demo3(tag)
+
+       send_file filepath
+     end
+
+  end
+
+
   private
+
   def getquestion1
     @question1  = Question1.find(params[:id])
+  end
+
+  Jsonbase = "public/json/"
+  def create_json_demo3(tag)
+    ret = {
+        "sumary"=>{"title"=>tag},
+        "part1"=>[]
+    }
+    questions = Question1.all
+    questions.each do |q|
+        hq = {
+            "type"=> "picture",
+            "text1"=> q.text2,
+            "text2"=> q.text1,
+            "audio"=>q.audio,
+            "wiki"=> q.text3,
+            "answers"=> [],
+            "right"=>1
+        }
+
+        answer1s = q.answer1s
+
+        if answer1s != nil
+            answerid = q.answer
+            type = "picture"
+            if  answer1s[0].image == nil
+              type = "question"
+              hq['type']="question"
+            end
+
+            answer1s.each_with_index  do |a,index|
+                if type=="picture"
+                  hq['answers'].push(a.image)
+                else
+                  hq['answers'].push(a.text1)
+                end
+
+                if answerid == a.id
+                   hq['right']= index+1
+                end
+            end # end of answer1s.each
+        end# end of answer1s != nil
+        ret['part1'].push(hq);
+    end
+
+    #generate json file
+    jsonstr = JSON.generate(ret)
+
+    path = Jsonbase+tag+".json"
+    file = File.open(path,"w")
+    file.write(jsonstr)
+    file.close
+
+    return path;
   end
 
 end
