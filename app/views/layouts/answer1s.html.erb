@@ -44,6 +44,19 @@
       }).on("mouseleave",function(){
           $(this).css("background","white");
       });
+
+
+      $(".destroy").on("click",function(){
+          var r = confirm("你你你....你确定要删除？")
+          if(r == true)
+          {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
+      });
   });
 
 </script>

@@ -1,9 +1,10 @@
 class Question1sController < ApplicationController
 
-  @@lasttag= "";
+
   def create
     @question1 = Question1.new(params[:question1])
-    @@lasttag = @question1.tag
+    lasttag = @question1.tag
+    session[:lasttag] = lasttag
     if @question1.save
       redirect_to :action => :index
     else
@@ -14,11 +15,10 @@ class Question1sController < ApplicationController
   #new.html.erb
   def new
     @question1 = Question1.new
-    @question1.tag= @@lasttag;
+    @question1.tag= session[:lasttag]
   end
 
   def update
-    create_json_demo3('Jupiter')
     @question1 = Question1.find(params[:id])
     if @question1.update_attributes(params[:question1])
       redirect_to :action => :show, :id=>@question1
@@ -146,7 +146,7 @@ class Question1sController < ApplicationController
         if answer1s != nil
             answerid = q.answer
             type = "picture"
-            if  answer1s[0].audio == nil
+            if  answer1s[0].image == nil ||  answer1s[0].image.blank?
               type = "question"
               hq['type']="question"
             end

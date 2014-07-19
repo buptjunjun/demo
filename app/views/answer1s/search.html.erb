@@ -8,7 +8,7 @@
         <input type="checkbox"/>
         <%=render :partial => 'single',:locals => {:answer => answer}%>
         <%=link_to 'edit',:action => 'edit',:id=>answer.id %>
-        <%=link_to 'destroy',:action => 'destroy',:id=>answer.id %>
+        <%=link_to 'destroy',{:action => 'destroy',:id=>answer.id},class:'destroy' %>
         </br>
     <%end%>
     <%=link_to 'new',:action => 'new' %>

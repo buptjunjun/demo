@@ -21,11 +21,12 @@
             <%=render :partial => "single",:locals => {:question1=>q}%>
             <td> <%=link_to 'show', :controller => 'question1s',:action => 'show',:id=>q.id %></td>
             <td><%=link_to 'edit', :controller => 'question1s',:action => 'edit',:id=>q.id %></td>
-            <td> <%=link_to 'destroy', :controller => 'question1s',:action => 'destroy',:id=>q.id %></td>
+            <td> <%=link_to 'destroy', {:controller => 'question1s',:action => 'destroy',:id=>q.id} ,class:"destroy"%></td>
           </tr>
       <% end %>
     </table>
   </div>
 </div>
+
 
 

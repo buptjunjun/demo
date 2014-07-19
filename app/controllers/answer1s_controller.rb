@@ -18,11 +18,14 @@ class Answer1sController < ApplicationController
   #new.html.erb
   def new
     @answer1 = Answer1.new
+    @answer1.tag = session[:lasttag_a]
   end
 
   # new => create
   def create
     @answer1 = Answer1.new(params[:answer1])
+    lasttag = @answer1.tag
+    session[:lasttag_a] = lasttag
     if @answer1.save
       redirect_to :action => :index
     else

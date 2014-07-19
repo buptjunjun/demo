@@ -23,7 +23,7 @@
                 <%=render :partial => 'single',:locals => {:answer => answer}%>
                 <td><%=link_to 'show',:action => 'show',:id=>answer.id %></td>
                <td><%=link_to 'edit',:action => 'edit',:id=>answer.id %></td>
-               <td><%=link_to 'destroy',:action => 'destroy',:id=>answer.id %></td>
+               <td><%=link_to 'destroy',{:action => 'destroy',:id=>answer.id},class:"destroy" %></td>
               </tr>
             <%end%>
         </table>
