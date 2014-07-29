@@ -39,28 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="html53_2.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="html53_2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.7" vertical-offset="12825" max-vertical-offset="14610">
-              <caret line="874" column="18" selection-start-line="874" selection-start-column="18" selection-end-line="874" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="7.jpg" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/html5/picture/7.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test07.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/test2/test07.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.84" vertical-offset="31923" max-vertical-offset="34110">
-              <caret line="2141" column="12" selection-start-line="2141" selection-start-column="12" selection-end-line="2141" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.6984479" vertical-offset="12825" max-vertical-offset="14610">
+              <caret line="876" column="29" selection-start-line="876" selection-start-column="29" selection-end-line="876" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -976,14 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/test2/test07.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.84" vertical-offset="31923" max-vertical-offset="34110">
-          <caret line="2141" column="12" selection-start-line="2141" selection-start-column="12" selection-end-line="2141" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/picture/1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -997,14 +972,6 @@
     <entry file="file://$PROJECT_DIR$/public/html5/picture/3.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7" vertical-offset="12825" max-vertical-offset="14610">
-          <caret line="874" column="18" selection-start-line="874" selection-start-column="18" selection-end-line="874" selection-end-column="18" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/picture/15.png">
@@ -1045,6 +1012,22 @@
     <entry file="file://$PROJECT_DIR$/public/html5/picture/7.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/test2/test07.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41379312" vertical-offset="31923" max-vertical-offset="34110">
+          <caret line="2141" column="12" selection-start-line="2141" selection-start-column="12" selection-end-line="2141" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6984479" vertical-offset="12825" max-vertical-offset="14610">
+          <caret line="876" column="29" selection-start-line="876" selection-start-column="29" selection-end-line="876" selection-end-column="29" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
