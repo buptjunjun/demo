@@ -869,11 +869,11 @@ var map = {
         addChild(bglayer);
 
         var img = new Image();
-        img.src = "picture/1.jpg";
+        img.src = "picture/nemo1/background.jpg";
         var bg = new LBitmap(new LBitmapData(img));
-        bg.scaleX=3;
+        bg.scaleX=2;
         bg.scaleY=2;
-        bg.alpha = 0.7;
+        bg.alpha = 1;
         bglayer.addChild(bg);
 
     }
@@ -888,6 +888,7 @@ var map = {
     function collectImageData()
     {
         var imgData = new Array();
+        imgData.push({name:"background",path:"picture/nemo1/background.jpg"});
         imgData.push({name:"bg",path:"picture/nemo1/bg.png"});
         imgData.push({name:"bubble",path:"picture/nemo1/bubble.png"});
         imgData.push({name:"hover",path:"picture/nemo1/hover.png"});
