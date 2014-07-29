@@ -99,8 +99,18 @@
       <file leaf-file-name="html53_2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3317757" vertical-offset="9143" max-vertical-offset="14355">
-              <caret line="619" column="25" selection-start-line="619" selection-start-column="25" selection-end-line="619" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.26401868" vertical-offset="13222" max-vertical-offset="14355">
+              <caret line="889" column="19" selection-start-line="889" selection-start-column="19" selection-end-line="889" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test07.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/test2/test07.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.84" vertical-offset="31923" max-vertical-offset="34110">
+              <caret line="2141" column="12" selection-start-line="2141" selection-start-column="12" selection-end-line="2141" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -139,7 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/aaaa_controller.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/../railstest/app/views/articles/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/answer1s/_single.erb" />
@@ -189,6 +198,7 @@
         <option value="$USER_HOME$/Documents/universe/demo3_2.json" />
         <option value="$PROJECT_DIR$/../railstest/public/html5/html53_2.html" />
         <option value="$USER_HOME$/Downloads/test2/test2.html" />
+        <option value="$USER_HOME$/Downloads/test2/test07.html" />
         <option value="$PROJECT_DIR$/public/html5/html53_2.html" />
       </list>
     </option>
@@ -247,6 +257,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audios" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="railstest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -286,6 +320,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="html5" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -309,11 +361,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/Downloads/test2" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/../railstest/public/html5/picture" />
       <recent name="$PROJECT_DIR$/../railstest/public/html5" />
       <recent name="$PROJECT_DIR$/../railstest/public/html5/picture/nemo1" />
-      <recent name="$PROJECT_DIR$/../railstest/public/javascript" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/../railstest/public/html5" />
@@ -720,13 +772,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/lufylegend.js-lufylegend-1.9.0/examples/api/LBitmap/getWidth.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49881235" vertical-offset="30" max-vertical-offset="495">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/lufylegend.js-lufylegend-1.9.0/examples/api/LBitmap/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.391924" vertical-offset="30" max-vertical-offset="465">
@@ -1052,10 +1097,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/test2/test07.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.84" vertical-offset="31923" max-vertical-offset="34110">
+          <caret line="2141" column="12" selection-start-line="2141" selection-start-column="12" selection-end-line="2141" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3317757" vertical-offset="9143" max-vertical-offset="14355">
-          <caret line="619" column="25" selection-start-line="619" selection-start-column="25" selection-end-line="619" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.26401868" vertical-offset="13222" max-vertical-offset="14355">
+          <caret line="889" column="19" selection-start-line="889" selection-start-column="19" selection-end-line="889" selection-end-column="19" />
           <folding />
         </state>
       </provider>
