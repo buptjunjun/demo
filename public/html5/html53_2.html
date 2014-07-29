@@ -869,11 +869,11 @@ var map = {
         addChild(bglayer);
 
         var img = new Image();
-        img.src = "picture/2.jpg";
+        img.src = "picture/1.jpg";
         var bg = new LBitmap(new LBitmapData(img));
-        bg.scaleX=1.5;
-        bg.scaleY=1.5;
-        bg.alpha = 0.4;
+        bg.scaleX=3;
+        bg.scaleY=;
+        bg.alpha = 0.7;
         bglayer.addChild(bg);
 
     }
@@ -957,7 +957,7 @@ var map = {
     }
     function initall()
     {
-        //initbglayer();
+        initbglayer();
         initBubbleLayer();
         initTree(treeRoot);
         initLeft();
