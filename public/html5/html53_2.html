@@ -489,7 +489,7 @@
         ["Spiral galaxy","Andromeda galaxy","Which galaxy is indicated to collide with Milky Way galaxy?"],
         ["Spiral galaxy","Milky Way galaxy","Which galaxy looks like a band of light observed from earth?"],
         ["Milky Way galaxy","Solar system","What is made up of the sun surrounded by planets and other objects?"],
-        ["Milky Way galaxy","Star","What can give off heat and light?"]
+        ["Milky Way galaxy","Star","What can give off heat and light in the galaxy?"]
     ];
 
     //节点之间的线 关系
@@ -557,7 +557,7 @@ var map = {
         chinese: "仙女座星系"
     },
     "Milky Way galaxy": {
-        word: "Milky Way galaxye",
+        word: "Milky Way galaxy",
         pic: "U71.png",
         picmd: "U71md.jpg",
         picsm: "U71sm.jpg",
@@ -625,6 +625,8 @@ var map = {
 
         var count = 0;
 
+        var addArray = new Array();
+
         for(var i = 0; i < larray.length;i++)
         {
             var ld = larray[i];
@@ -637,6 +639,7 @@ var map = {
             }
         }
 
+
         for(var i = 0; i < larray.length;i++)
         {
             var ld = larray[i];
@@ -645,15 +648,29 @@ var map = {
                 continue;
             }
 
-            if(Math.random() > 0.5)
+            if(Math.random() > 0.6)
             {
                 ld.draw();
                 count += 1;
+                addArray.push(i);
             }
 
             if(count > interuptLimit)
                 return;
         }
+
+
+            while(addArray.length < 3)
+            {
+                var random = Math.floor(Math.random()*100) % (larray.length);
+                var ld = larray[random];
+                if(addArray.indexOf(random) < 0 && ld.key != key)
+                {
+                    addArray.push(random);
+                    ld.draw();
+                }
+            }
+
     }
 
     function initTree(root)
