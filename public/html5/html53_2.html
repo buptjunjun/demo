@@ -617,13 +617,26 @@ var map = {
     window.index = 0;
     window.right = 0;
     window.lastDrawable = null;
-    var interuptLimit = 3;
+    var interuptLimit = 2;
 
     function showInterupt(key)
     {
         //larraytmp = new Array();
 
         var count = 0;
+
+        for(var i = 0; i < larray.length;i++)
+        {
+            var ld = larray[i];
+            if (ld.key == key) {
+                continue;
+            }
+            else
+            {
+                ld.clear();
+            }
+        }
+
         for(var i = 0; i < larray.length;i++)
         {
             var ld = larray[i];
@@ -636,10 +649,6 @@ var map = {
             {
                 ld.draw();
                 count += 1;
-            }
-            else
-            {
-               ld.clear();
             }
 
             if(count > interuptLimit)
@@ -814,7 +823,7 @@ var map = {
         bubblelayer.addChild(bg);
 
         bubbleText = new LTextField();
-        bubbleText.color="#3c3c3c";
+        bubbleText.color="#ffffff";
         bubbleText.size = 14;
         bubbleText.width = bg.getWidth()-20;
         bubbleText.setWordWrap(true);
