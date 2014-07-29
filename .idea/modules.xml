@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/Downloads/HTML Bootstrap Prototype/.idea/HTML Bootstrap Prototype.iml" filepath="$USER_HOME$/Downloads/HTML Bootstrap Prototype/.idea/HTML Bootstrap Prototype.iml" />
       <module fileurl="file://$USER_HOME$/Downloads/Skills/.idea/Skills.iml" filepath="$USER_HOME$/Downloads/Skills/.idea/Skills.iml" />
       <module fileurl="file://$USER_HOME$/Downloads/Skilltree/.idea/Skilltree.iml" filepath="$USER_HOME$/Downloads/Skilltree/.idea/Skilltree.iml" />
       <module fileurl="file://$PROJECT_DIR$/../firstgit/.idea/firstgit.iml" filepath="$PROJECT_DIR$/../firstgit/.idea/firstgit.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/lufylegend-1.5.1/.idea/lufylegend-1.5.1.iml" filepath="$USER_HOME$/Downloads/lufylegend-1.5.1/.idea/lufylegend-1.5.1.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/lufylegend.js-lufylegend-1.9.0/.idea/lufylegend.js-lufylegend-1.9.0.iml" filepath="$USER_HOME$/Downloads/lufylegend.js-lufylegend-1.9.0/.idea/lufylegend.js-lufylegend-1.9.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/../railstest/.idea/railstest.iml" filepath="$PROJECT_DIR$/../railstest/.idea/railstest.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/test-mobile/.idea/test-mobile.iml" filepath="$USER_HOME$/Downloads/test-mobile/.idea/test-mobile.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/test2/.idea/test2.iml" filepath="$USER_HOME$/Downloads/test2/.idea/test2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/untitled.iml" filepath="$PROJECT_DIR$/.idea/untitled.iml" />
     </modules>
   </component>

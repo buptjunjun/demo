@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/lufylegend-1.5.1.js"></script>
+</head>
+<body>
+<div id="legend">
+</div>
+</body>
+</html>
+<script>
+    /**
+     *  init(speed,divid,width,height,completeFun)
+     *  speed游戏速度
+     *  divid 初始化时候的一个div的id 会将canvas加入到这个div中
+     *  width height 游戏界面的宽和高
+     *  completeFunc 游戏初始化玩后会调用这个函数
+     */
+    init(100, "legend", 600, 500, main);
+
+    //进度条层
+    var loadingLayer;
+
+    //三个层，分别表示背景层，点击层，结果层
+    var backLayer;
+    var clickLayer;
+    var resultLayer;
+    var selfBitmap,enemyBitmap,selfTextWin,
+        selfTextWin,selfTextLoss,selfTextDraw;
+    var win = 0, loss= 0, draw = 0;
+
+    var imglist = {};//{"a":Image实例}
+    var imgData = new Array(
+            {name:"title",path:"picture/stjdbu.png"},
+            {name:"st",path:"picture/st.png"},
+            {name:"jd",path:"picture/jd.png"},
+            {name:"bu",path:"picture/bu.png"}
+    );
+
+    var showList = new Array();
+
+    function main()
+    {
+        //初始化背景层
+        backLayer = new LSprite();
+        addChild(backLayer);
+
+        loadingLayer = new LoadingSample3();
+        backLayer.addChild(loadingLayer);
+        /**
+         * LLoadManage.load($list,$onupdate,$oncomplete)
+         * $list表示尧都区的图片数组
+         * $onupdate表示读完一张图片后调用的函数，可以为空
+         * $oncomplete表示读完所有数组中图片后调用的函数
+         */
+        LLoadManage.load(
+                imgData,
+                function (progress) //每读取一张图片
+                {
+                    loadingLayer.setProgress(progress);
+                },
+                function(result)//所有图片加载完了
+                {
+                    //所有图片的Image对象
+                    imglist = result;
+                    backLayer.removeChild(loadingLayer);
+                    loadingLayer = null;
+                    gameInit();
+                }
+        );
+    }
+
+    function gameInit()
+    {
+        showList.push(new LBitmapData(imglist["st"]));
+        showList.push(new LBitmapData(imglist["jd"]));
+        showList.push(new LBitmapData(imglist["bu"]));
+        //添加游戏背景界面
+        backLayer.graphics.drawRect(10,'#008800',[0,0,LGlobal.width,LGlobal.height],true,'#9c9c9c');
+
+        //显示游戏标题
+        var titleBitmap = new LBitmap(new LBitmapData(imglist["title"]));
+        //标题的显示的位置
+        titleBitmap.x = (LGlobal.width - titleBitmap.width)/2;
+        titleBitmap.y = 10;
+        backLayer.addChild(titleBitmap);
+
+        //玩家出拳图片
+        selfBitmap = new LBitmap(showList[0]);
+        selfBitmap.x = 400 - selfBitmap.width-50;
+        selfBitmap.y = 130;
+        backLayer.addChild(selfBitmap);
+
+        //敌人出拳图片
+        enemyBitmap = new LBitmap(showList[0]);
+        enemyBitmap.x = 400 + 50;
+        enemyBitmap.y = 130;
+        backLayer.addChild(enemyBitmap);
+
+//        //玩家,电脑名称设定
+//        var nameText=null;
+//        nameText = new LTextField();
+//        nameText = "me";
+//        nameText.size = 24;
+//        nameText.x = 10
+//        nameText.y = 95;
+//        backLayer.addChild(nameText);
+//
+//        nameText = new LTextField();
+//        nameText = "enemy";
+//        nameText.weight="bolder";
+//        nameText.color="#000000";
+//        nameText.size = 24;
+//        nameText.x = enemyBitmap.x
+//        nameText.y = 95;
+//        backLayer.addChild(nameText);
+
+        initResultLayer();
+        initClickLayer();
+    }
+
+    //初始化resultLayer将其作为结果表示层，并在层上绘制一个白色矩阵，当结果表示的背景色
+    function initResultLayer()
+    {
+        resultLayer = new LSprite();
+        resultLayer.graphics.drawRect(4,"#ff8800",[0,0,150,110],true,"#ffffff");
+        resultLayer.x = 10;
+        resultLayer.y = 100;
+        backLayer.addChild(resultLayer);
+
+        selfTextAll = new LTextField();
+        selfTextAll.text = "猜拳次数:0";
+        selfTextAll.x = 10;
+        selfTextAll.y = 20;
+        resultLayer.addChild(selfTextAll);
+
+        selfTextWin = new LTextField();
+        selfTextWin.text = "胜利次数:0";
+        selfTextWin.x = 10;
+        selfTextWin.y = 40;
+        resultLayer.addChild(selfTextWin);
+
+        selfTextLoss = new LTextField();
+        selfTextLoss.text = "失败次数:0";
+        selfTextLoss.x = 10;
+        selfTextLoss.y = 60;
+        resultLayer.addChild(selfTextLoss);
+
+        selfTextDraw = new LTextField();
+        selfTextDraw.text = "平局次数:0";
+        selfTextDraw.x = 10;
+        selfTextDraw.y = 80;
+        resultLayer.addChild(selfTextDraw);
+
+    }
+
+    //初始化resultLayer将其作为结果表示层，并在层上绘制一个白色矩阵，当结果表示的背景色
+    function initClickLayer()
+    {
+        clickLayer = new LSprite();
+        clickLayer.graphics.drawRect(4,"#ff8800",[0,0,300,110],true,"#ffffff");
+        clickLayer.x = 250;
+        clickLayer.y = 275;
+        backLayer.addChild(clickLayer);
+
+        var msgText = new LTextField();
+        msgText.text = "请出拳:";
+        msgText.x = 10;
+        msgText.y = 10;
+        clickLayer.addChild(msgText);
+
+        var  btnShitou = getButton("st");
+        btnShitou.x =30;
+        btnShitou.y = 35;
+        clickLayer.addChild(btnShitou);
+        btnShitou.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+
+        var  btnJiandao = getButton("jd");
+        btnJiandao.x =115;
+        btnJiandao.y = 35;
+        clickLayer.addChild(btnJiandao);
+        btnJiandao.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+
+        var  btnBu = getButton("st");
+        btnBu.x =200;
+        btnBu.y = 35;
+        clickLayer.addChild(btnBu);
+        btnBu.addEventListener(LMouseEvent.MOUSE_UP,onclick);
+
+    }
+
+    var checkList = [
+        [0,1,-1],
+        [-1,0,1],
+        [1,-1,0]
+    ];
+    function onclick(event,display)
+    {
+        var selfvalue = 0;
+        var enemyvalue = 0;
+        if(display.name == "st")
+        {
+            selfvalue = 0;
+        }
+        else if(display.name == "jd")
+        {
+            selfvalue = 1;
+        }
+        else if(display.name == 'bu')
+        {
+            selfvalue = 2;
+        }
+
+        enemyvalue = Math.floor(Math.random()*3);
+        selfBitmap.bitmapData = showList[selfvalue];
+        enemyBitmap.bitmapData = showList[enemyvalue];
+
+        var result = checkList[selfvalue][enemyvalue];
+        if(result == -1)
+        {
+            loss += 1;
+        }
+        else if(result == 1)
+        {
+            win += 1;
+        }
+        else
+        {
+            draw += 1;
+        }
+
+        selfTextWin.text = "胜利次数:"+ win;
+        selfTextLoss.text = "失败次数:"+ loss;
+        selfTextDraw.text = "平局次数:"+ draw;
+        selfTextWin.text = "猜拳次数:"+(win+loss+draw);
+
+
+    }
+
+    function getButton(value)
+    {
+        var btnUP = new LBitmap(new LBitmapData(imglist[value]));
+        btnUP.scaleX = 1.5;
+        btnUP.scaleY = 1.5;
+
+        var btnOver = new LBitmap(new LBitmapData(imglist[value]));
+        btnOver.scaleX = 2;
+        btnOver.scaleY = 2;
+
+        btnOver.x = 2;
+        btnOver.y = 2;
+        var btn = new LButton(btnUP,btnOver);
+        btn.name = value;
+        return btn;
+
+    }
+
+</script>

@@ -1,0 +1,585 @@
+[
+    {
+        "sumary": {
+            "title": "Mars"
+        },
+        "part1": [
+
+                {
+                    "type": "picture",
+                    "text1": "火星",
+                    "text2": "Mars",
+                    "wiki": "火星是太阳系第四行星，是地球的姊妹星呢。",
+                    "answers": [
+                        "5.jpg",
+                        "2.jpg",
+                        "10.jpg",
+                        "15.png"
+                    ],
+                    "right": 1
+                },
+                {
+                    "type": "picture",
+                    "text1": "类地行星",
+                    "text2": "terrestrial planet",
+                    "wiki": "火星是和地球一样的岩石行星，这样的统统叫做类地行星。壮哉我大人类！",
+                    "answers": [
+                        "11.jpg",
+                        "6.jpg",
+                        "16.jpg",
+                        "14.jpg"
+                    ],
+                    "right": 2
+                },
+                {
+                    "type": "picture",
+                    "text1": "奥林匹斯山",
+                    "text2": "Olympus Mons",
+                    "wiki": "火星的奥林匹斯山是太阳系的最高峰。它是一座巨大的死火山。即使你站在顶峰，也看不到边缘。所以你看身高并没什么区别。",
+                    "answers": [
+                        "2.jpg",
+                        "7.jpg",
+                        "1.jpg",
+                        "17.png"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "picture",
+                    "text1": "水手谷",
+                    "text2": "Valles Marineris",
+                    "wiki": "水手谷有多宽呢？如果水手谷在地球上，那么美国大陆就能够刚刚好放在水手谷里。",
+                    "answers": [
+                        "1.jpg",
+                        "7.jpg",
+                        "2.jpg",
+                        "4.jpg"
+                    ],
+                    "right": 4
+                },
+                {
+                    "type": "picture",
+                    "text1": "极地冰盖",
+                    "text2": "polar cap",
+                    "wiki": "极地冰盖是一层薄薄的二氧化碳结晶，但在其下面，很有可能存在大量的水。卫星扫描显示，在极地冰盖下的土壤中潜藏着大量的氢。而氢则通常存在于水中。",
+                    "answers": [
+                        "1.jpg",
+                        "2.jpg",
+                        "7.jpg",
+                        "15.png"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "Mars is a _____ with the biggest mountain _____ and the greatest canyon _____ in the solar system.",
+                    "answers": [
+                        "terrestrial planet; Valles Marineris; Olympus Mons",
+                        "gas planet; Olympus Mons; Valles Marineris",
+                        "terrestrial planet; Olympus Mons ;Valles Marineris ; ",
+                        "terrestrial planet; Alps Mountain; Grand Canyon"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "The _____ of Mars is covered with a thin layer of carbon dioxide ice.",
+                    "answers": [
+                        "polar cap",
+                        "atmosphere",
+                        "rock",
+                        "mangetosphere"
+                    ],
+                    "right": 1
+                }
+            ,
+
+                {
+                    "type": "picture",
+                    "text1": "Martian atmosphere",
+                    "text2": "火星大气层",
+                    "wiki": "火星大气层非常稀薄，并且充满了二氧化碳。如果你在火星上吹个气球，那百分之百能飞起来。",
+                    "answers": [
+                        "5.jpg",
+                        "6.jpg",
+                        "8.jpg",
+                        "7.jpg"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "picture",
+                    "text1": "carbon dioxide",
+                    "text2": "二氧化碳",
+                    "wiki": "二氧化碳是温室气体，能够减小昼夜温差，并将温度维持在一个比较高的状态。但它们在火星上失败了。火星上的温度非常低，昼夜温差也非常大。",
+                    "answers": [
+                        "18.jpg",
+                        "12.jpg",
+                        "9.jpg",
+                        "14.jpg"
+                    ],
+                    "right": 2
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "_____has a very thin layer of gas, which made Mars a freezing cold planet.",
+                    "answers": [
+                        "Martian oxysphere",
+                        "the halo",
+                        "the layer",
+                        "Martian atompshere"
+                    ],
+                    "right": 4
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "The martian atmosphere contains mostly_____.",
+                    "answers": [
+                        "water",
+                        "dust",
+                        "carbon dioxide",
+                        "iron protoxide"
+                    ],
+                    "right": 3
+                }
+            ,
+                {
+                    "type": "picture",
+                    "text1": "solar wind",
+                    "text2": "太阳风",
+                    "wiki": "太阳风包含了大量从太阳抛射出来的高能粒子和宇宙射线，很容易就能剥离失去磁场保护的火星大气。",
+                    "answers": [
+                        "10.jpg",
+                        "7.jpg",
+                        "8.jpg",
+                        "11.jpg"
+                    ],
+                    "right": 1
+                },
+                {
+                    "type": "picture",
+                    "text1": "liquid water",
+                    "text2": "液态水",
+                    "wiki": "液态水被认为是生命存在的必要因素。缺乏液态水的火星表面则变成了生命的荒漠。",
+                    "answers": [
+                        "6.jpg",
+                        "14.jpg",
+                        "4.jpg",
+                        "16.jpg"
+                    ],
+                    "right": 2
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "The thin Martian atomosphere is the reason why there is no _____ on Mars. ",
+                    "answers": [
+                        "strong wind",
+                        "carved rock",
+                        "liquid water",
+                        "carbon dioxide"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "Mars lost most of its atomosphere because of _____ .",
+                    "answers": [
+                        "strong wind",
+                        "solar wind",
+                        "liquid water",
+                        "carbon dioxide"
+                    ],
+                    "right": 2
+                }
+            ,
+                {
+                    "type": "picture",
+                    "text1": "沙尘暴",
+                    "text2": "sand storm",
+                    "wiki": "沙尘暴在火星上通常能够持续数月，覆盖几乎整颗行星。帝都的沙尘暴们，你们傻眼了吧！",
+                    "answers": [
+                        "17.jpg",
+                        "12.jpg",
+                        "11.jpg",
+                        "10.jpg"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "picture",
+                    "text1": "氧化铁",
+                    "text2": "ferric oxide",
+                    "wiki": "氧化铁呈红色，铁锈里就含有大量的氧化铁。火星的表面覆盖着大量的氧化铁粉末。这也是科学家们猜测，火星上曾经有水的原因之一。因为很显然，得有水，铁才容易被氧化呀！",
+                    "answers": [
+                        "11.jpg",
+                        "12.jpg",
+                        "9.jpg",
+                        "14.jpg"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "picture",
+                    "text1": "锈红色",
+                    "text2": "rusty",
+                    "wiki": "强烈的沙尘暴，卷起火星地表的氧化铁尘埃，使火星看起来就像是一颗锈红色的铁球一样。",
+                    "answers": [
+                        "11.jpg",
+                        "12.jpg",
+                        "13.jpg",
+                        "14.jpg"
+                    ],
+                    "right": 3
+                },
+                {
+                    "type": "question",
+                    "text1": "",
+                    "text2": "The extreme sand storms blow up the dust of _____, creating a _____ color for the planet.",
+                    "answers": [
+                        "solar wind; rusty",
+                        "ferric oxide; rusty",
+                        "red rock; rusty",
+                        "carbon dioxide; rusty"
+                    ],
+                    "right": 2
+                }
+
+        ],
+        "part2": {
+            "width": 9,
+            "height": 9,
+            "contents": [
+                {
+                    "x": 1,
+                    "y": 8,
+                    "type": "text",
+                    "text": "奥林匹斯山",
+                    "words": "Olympus Mons",
+                    "picture": "1.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "1"
+                },
+                {
+                    "x": 1,
+                    "y": 7,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "10",
+                    "voice": "",
+                    "status": -1,
+                    "group": "1",
+                    "tips": "火星上拥有太阳系的最高峰是？"
+                },
+                {
+                    "x": 1,
+                    "y": 9,
+                    "type": "clue",
+                    "text": "死火山是已丧失活动能力的火山。通常在人类历史上没有活动过的火山都叫做死火山。最有名的莫过于非洲最高峰——乞力马扎罗山啦。",
+                    "picture": "2.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "1"
+                },
+                {
+                    "x": 2,
+                    "y": 2,
+                    "type": "clue",
+                    "text": "液态水被认为是生命存在的必要因素。缺乏液态水的火星表面则变成了生命的荒漠。",
+                    "picture": "",
+                    "voice": "",
+                    "status": -1,
+                    "group": "2"
+                },
+                {
+                    "x": 2,
+                    "y": 3,
+                    "type": "text",
+                    "text": "液态水",
+                    "words": "liquid water",
+                    "picture": "14.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "2"
+                },
+                {
+                    "x": 2,
+                    "y": 4,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "8",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2,
+                    "tips": "火星上缺乏一种生命必要的基础是？"
+                },
+                {
+                    "x": 2,
+                    "y": 6,
+                    "type": "clue",
+                    "text": "很早我们就观察到了火星，那时的人们认为地球是宇宙的中心。然而夜空中火星的轨迹与其他星星都不同，它忽前忽后，看似毫无规律。于是人们将这一类星星都称作“Planet”，行星，意为“漫游者”。但如果将太阳作为中心，则很容易解释它的运动轨迹。",
+                    "picture": "3.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "1"
+                },
+                {
+                    "x": 2,
+                    "y": 7,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "14",
+                    "voice": "",
+                    "status": -1,
+                    "group": "1",
+                    "tips": "火星上有一条巨大的峡谷是？"
+                },
+                {
+                    "x": 2,
+                    "y": 8,
+                    "type": "text",
+                    "text": "水手谷",
+                    "words": "Valles Marineris",
+                    "picture": "4.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 1
+                },
+                {
+                    "x": 3,
+                    "y": 3,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "3",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2,
+                    "tips": "稀薄的火星大气让火星表面温度非常低，所以火星上缺乏？"
+                },
+                {
+                    "x": 3,
+                    "y": 4,
+                    "type": "text",
+                    "text": "火星",
+                    "words": "Mars",
+                    "picture": "5.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "0"
+                },
+                {
+                    "x": 3,
+                    "y": 5,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "1",
+                    "voice": "",
+                    "status": -1,
+                    "group": 1,
+                    "tips": "火星和地球一样是？"
+                },
+                {
+                    "x": 3,
+                    "y": 6,
+                    "type": "text",
+                    "text": "类地行星",
+                    "words": "terrestrial planet",
+                    "picture": "6.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 1
+                },
+                {
+                    "x": 3,
+                    "y": 7,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "19",
+                    "voice": "",
+                    "status": -1,
+                    "group": 1,
+                    "tips": "火星与地球一样，在两极地区有？"
+                },
+                {
+                    "x": 3,
+                    "y": 8,
+                    "type": "text",
+                    "text": "极地冰盖",
+                    "words": "polar caps",
+                    "picture": "7.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "1"
+                },
+                {
+                    "x": 4,
+                    "y": 2,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "10",
+                    "voice": "",
+                    "status": -1,
+                    "group": "2",
+                    "tips": "从太阳吹来的风破坏了火星表层的？"
+                },
+                {
+                    "x": 4,
+                    "y": 3,
+                    "type": "text",
+                    "text": "火星大气",
+                    "words": "Martian atomosphere",
+                    "picture": "8.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": "2"
+                },
+                {
+                    "x": 4,
+                    "y": 4,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "12",
+                    "voice": "",
+                    "status": -1,
+                    "group": "2",
+                    "tips": "火星表层笼罩着一层薄薄的？"
+                },
+                {
+                    "x": 4,
+                    "y": 5,
+                    "type": "text",
+                    "text": "氧化铁",
+                    "words": "ferric oxide",
+                    "picture": "9.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 3
+                },
+                {
+                    "x": 4,
+                    "y": 6,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "12",
+                    "voice": "",
+                    "status": -1,
+                    "group": 3,
+                    "tips": "火星的岩石表面覆盖着的一层粉末是？"
+                },
+                {
+                    "x": 5,
+                    "y": 1,
+                    "type": "clue",
+                    "text": "随着火星内核慢慢冷却，磁场也慢慢消失，不再为火星阻挡强烈的太阳风。也导致了火星大气无比稀薄。",
+                    "picture": "",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2
+                },
+                {
+                    "x": 5,
+                    "y": 2,
+                    "type": "text",
+                    "text": "太阳风",
+                    "words": "solar wind",
+                    "picture": "10.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2
+                },
+                {
+                    "x": 5,
+                    "y": 3,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "14",
+                    "voice": "",
+                    "status": -1,
+                    "group": "2,3",
+                    "tips": "|火星稀薄的大气产生了巨大了昼夜温差，导致了火星上持续数月的？"
+                },
+                {
+                    "x": 5,
+                    "y": 4,
+                    "type": "text",
+                    "text": "沙尘暴",
+                    "words": "sandstorm",
+                    "picture": "11.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 3
+                },
+                {
+                    "x": 5,
+                    "y": 5,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "19",
+                    "voice": "",
+                    "status": -1,
+                    "group": 3,
+                    "tips": "火星的颜色"
+                },
+                {
+                    "x": 5,
+                    "y": 6,
+                    "type": "text",
+                    "text": "锈红色",
+                    "words": "rusty",
+                    "picture": "13.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 3
+                },
+                {
+                    "x": 5,
+                    "y": 7,
+                    "type": "clue",
+                    "text": "火星那锈红色的外表，让罗马人想到了不安与敌意，于是用战神的名字来命名它。",
+                    "picture": "",
+                    "voice": "",
+                    "status": -1,
+                    "group": 3
+                },
+                {
+                    "x": 6,
+                    "y": 3,
+                    "type": "pointer",
+                    "text": "",
+                    "picture": "6",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2,
+                    "tips": "火星大气含量最多的是？"
+                },
+                {
+                    "x": 6,
+                    "y": 4,
+                    "type": "text",
+                    "text": "二氧化碳",
+                    "words": "carbondioxide",
+                    "picture": "12.jpg",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2
+                },
+                {
+                    "x": 6,
+                    "y": 5,
+                    "type": "clue",
+                    "text": "火星大气几乎全是二氧化碳。由于火星温度很低，所以能够看到美丽的干冰雪奇观。",
+                    "picture": "",
+                    "voice": "",
+                    "status": -1,
+                    "group": 2
+                }
+            ]
+        }
+    }
+]

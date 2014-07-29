@@ -1,0 +1,64 @@
+{
+    "A":{
+        word:"Mars",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"火星"
+    }
+    ,
+    "B":{
+        word:"Olympus Mons",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"奥林匹斯山"
+    }
+    ,
+    "C":{
+        word:"Liquid water",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"液态水"
+    }
+    ,
+    "D":{
+        word:"Terrestrial planet",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"类地行星"
+    }
+    ,
+    "E":{
+        word:"Polar caps",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"极地冰盖"
+    }
+    ,
+    "F":{
+        word:"Martian atomosphere",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"火星大气"
+    }
+    ,
+    "G":{
+        word:"Ferric oxide",
+        pic:"18.png",
+        picmd:"18md.png",
+        picsm:"18sm.png",
+        wiki:"this is mars hello",
+        chinese:"氧化铁"
+    }
+}
