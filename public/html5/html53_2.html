@@ -30,6 +30,12 @@
     <script type="text/javascript" src="/js/jquery.pin.js"></script>
     <script src="js/lufylegend-1.9.0.min.js"></script>
     <style>
+
+        .answersection
+        {
+            padding:5px;
+            font-size: 18px;
+        }
         .picsection
         {
              padding:5px;
@@ -41,6 +47,13 @@
             width:180px;
             height:180px;
             padding:10px;
+        }
+
+        #chinese
+        {
+
+            font-size: 18px;
+            color:#000000;
         }
 
         #english{
@@ -56,7 +69,6 @@
         #infodiv
         {
             text-align: left;
-            margin-left: 20px;
         }
 
         .lilabel
@@ -74,15 +86,28 @@
         .preclass
         {
             font-size: 14px;
-            margin-left: 2px;
         }
     </style>
 </head>
 
 <script>
 
+    Array.prototype.contains = function(obj) {
+        var i = this.length;
+        while (i--) {
+            if (this[i] === obj) {
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
+<script>
 
     window.qindex = 0;
+    var wrongpicsm = "http://baicizhan.qiniudn.com/pack/assets/done-wrong.png";
+    var rightpicsm = "http://baicizhan.qiniudn.com/pack/assets/done-right.png";
+
     var wrongpic = "/html5/picture/nemo1/wrong.jpg";
     var rightpic = "/html5/picture/nemo1/right.jpg";
 
@@ -110,21 +135,63 @@
     }
 
 
-function renderQuestion(index)
+
+/**
+ * get size of a map.
+ */
+function getMapSize(map)
 {
+    if(map == null || map == undefined)
+        return 0;
 
-    if(index >= map.length)
-        return;
+    var count = 0;
+    for(var q in map)
+    {
+        count++;
+    }
 
-    //文件编号
-    var array = [1,2,3,4];
+    return count;
+}
+
+// 0表示单词选图 1表示选图
+var CHOOSEPIC = 0;
+var CHOOSEWORD = 1;
+window.round = CHOOSEWORD;
+
+ /**
+  * 获取大于等于0小于等于max的n个数字,除了except
+  */
+function getRandom(n,except,max)
+{
+    var array = new Array();
+    while(array.length <= n)
+    {
+        var random = Math.floor(Math.random()*max);
+        //如果是except 或者array中已经有了random，那么继续选择
+        if(random == except || array.contains(random) > 0)
+            continue;
+
+        array.push(random);
+    }
+    return array;
+}
+
+/**
+ * 单词选意思
+ *
+ */
+function renderQuestion1(index)
+{
+    $(".picsection").hide();
+    $(".answersection").show();
+
+    //当前问题
     var q  = getQuesion(index);
-    var preq = getQuesion(index-1);
 
     //如果是最后一个 就...
     if(q == null || q == undefined)
     {
-
+        window.qindex = 0;
         for(var key in dmap)
         {
             dmap[key].clear();
@@ -134,10 +201,134 @@ function renderQuestion(index)
         //$("#left").hide();
         //initbglayer();
         initBubbleLayer();
+        treeLayer.graphics.clear();
         //initTree(treeRoot);
         initLeft();
         initusertipsLayer();
         showmodalPanel(step1ok);
+        return;
+    }
+
+    //上一个问题
+    var preq = getQuesion(index-1);
+
+    $("#english").text(q.word);
+    //播放声音
+    playaudio(q.audio);
+
+    if(preq == null )
+    {
+        $(".preclass").hide();
+    }
+    else
+    {
+        $(".preclass").show();
+        $("#preword").text(preq.word);
+        $("#prechinese").text(preq.chinese);
+    }
+
+    $("#chinese").text(q.chinese);
+    $("#wiki").text(q.wiki);
+    $("#next").hide();
+    $(".shouldhide").hide();
+
+    $("#qpic").find("img").attr("src","picture/universe/"+ q.pic);
+
+
+    //填答案
+    var mapsize = getMapSize(map);
+    //随机生成干扰问题的下标数组
+    var interuptArray = getRandom(2,index,mapsize);
+    //随机生成正确答案的位置
+    var insertPostion = (index+Math.floor(Math.random()*100))%3;
+    interuptArray.splice(insertPostion,0,index);
+
+    //开始填答案
+    for(var i = 0 ; i < interuptArray.length; i++)
+    {
+        var qi  = interuptArray[i];
+        var question = getQuesion(qi);
+        var $word = $("#word"+i)
+        $word.text(question.chinese);
+
+        var cls = "wrong";
+        var tippic = wrongpicsm;
+        if(qi == index)
+        {
+            cls = " right";
+            tippic = rightpicsm;
+        }
+
+        $word.attr("class",cls);
+
+        var $img = $word.parent().find("img");
+        $img.attr("src",tippic);
+        $img.hide();
+    }
+
+
+
+    $(".right").unbind("click");
+    $(".wrong").unbind("click");
+    $("#next").unbind("click");
+    $(".right").on("click",function(){
+        //alert($(this).attr("src"));
+        //钩钩图片效果
+        //$(".shouldhide").show();
+        //show next button
+        $("#next").show(500);
+        var $img = $(this).parent().find("img");
+        $img.show(200)
+        $img.hide(200);
+    });
+
+    //叉叉图片效果
+    $(".wrong").on("click",function(){
+        //$(".shouldhide").show();
+        var $img = $(this).parent().find("img");
+        $img.show(200)
+        $img.hide(200);
+    });
+
+    $("#next").on("click",function(){
+        window.qindex+=1;
+        //alert("wright");
+        renderQuestion1(window.qindex);
+
+    });
+
+    var audio = q.audio;
+    $("#play").on("mouseover",function(){
+        $(this).attr("class","glyphicon glyphicon-volume-up");
+        playaudio(audio);
+    }).on("mouseout",function(){
+        $(this).attr("class","glyphicon glyphicon-volume-down");
+
+    });
+
+}
+
+/**
+ * 单词炫图
+ * @param index
+ */
+function renderQuestion(index)
+{
+    $(".picsection").show();
+    $(".answersection").hide();
+
+    //文件编号
+    var array = [1,2,3,4];
+    var q  = getQuesion(index);
+    var preq = getQuesion(index-1);
+
+    //如果是最后一个 就...
+    if(q == null || q == undefined)
+    {
+        window.qindex = 0;
+        renderQuestion1(0);
+        showmodalPanel(step2beginword);
+
        return;
     }
 
@@ -261,6 +452,7 @@ setTimeout(function() {
 
 
 var step1ok = "恭喜您！通过了第一关的测试！下一关，我们要把学过知识拼成知识图谱，<br>请根据提示，从左边的卡片中选择一个，用鼠标点击，放到左边的十字架中。"
+var step2beginword = "下面我们来复习一下学过的单词";
 var step2ok = "恭喜您！将孤立的知识链接成了知识图谱！放个 ~人工烟花~~";
 function showmodalPanel(text)
 {
@@ -313,10 +505,14 @@ function showmodalPanel(text)
                                 <span class="" id="prechinese"></span>
                             </div>
                         </li>
+
                         <li class="list-group-item" >
                             <span class="lilabel "></span>
                             <span class="" id="english" class="">Jupiter</span>
                             <span id="play" class="glyphicon glyphicon-volume-down"></span>
+                        </li>
+                        <li class="list-group-item"  id="qpic" style="display:none">
+                            <a href="#" class="thumbnail"><img src="" /></a>
                         </li>
                         <li class="list-group-item "><span class="lilabel"></span><span class="" id="wiki">Jupiter is the largest planet in solar system.</span></li>
                         <li class="list-group-item shouldhide" ><span class="lilabel "></span> <span class="" id="chinese">木星</span></li>
@@ -329,6 +525,31 @@ function showmodalPanel(text)
                     <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic2"/></a></div>
                     <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic3" /></a></div>
                     <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic4"/></a></div>
+                </div>
+
+                <div class="col-md-12 answersection" style="display: none">
+                    <ul class="list-group">
+                        <li class="list-group-item ">
+                            <div id="word0" class=""></div>
+                                <img src="">
+                        </li>
+                        <li class="list-group-item ">
+                            <div id="word1"></div>
+
+                                <img src="">
+
+                        </li>
+                        <li class="list-group-item ">
+                            <div id="word2" class=""></div>
+
+                                <img src="">
+                        </li>
+                        <li class="list-group-item">
+                            <div id="word3" class=""></div>
+                                <img src="">
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
@@ -375,7 +596,7 @@ function showmodalPanel(text)
     loadaudio("");
     setTimeout(function() {
         playaudio("/audio/bigbang.mp3");
-    }, 800);
+    }, 600);
 </script>
 
 <script>
@@ -476,6 +697,7 @@ function showmodalPanel(text)
         draw:function() {
             // this.layer.graphics.drawRect(1,"#000000",[this.x,this.y,this.width,this.height]);
             // background picture
+            this.clear();
             this.drawbg();
             this.drawdata();
 
@@ -723,6 +945,7 @@ function showmodalPanel(text)
             for(var j = 0; j < h.length; j++)
             {
                 var d = new Drawable(layer, i*(bgwidth+bgwidth)+10,j*(bgheight+bgheight/4)+10,bgwidth,bgheight,h[j]);
+                d.drawbg1();
                 drawableMap[h[j]] = d;
 
                 count++;
@@ -784,9 +1007,9 @@ function showmodalPanel(text)
 
         p3x = p1x+(p2x - p1x)/2;
 
-        layer.graphics.drawLine(0.5,"#fcfcfc",[p1x,p1y,p3x,p1y]);
-        layer.graphics.drawLine(0.5,"#fcfcfc",[p3x,p1y,p3x,p2y]);
-        layer.graphics.drawLine(0.5,"#fcfcfc",[p3x,p2y,p2x,p2y]);
+        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p3x,p1y]);
+        layer.graphics.drawLine(0.5,"#7ecefd",[p3x,p1y,p3x,p2y]);
+        layer.graphics.drawLine(0.5,"#7ecefd",[p3x,p2y,p2x,p2y]);
         return [p3x,(p1y+p2y)/2]
     }
 
@@ -1050,7 +1273,7 @@ var map = {
         var hs = getHierarchy(pairs,root);
        // alert(hs);
         dmap = renderTree(pairs,hs,treeLayer);
-        //linkTree(treeLayer,dmap,nodes,pairs);
+        linkTree(treeLayer,dmap,nodes,pairs);
         treeLayer.addEventListener(LMouseEvent.MOUSE_UP,onclick);
     }
 
@@ -1097,6 +1320,7 @@ var map = {
         if(window.index >= pairs.length)
         {
             leftLayer.removeAllChild();
+            $("body").scrollLeft(250);
             showmodalPanel(step2ok);
             return;
         }
@@ -1338,5 +1562,5 @@ var map = {
         //initusertipsLayer();
     }
 
-    window.location.href = "http://www.baicizhan.com";
+    //window.location.href = "http://www.baicizhan.com";
 </script>
