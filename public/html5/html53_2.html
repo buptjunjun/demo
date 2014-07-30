@@ -142,6 +142,8 @@ function renderQuestion(index)
     }
 
     $("#english").text(q.word);
+    //播放声音
+    playaudio(q.audio);
 
     if(preq == null )
     {
@@ -231,16 +233,21 @@ function renderQuestion(index)
         var key = q.word;
         var d = dmap[key];
         d.draw();
-        $("#left").hide(500);
+        $("#left").hide(100);
         $("body").scrollLeft(250);
         window.qindex+=1;
-        setTimeout(function(){$("#left").show(500);$("body").scrollLeft(0);renderQuestion(window.qindex);},2000);
+        setTimeout(function(){$("#left").show(500);
+            $("body").scrollLeft(0);
+            renderQuestion(window.qindex);
+        },
+        1200);
 
     });
 
+    var audio = q.audio;
     $("#play").on("mouseover",function(){
         $(this).attr("class","glyphicon glyphicon-volume-up");
-        playaudio("/audio/1.mp3");
+        playaudio(audio);
     }).on("mouseout",function(){
         $(this).attr("class","glyphicon glyphicon-volume-down");
 
@@ -250,7 +257,7 @@ function renderQuestion(index)
 }
 setTimeout(function() {
     renderQuestion(0);
-},100);
+},200);
 
 
 var step1ok = "恭喜您！通过了第一关的测试！下一关，我们要把学过知识拼成知识图谱，<br>请根据提示，从左边的卡片中选择一个，用鼠标点击，放到左边的十字架中。"
@@ -294,7 +301,7 @@ function showmodalPanel(text)
       </div><!-- /.modal -->
 
 
-      <div class="col-md-4" id="left">
+      <div class="col-md-4" id="left" style="display:none">
         <div class="col-md-12 panel panel-default">
             <div class="panel-body">
                 <div class="col-md-12" id="infodiv">
@@ -366,10 +373,9 @@ function showmodalPanel(text)
     }
 
     loadaudio("");
-//
-//    setTimeout(function() {
-//        playaudio("/audio/1.mp3");
-//    }, 400);
+    setTimeout(function() {
+        playaudio("/audio/1.mp3");
+    }, 800);
 </script>
 
 <script>
@@ -859,6 +865,7 @@ function showmodalPanel(text)
 var map = {
     "Bigbang": {
         word: "Bigbang",
+        audio:"/audio/1.mp3",
         pic: "U11.jpg",
         picmd: "U11md.jpg",
         picsm: "U11sm.jpg",
@@ -867,6 +874,7 @@ var map = {
     },
     "Universe": {
         word: "Universe",
+        audio:"/audio/2.mp3",
         pic: "U21.jpg",
         picmd: "U21md.jpg",
         picsm: "U21sm.jpg",
@@ -875,6 +883,7 @@ var map = {
     },
     "Galaxy": {
         word: "Galaxy",
+        audio:"/audio/1.mp3",
         pic: "U31.jpg",
         picmd: "U31md.jpg",
         picsm: "U31sm.jpg",
@@ -883,6 +892,7 @@ var map = {
     },
     "Elliptical galaxy": {
         word: "Elliptical galaxy",
+        audio:"/audio/1.mp3",
         pic: "U41.jpg",
         picmd: "U41md.jpg",
         picsm: "U41sm.jpg",
@@ -891,6 +901,7 @@ var map = {
     },
     "Spiral galaxy": {
         word: "Spiral galaxy",
+        audio:"/audio/1.mp3",
         pic: "U51.jpg",
         picmd: "U51md.jpg",
         picsm: "U51sm.jpg",
@@ -899,6 +910,7 @@ var map = {
     },
     "Andromeda galaxy": {
         word: "Andromeda galaxy",
+        audio:"/audio/1.mp3",
         pic: "U61.jpg",
         picmd: "U61md.jpg",
         picsm: "U61sm.jpg",
@@ -907,6 +919,7 @@ var map = {
     },
     "Milky Way galaxy": {
         word: "Milky Way galaxy",
+        audio:"/audio/1.mp3",
         pic: "U71.jpg",
         picmd: "U71md.jpg",
         picsm: "U71sm.jpg",
@@ -915,6 +928,7 @@ var map = {
     },
     "Solar system": {
         word: "Solar system",
+        audio:"/audio/1.mp3",
         pic: "U81.jpg",
         picmd: "U81md.jpg",
         picsm: "U81sm.jpg",
@@ -923,6 +937,7 @@ var map = {
     },
     "Star": {
         word: "Star",
+        audio:"/audio/1.mp3",
         pic: "U91.jpg",
         picmd: "U91md.jpg",
         picsm: "U91sm.jpg",
@@ -1285,6 +1300,7 @@ var map = {
                     removeChild(loadingLayer);
                     loadingLayer = null;
                     initall();
+                    $("#left").show(200);
                 }
         );
 

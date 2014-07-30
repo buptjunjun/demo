@@ -42,9 +42,11 @@
       <file leaf-file-name="html53_2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8305085" vertical-offset="18576" max-vertical-offset="19980">
-              <caret line="1258" column="25" selection-start-line="1253" selection-start-column="2" selection-end-line="1258" selection-end-column="25" />
-              <folding />
+            <state vertical-scroll-proportion="0.4895288" vertical-offset="5468" max-vertical-offset="20220">
+              <caret line="377" column="8" selection-start-line="377" selection-start-column="8" selection-end-line="377" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1165,9 +1167,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8305085" vertical-offset="18576" max-vertical-offset="19980">
-          <caret line="1258" column="25" selection-start-line="1253" selection-start-column="2" selection-end-line="1258" selection-end-column="25" />
-          <folding />
+        <state vertical-scroll-proportion="0.4895288" vertical-offset="5468" max-vertical-offset="20220">
+          <caret line="377" column="8" selection-start-line="377" selection-start-column="8" selection-end-line="377" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
