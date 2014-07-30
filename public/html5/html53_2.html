@@ -15,17 +15,363 @@
     }
     h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
   </style>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.10.2.js"></script>
 
 
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!--<script src="/js/jquery.timer.js"></script>-->
+
+    <script type="text/javascript" src="/js/jplayer/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.pin.js"></script>
     <script src="js/lufylegend-1.9.0.min.js"></script>
+    <style>
+        .picsection
+        {
+             padding:5px;
+
+        }
+
+        .picsection img
+        {
+            width:180px;
+            height:180px;
+            padding:10px;
+        }
+
+        #english{
+            font-size: 20px;
+            color:#000000;
+        }
+        .shouldhide
+        {
+            font-size: 18;
+            color:#000000;
+
+        }
+        #infodiv
+        {
+            text-align: left;
+            margin-left: 20px;
+        }
+
+        .lilabel
+        {
+            color:#7dcefd;
+            font-size: 22px;
+            margin-right: 5px;
+        }
+
+        #play
+        {
+            font-size: 26px;
+            padding-left: 8px;
+        }
+        .preclass
+        {
+            font-size: 14px;
+            margin-left: 2px;
+        }
+    </style>
 </head>
 
+<script>
+
+
+    window.qindex = 0;
+    var wrongpic = "/html5/picture/nemo1/wrong.jpg";
+    var rightpic = "/html5/picture/nemo1/right.jpg";
+
+    /**
+     * get quesion according to index
+     * @param index
+     * @returns {*}
+     */
+    function getQuesion(index)
+    {
+        if(index < 0)
+            return null;
+        var count = 0;
+        for(var q in map)
+        {
+           if(count == index)
+           {
+               var question = map[q];
+               return question;
+           }
+           count++;
+        }
+
+        return null;
+    }
+
+
+function renderQuestion(index)
+{
+
+    if(index >= map.length)
+        return;
+
+    //文件编号
+    var array = [1,2,3,4];
+    var q  = getQuesion(index);
+    var preq = getQuesion(index-1);
+
+    //如果是最后一个 就...
+    if(q == null || q == undefined)
+    {
+
+        for(var key in dmap)
+        {
+            dmap[key].clear();
+        }
+
+        $("#left").hide(500);
+        //$("#left").hide();
+        //initbglayer();
+        initBubbleLayer();
+        //initTree(treeRoot);
+        initLeft();
+        initusertipsLayer();
+        showmodalPanel(step1ok);
+       return;
+    }
+
+    $("#english").text(q.word);
+
+    if(preq == null )
+    {
+        $(".preclass").hide();
+    }
+    else
+    {
+        $(".preclass").show();
+        $("#preword").text(preq.word);
+        $("#prechinese").text(preq.chinese);
+    }
+
+    $("#chinese").text(q.chinese);
+    $("#wiki").text(q.wiki);
+    $("#next").hide();
+    $(".shouldhide").hide();
+
+    //打文件 将第一个(正确答案)于random
+    var random = Math.floor(Math.random()*10)%4;
+    var tmp = array[random];
+    array[random] = array[0];
+    array[0] = tmp;
+
+    var count = 1;
+    for(var i = 0; i < array.length; i++)
+    {
+        var picnum = array[i];
+        var picid = "pic" + count;
+        $("#" + picid).attr("src", "picture/universe/U" + (index + 1) + "" + picnum + ".jpg");
+
+        // 添加class给每一个图片 正确的class石right 错误的石wrong
+        var cls = $("#" + picid).attr("class");
+        if(cls == null || cls == "undefined")
+            cls = "";
+        if(picnum == 1)
+            cls = " right";
+        else
+            cls = " wrong";
+
+        $("#" + picid).attr("class",cls);
+        count++;
+    }
+
+    $(".right").unbind("click");
+    $(".wrong").unbind("click");
+    $("#next").unbind("click");
+    $(".right").on("click",function(){
+        //alert($(this).attr("src"));
+        //钩钩图片效果
+        $(".shouldhide").show();
+        //show next button
+        $("#next").show(500);
+
+        var originpic = $(this).attr("src");
+        $(this).attr("picselected",originpic);
+        $(this).attr("jihao","jihao");
+        $(this).attr("src",rightpic);
+        setTimeout(function(){
+            var $img = $("img[jihao='jihao']");
+            $img.attr("src",originpic);
+            $img.attr("jihao","");
+
+        },500);
+
+    });
+
+    //叉叉图片效果
+    $(".wrong").on("click",function(){
+        $(".shouldhide").show();
+        var originpic = $(this).attr("src");
+        $(this).attr("picselected",originpic);
+        $(this).attr("jihao","jihao");
+        $(this).attr("src",wrongpic);
+
+        setTimeout(function(){
+           var $img = $("img[jihao='jihao']");
+           $img.attr("src",originpic);
+            $img.attr("jihao","");
+
+        },500);
+    });
+
+    $("#next").on("click",function(){
+
+        //点亮右边的东西;
+        var q = getQuesion(window.qindex);
+        var key = q.word;
+        var d = dmap[key];
+        d.draw();
+        $("#left").hide(500);
+        $("body").scrollLeft(250);
+        window.qindex+=1;
+        setTimeout(function(){$("#left").show(500);$("body").scrollLeft(0);renderQuestion(window.qindex);},2000);
+
+    });
+
+    $("#play").on("mouseover",function(){
+        $(this).attr("class","glyphicon glyphicon-volume-up");
+        playaudio("/audio/1.mp3");
+    }).on("mouseout",function(){
+        $(this).attr("class","glyphicon glyphicon-volume-down");
+
+    });
+
+
+}
+setTimeout(function() {
+    renderQuestion(0);
+},100);
+
+
+var step1ok = "恭喜您！通过了第一关的测试！下一关，我们要把学过知识拼成知识图谱，<br>请根据提示，从左边的卡片中选择一个，用鼠标点击，放到左边的十字架中。"
+var step2ok = "恭喜您！将孤立的知识链接成了知识图谱！放个 ~人工烟花~~";
+function showmodalPanel(text)
+{
+    $("#modaltext").html(text);
+    $('#myModal').modal('show');
+}
+
+</script>
 
 <body>
-  <div id="legend">
+  <div id="jquery_jplayer_1"></div>
+  <div class="container-fluid" id="container">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"
+                              aria-hidden="true">×
+                      </button>
+                      <!--<h4 class="modal-title" id="myModalLabel">-->
+                          <!--模态框（Modal）标题-->
+                      <!--</h4>-->
+                  </div>
+                  <div class="modal-body" id="modaltext">
+                     恭喜您！通过了第一关的测试！下一关，我们要把学过知识拼成知识图谱，<br>
+                     请根据提示，从左边的卡片中选择一个，用鼠标点击，放到左边的十字架中。
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default"
+                              data-dismiss="modal">
+                          关闭
+                      </button>
+
+                  </div>
+              </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+
+      <div class="col-md-4" id="left">
+        <div class="col-md-12 panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-12" id="infodiv">
+                    <ul class="list-group">
+                        <li class="list-group-item preclass" >
+                            <div class="preclass">
+                                <span class="">previously:</span>
+                                <span class="" id="preword"></span>
+                                <span class="" id="prechinese"></span>
+                            </div>
+                        </li>
+                        <li class="list-group-item" >
+                            <span class="lilabel "></span>
+                            <span class="" id="english" class="">Jupiter</span>
+                            <span id="play" class="glyphicon glyphicon-volume-down"></span>
+                        </li>
+                        <li class="list-group-item "><span class="lilabel"></span><span class="" id="wiki">Jupiter is the largest planet in solar system.</span></li>
+                        <li class="list-group-item shouldhide" ><span class="lilabel "></span> <span class="" id="chinese">木星</span></li>
+                        <li class="list-group-item " id="next"><span class="btn btn-default" >next one >> </span></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-12 picsection" >
+                    <div class="col-md-6 image"><a href="#" class="thumbnail"><img src="" id="pic1"/></a></div>
+                    <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic2"/></a></div>
+                    <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic3" /></a></div>
+                    <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic4"/></a></div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-md-8">
+              <div id="legend">
+              </div>
+
+      </div>
   </div>
 </body>
 </html>
+
+<script>
+
+    function playaudio(audioname) {
+        //var paused = $('#jquery_jplayer_1').data().jPlayer.status.paused;
+        //if (paused == true)
+        $("#jquery_jplayer_1").jPlayer("setMedia", {
+            title: "Bubble",
+            mp3: audioname
+        }).jPlayer("play"); //在页面load播放的时候自动播放
+    }
+
+    function loadaudio(audioname) {
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function() {
+                $(this).jPlayer("setMedia", {
+                    title: "Bubble"
+                }).jPlayer("play"); //在页面load播放的时候自动播放
+
+            },
+            swfPath: "/js/jplayer",
+            supplied: "mp3",
+            wmode: "window",
+            smoothPlayBar: true,
+            keyEnabled: true,
+            remainingDuration: true,
+            toggleDuration: true
+        });
+    }
+
+    loadaudio("");
+//
+//    setTimeout(function() {
+//        playaudio("/audio/1.mp3");
+//    }, 400);
+</script>
+
 <script>
     /**
      * layer is the layer of
@@ -153,9 +499,12 @@
                 this.layer.removeChild(this.bg);
             if(this.word != null)
                 this.layer.removeChild(this.word);
+            if(this.word != null)
+                this.layer.removeChild(this.chinese);
             this.pic = null;
             this.bg = null;
             this.word = null;
+            this.chinese = null;
         }
     }
 </script>
@@ -510,7 +859,7 @@
 var map = {
     "Bigbang": {
         word: "Bigbang",
-        pic: "U11.png",
+        pic: "U11.jpg",
         picmd: "U11md.jpg",
         picsm: "U11sm.jpg",
         wiki: "The universe began with an explosion, the explosion is called the big bang",
@@ -518,7 +867,7 @@ var map = {
     },
     "Universe": {
         word: "Universe",
-        pic: "U21.png",
+        pic: "U21.jpg",
         picmd: "U21md.jpg",
         picsm: "U21sm.jpg",
         wiki: "The Universe contains earth, planets, stars and everything else in outer space. ",
@@ -526,7 +875,7 @@ var map = {
     },
     "Galaxy": {
         word: "Galaxy",
-        pic: "U31.png",
+        pic: "U31.jpg",
         picmd: "U31md.jpg",
         picsm: "U31sm.jpg",
         wiki: "A galaxy is made up of millions and billions of stars, gas and dust",
@@ -534,7 +883,7 @@ var map = {
     },
     "Elliptical galaxy": {
         word: "Elliptical galaxy",
-        pic: "U41.png",
+        pic: "U41.jpg",
         picmd: "U41md.jpg",
         picsm: "U41sm.jpg",
         wiki: "An elliptical galaxy is oval or round in shape.",
@@ -542,7 +891,7 @@ var map = {
     },
     "Spiral galaxy": {
         word: "Spiral galaxy",
-        pic: "U51.png",
+        pic: "U51.jpg",
         picmd: "U51md.jpg",
         picsm: "U51sm.jpg",
         wiki: "A spiral galaxy is shaped like a giant whirlpool or pinwheel.",
@@ -550,7 +899,7 @@ var map = {
     },
     "Andromeda galaxy": {
         word: "Andromeda galaxy",
-        pic: "U61.png",
+        pic: "U61.jpg",
         picmd: "U61md.jpg",
         picsm: "U61sm.jpg",
         wiki: "Andromeda galaxy is a large spiral galaxy，it is indicated to collide with Milky Way galaxy to form an elliptical galaxy",
@@ -558,7 +907,7 @@ var map = {
     },
     "Milky Way galaxy": {
         word: "Milky Way galaxy",
-        pic: "U71.png",
+        pic: "U71.jpg",
         picmd: "U71md.jpg",
         picsm: "U71sm.jpg",
         wiki: "Milky Way galaxy is a spiral galaxy and it looks like a band of light observed from earth",
@@ -566,7 +915,7 @@ var map = {
     },
     "Solar system": {
         word: "Solar system",
-        pic: "U81.png",
+        pic: "U81.jpg",
         picmd: "U81md.jpg",
         picsm: "U81sm.jpg",
         wiki: "Solar system is made up of the sun surrounded by planets and other objects in Milky Way galaxy.",
@@ -574,7 +923,7 @@ var map = {
     },
     "Star": {
         word: "Star",
-        pic: "U91.png",
+        pic: "U91.jpg",
         picmd: "U91md.jpg",
         picsm: "U91sm.jpg",
         wiki: "A star gives off heat and light, like the sun.",
@@ -690,15 +1039,15 @@ var map = {
         treeLayer.addEventListener(LMouseEvent.MOUSE_UP,onclick);
     }
 
-
-    function onclick(event)
-    {
-        //alert(event.offsetX);
-        var img = new Image();
-        img.src = "picture/nemo1/bg.png";
-        var bitmapdaga = new LBitmapData(img);
-        dmap["A"].bg.bitmapData = bitmapdaga;
-    }
+//
+//    function onclick(event)
+//    {
+//        //alert(event.offsetX);
+//        var img = new Image();
+//        img.src = "picture/nemo1/bg.png";
+//        var bitmapdaga = new LBitmapData(img);
+//        dmap["A"].bg.bitmapData = bitmapdaga;
+//    }
 
 
     function initLeft()
@@ -733,6 +1082,7 @@ var map = {
         if(window.index >= pairs.length)
         {
             leftLayer.removeAllChild();
+            showmodalPanel(step2ok);
             return;
         }
 
@@ -869,11 +1219,11 @@ var map = {
         addChild(bglayer);
 
         var img = new Image();
-        img.src = "picture/nemo1/background.jpg";
+        img.src = backgroundpic;
         var bg = new LBitmap(new LBitmapData(img));
-        bg.scaleX=2;
-        bg.scaleY=2;
-        bg.alpha = 1;
+//        bg.scaleX=2;
+//        bg.scaleY=2;
+///        bg.alpha = 1;
         bglayer.addChild(bg);
 
     }
@@ -885,21 +1235,28 @@ var map = {
     }
 
 
+    var backgroundpic = "picture/nemo1/background.png";
     function collectImageData()
     {
         var imgData = new Array();
-        imgData.push({name:"background",path:"picture/nemo1/background.jpg"});
+        imgData.push({name:"background",path:backgroundpic});
         imgData.push({name:"bg",path:"picture/nemo1/bg.png"});
         imgData.push({name:"bubble",path:"picture/nemo1/bubble.png"});
         imgData.push({name:"hover",path:"picture/nemo1/hover.png"});
         imgData.push({name:"selected",path:"picture/nemo1/selected.png"});
         imgData.push({name:"selected2",path:"picture/nemo1/selected2.png"});
-
+        var count = 1;
         for(var key in map)
         {
            var item = map[key];
            imgData.push({name:item.word+"picmd",path:"picture/"+item.picmd});
            imgData.push({name:item.word+"picsm",path:"picture/"+item.picsm});
+//
+//           for(var j = 1; j <= 4; j++)
+//           {
+//               imgData.push({name:item.word+"U"+count+""+1,path:"picture/universe/U"+count+""+j+".jpg"});
+//           }
+//            count += 1;
         }
 
         return imgData;
@@ -959,10 +1316,10 @@ var map = {
     function initall()
     {
         initbglayer();
-        initBubbleLayer();
+        //initBubbleLayer();
         initTree(treeRoot);
-        initLeft();
-        initusertipsLayer();
+        //initLeft();
+        //initusertipsLayer();
     }
 
 
