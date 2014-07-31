@@ -594,9 +594,6 @@ function showmodalPanel(text)
     }
 
     loadaudio("");
-    setTimeout(function() {
-        playaudio("/audio/bigbang.mp3");
-    }, 600);
 </script>
 
 <script>
@@ -1531,6 +1528,9 @@ var map = {
                     loadingLayer = null;
                     initall();
                     $("#left").show(200);
+                    setTimeout(function() {
+                        playaudio("/audio/bigbang.mp3");
+                    }, 100);
                 }
         );
 
