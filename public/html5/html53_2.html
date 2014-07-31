@@ -1484,6 +1484,12 @@ var map = {
         imgData.push({name:"hover",path:"picture/nemo1/hover.png"});
         imgData.push({name:"selected",path:"picture/nemo1/selected.png"});
         imgData.push({name:"selected2",path:"picture/nemo1/selected2.png"});
+
+        for(var i = 1;i <=9; i++)
+            for(var j = 1; j <=4; j++)
+            {
+                imgData.push({name:"U"+i+""+j+".jpg",path:"picture/universe/"+"U"+i+""+j+".jpg"});
+            }
         var count = 1;
         for(var key in map)
         {
