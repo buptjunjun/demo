@@ -381,7 +381,7 @@ function renderQuestion(index)
     $(".right").unbind("click");
     $(".wrong").unbind("click");
     $("#next").unbind("click");
-    $(".right").on("click",function(){
+    $(".right").on("click",function(event){
         //alert($(this).attr("src"));
         //钩钩图片效果
         $(".shouldhide").show();
@@ -392,12 +392,21 @@ function renderQuestion(index)
         $(this).attr("picselected",originpic);
         $(this).attr("jihao","jihao");
         $(this).attr("src",rightpic);
+        var $bigpicdiv = $("#bigpicture");
+        var $bigpic = $bigpicdiv.find("img");
+        $bigpic.attr("src",originpic);
+        $bigpicdiv.css({"top":"200px","left":"50px"});
+        $bigpicdiv.show(300);
+
+       // $bigpicdiv(200);
+
         setTimeout(function(){
             var $img = $("img[jihao='jihao']");
             $img.attr("src",originpic);
             $img.attr("jihao","");
+            $bigpicdiv.hide(300);
 
-        },500);
+        },1500);
 
     });
 
@@ -464,6 +473,12 @@ function showmodalPanel(text)
 
 <body>
   <div id="jquery_jplayer_1"></div>
+  <div id="bigpicture" style="position: absolute; z-index: 999">
+      <a href="#" class="thumbnail">
+          <img width="300"  src="">
+      </a>
+  </div>
+
   <div class="container-fluid" id="container">
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
            aria-labelledby="myModalLabel" aria-hidden="true">
@@ -471,7 +486,7 @@ function showmodalPanel(text)
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal"
-                              aria-hidden="true">×
+                              aria-hidden="true">
                       </button>
                       <!--<h4 class="modal-title" id="myModalLabel">-->
                           <!--模态框（Modal）标题-->
