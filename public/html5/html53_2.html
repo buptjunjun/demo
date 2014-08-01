@@ -395,9 +395,10 @@ function renderQuestion(index)
         var $bigpicdiv = $("#bigpicture");
         var $bigpic = $bigpicdiv.find("img");
         $bigpic.attr("src",originpic);
-        $bigpicdiv.css({"top":"200px","left":"50px"});
-        $bigpicdiv.show(300);
 
+        var $offset = $("#pic1").offset();
+        $bigpicdiv.css({"top":290+"px","left":50+"px"});
+        $bigpicdiv.show(300);
        // $bigpicdiv(200);
 
         setTimeout(function(){
@@ -475,7 +476,7 @@ function showmodalPanel(text)
   <div id="jquery_jplayer_1"></div>
   <div id="bigpicture" style="position: absolute; z-index: 999">
       <a href="#" class="thumbnail">
-          <img width="300"  src="">
+          <img width="360"  height="680" src="">
       </a>
   </div>
 
@@ -535,7 +536,7 @@ function showmodalPanel(text)
                     </ul>
                 </div>
 
-                <div class="col-md-12 picsection" >
+                <div class="col-md-12 picsection" id="picsection">
                     <div class="col-md-6 image"><a href="#" class="thumbnail"><img src="" id="pic1"/></a></div>
                     <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic2"/></a></div>
                     <div class="col-md-6  image"><a href="#" class="thumbnail"><img src="" id="pic3" /></a></div>
@@ -1496,6 +1497,12 @@ var map = {
         imgData.push({name:"hover",path:"picture/nemo1/hover.png"});
         imgData.push({name:"selected",path:"picture/nemo1/selected.png"});
         imgData.push({name:"selected2",path:"picture/nemo1/selected2.png"});
+
+        imgData.push({name:"wrongpic",path:wrongpic});
+        imgData.push({name:"rightpic",path:rightpic});
+
+        imgData.push({name:"wrongpicsm",path:wrongpicsm});
+        imgData.push({name:"rightpicsm",path:rightpicsm});
 
         for(var i = 1;i <=9; i++)
             for(var j = 1; j <=4; j++)
