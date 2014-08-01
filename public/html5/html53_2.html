@@ -396,8 +396,8 @@ function renderQuestion(index)
         var $bigpic = $bigpicdiv.find("img");
         $bigpic.attr("src",originpic);
 
-        var $offset = $("#pic1").offset();
-        $bigpicdiv.css({"top":290+"px","left":50+"px"});
+        var $offset = $("#infodiv");
+        $bigpicdiv.css({"top":($offset.height()+90)+"px","left":50+"px"});
         $bigpicdiv.show(300);
        // $bigpicdiv(200);
 
@@ -476,7 +476,7 @@ function showmodalPanel(text)
   <div id="jquery_jplayer_1"></div>
   <div id="bigpicture" style="position: absolute; z-index: 999">
       <a href="#" class="thumbnail">
-          <img width="360"  height="680" src="">
+          <img width="360"  height="720" src="">
       </a>
   </div>
 
