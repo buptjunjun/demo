@@ -30,7 +30,6 @@
     <script type="text/javascript" src="/js/jquery.pin.js"></script>
     <script src="js/lufylegend-1.9.0.min.js"></script>
     <style>
-
         .answersection
         {
             padding:5px;
@@ -176,6 +175,17 @@ function getRandom(n,except,max)
     return array;
 }
 
+    /**
+     * 显示提示框
+     */
+function showTipBox()
+{
+    $("#show_tip_div").show();
+    var width = $(window).width;
+    $("#show_tip_div").css("left",width/2-100);
+
+}
+
 /**
  * 单词选意思
  *
@@ -200,6 +210,7 @@ function renderQuestion1(index)
 
         $("#left").hide();
         _renderAllSmallCard();
+        showTipBox();
         initbglayer();
         initBubbleLayer();
         initTree(treeRoot);
@@ -338,7 +349,6 @@ function renderQuestion(index)
         renderQuestion1(0);
         //$(".answersection").show();
         showmodalPanel(step2beginword);
-        window.qindex = 0;
        return;
     }
 
@@ -570,7 +580,7 @@ function showSmallCardWords(index)
 setTimeout(function() {
     renderQuestion(0);
     $(".sm-card-item").on("mouseover",function(){
-       // $(this).css("background","red");
+       // $(this).css("background","#d1d1d1");
     }).on("mouseleave",function(){
       //  $(this).css("background","white");
     });
@@ -741,8 +751,11 @@ function showmodalPanel(text)
   <div class="col-md-12">
       <div id="legend">
       </div>
-
   </div>
+</div>
+
+<div style="position: fixed; min-width:360px; z-index:999; left: 450px; top: 20px; display: none" id="show_tip_div">
+    <div class="alert alert-info" style="background: #d1d1d1"> <span id="show_tip">hahahah</span></div>
 </div>
 </body>
 </html>
@@ -1612,9 +1625,11 @@ var map = {
         var bubbletext = relationship[relationkey];
 
         //显示提示信息
-        showBubble(position[0]-bubbleHalfWidth,position[1]-bubbleHeight,bubbletext)
+        //showBubble(position[0]-bubbleHalfWidth,position[1]-bubbleHeight,bubbletext)
 
         show2beSelectedSmallCard(currentKey);
+
+        $("#show_tip").text(bubbletext);
         window.index+=1;
 
 
@@ -1774,7 +1789,7 @@ var map = {
 
         return imgData;
     }
-    LInit(100, "legend", 1800, 1800, main);
+    LInit(100, "legend", 1000, 1800, main);
     function main()
     {
         loadingLayer = new LoadingSample3();
@@ -1849,6 +1864,12 @@ var map = {
         var offset = $sm_card_div.offset();
         offset.top = 20;
         offset.left = 2;
+        $("li").on("mouseover",function(){
+            $(this).css("background","#d1d1d1");
+        }).on("mouseleave",function(){
+            $(this).css("background","white");
+        });
+
 
     }
     function initall()
@@ -1869,4 +1890,10 @@ var map = {
     }
 
     //window.location.href = "http://www.baicizhan.com";
+
+     $("li").on("mouseover",function(){
+         $(this).css("background","#d1d1d1");
+     }).on("mouseleave",function(){
+         $(this).css("background","white");
+     });
 </script>
