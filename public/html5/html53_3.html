@@ -754,8 +754,8 @@ function showmodalPanel(text)
   </div>
 </div>
 
-<div style="position: fixed; min-width:360px; z-index:999; left: 450px; top: 20px; display: none" id="show_tip_div">
-    <div class="alert alert-info" style="background: #d1d1d1"> <span id="show_tip">hahahah</span></div>
+<div style="position: fixed; min-width:800px; z-index:999; left: 320px; top: 5px; display: none" id="show_tip_div">
+    <div class="alert alert-info" style="background: #d1d1d1;font-size: 20px; filter:alpha(opacity=80);-moz-opacity:0.8;opacity:0.8;"> <span id="show_tip">hahahah</span></div>
 </div>
 </body>
 </html>
@@ -1592,7 +1592,12 @@ var map = {
 
             //show all small card
             var $lis = $("#sm_card_div_").find("li");
-            $lis.show();
+            for(var i = 0; i < getMapSize(map); i++)
+            {
+                $($lis[i]).show();
+            }
+
+            $("#show_tip_div").hide(500);
             return;
         }
 
