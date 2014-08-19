@@ -192,19 +192,21 @@ function renderQuestion1(index)
     //如果是最后一个 就...
     if(q == null || q == undefined)
     {
-        window.qindex = 0;
+
         for(var key in dmap)
         {
             dmap[key].clear();
         }
 
-        $("#left").hide(500);
+        $("#left").hide();
+        _renderAllSmallCard();
         initbglayer();
         initBubbleLayer();
         initTree(treeRoot);
         initLeft();
         initusertipsLayer();
         showmodalPanel(step1ok);
+
         return;
     }
 
@@ -628,7 +630,7 @@ function showmodalPanel(text)
                   <img class="sdcard-pic" width=50 src="picture/universe/U11.jpg" />
               </div>
               <div class="col-md-8">
-                  <div class="row" style="text-align: left; font-size: 25px">
+                  <div class="row" style="text-align: left; font-size: 20px">
                       <span class="smcard-chinese">火星</span>
                   </div>
                   <div class="row" style="text-align: left">
@@ -639,7 +641,7 @@ function showmodalPanel(text)
       </li>
 
       <div class="col-md-12" id="left" style="margin-top: 10px">
-        <div class="col-md-3 col-md-offset-2">
+        <div class="col-md-3 col-md-offset-2" id="sm-card-div">
             <ul class="list-group-item" id="sm-card" style="border:0px; min-height: 800px">
             </ul>
         </div>
@@ -1122,10 +1124,10 @@ function showmodalPanel(text)
             var h = hs[i];
             for(var j = 0; j < h.length; j++)
             {
-                var d = new Drawable(layer, i*(bgwidth+bgwidth)+10,j*(bgheight+bgheight/4)+10,bgwidth,bgheight,h[j]);
-                d.drawbg1();
+               // var d = new Drawable(layer, i*(bgwidth+bgwidth)+10,j*(bgheight+bgheight/4)+10,bgwidth,bgheight,h[j]);
+                var d = new Drawable(layer,j*(bgheight+bgheight/4)+50, i*(bgwidth+bgwidth)+10, bgwidth,bgheight,h[j]);
+                d.drawbg();
                 drawableMap[h[j]] = d;
-
                 count++;
             }
         }
@@ -1166,7 +1168,7 @@ function showmodalPanel(text)
     }
 
     /**
-     * 用线将将两个drawable连起来。
+     * 用线将将两个drawable连起来，横着排
      * @param d1
      * @param d2
      */
@@ -1192,7 +1194,7 @@ function showmodalPanel(text)
     }
 
     /**
-     * 用线将将两个drawable连起来。
+     * 用线将将两个drawable连起来 竖着排。
      * @param d1
      * @param d2
      */
@@ -1203,20 +1205,47 @@ function showmodalPanel(text)
         var p1heart = d1.heart();
         var p2heart = d2.heart();
 
-        p1x = p1heart[0]+d1.width/2;
-        p1y = p1heart[1];
+        p1x = p1heart[0];
+        p1y = p1heart[1]+d1.height/2;
 
-        p2x = p2heart[0]-d2.width/2;
-        p2y = p2heart[1];
+        p2x = p2heart[0]
+        p2y = p2heart[1]-d2.height/2;
 
-        p3x = p1x+(p2x - p1x)/2;
+       // p3x = p1x+(p2x - p1x)/2;
 
-        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p3x,p1y]);
-        layer.graphics.drawLine(0.5,"#7ecefd",[p3x,p1y,p3x,p2y]);
-        layer.graphics.drawLine(0.5,"#7ecefd",[p3x,p2y,p2x,p2y]);
+        p3y = p1y+(p2y-p1y)/2;
 
-        return [p3x,(p1y+p2y)/2]
+        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p1x,p3y]);
+        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p3y,p2x,p3y]);
+        layer.graphics.drawLine(0.5,"#7ecefd",[p2x,p3y,p2x,p2y]);
+        return [(p1x+p2x)/2,p3y]
     }
+//    /**
+//     * 用线将将两个drawable连起来。
+//     * @param d1
+//     * @param d2
+//     */
+//    function link2drawable1(layer,d1,d2)
+//    {
+//        if(d1 == null || d2 == null)
+//            return ;
+//        var p1heart = d1.heart();
+//        var p2heart = d2.heart();
+//
+//        p1x = p1heart[0]+d1.width/2;
+//        p1y = p1heart[1];
+//
+//        p2x = p2heart[0]-d2.width/2;
+//        p2y = p2heart[1];
+//
+//        p3x = p1x+(p2x - p1x)/2;
+//
+//        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p3x,p1y]);
+//        layer.graphics.drawLine(0.5,"#7ecefd",[p3x,p1y,p3x,p2y]);
+//        layer.graphics.drawLine(0.5,"#7ecefd",[p3x,p2y,p2x,p2y]);
+//
+//        return [p3x,(p1y+p2y)/2]
+//    }
 
     function linkTree(layer,drawablemap,nodes,pairs)
     {
@@ -1229,7 +1258,7 @@ function showmodalPanel(text)
             {
                 var cnode = children[j];
                 var drawable2 = drawablemap[cnode];
-                link2drawable(layer,drawable1,drawable2);
+                link2drawable1(layer,drawable1,drawable2);
             }
         }
     }
@@ -1415,13 +1444,13 @@ var map = {
 
             if(Math.random() > 0.6)
             {
-                ld.draw();
+                //ld.draw();
                 count += 1;
                 addArray.push(i);
             }
 
             if(count > interuptLimit)
-                return;
+                return addArray;
         }
 
 
@@ -1432,10 +1461,10 @@ var map = {
                 if(addArray.indexOf(random) < 0 && ld.key != key)
                 {
                     addArray.push(random);
-                    ld.draw();
+                    //ld.draw();
                 }
             }
-
+        return addArray;
     }
 
     function initTree(root)
@@ -1451,7 +1480,7 @@ var map = {
         var hs = getHierarchy(pairs,root);
        // alert(hs);
         dmap = renderTree(pairs,hs,treeLayer);
-        linkTree(treeLayer,dmap,nodes,pairs);
+        //linkTree(treeLayer,dmap,nodes,pairs);
         treeLayer.addEventListener(LMouseEvent.MOUSE_UP,onclick);
     }
 
@@ -1490,6 +1519,52 @@ var map = {
 
     }
 
+    /**
+     * 从单词找到在map中的位置
+     */
+    function getIndexByWords(word)
+    {
+        for(var i = 0; i < getMapSize(map); i++)
+        {
+            var $question = getQuesion(i);
+            if($question.word == word)
+                return i;
+        }
+
+        return -1;
+    }
+
+
+    function show2beSelectedSmallCard(key)
+    {
+        var $lis = $("#sm_card_div_").find("li");
+        // alert($lis.length);
+        $lis.unbind("click");
+        var rightIndex = getIndexByWords(key);
+        $($lis[rightIndex]).on("click",function(){
+            hideshow()
+        });
+
+        var addArray = showInterupt(key);
+       // alert(addArray);
+        addArray.push(rightIndex);
+
+        var count = 0;
+        for(var li in $lis)
+        {
+            if(addArray.contains(count))
+            {
+                $($lis[count]).show();
+            }
+            else
+            {
+                $($lis[count]).hide();
+            }
+            count+=1;
+        }
+
+    }
+
     function prepare()
     {
 
@@ -1498,8 +1573,13 @@ var map = {
         if(window.index >= pairs.length)
         {
             leftLayer.removeAllChild();
-            $("body").scrollLeft(250);
+           // $("body").scrollLeft(250);
+
             showmodalPanel(step2ok);
+
+            //show all small card
+            var $lis = $("#sm_card_div_").find("li");
+            $lis.show();
             return;
         }
 
@@ -1514,7 +1594,8 @@ var map = {
         var currentKey = keys[1];
         window.right = currentKey;
         var currentLd = lmap[currentKey];
-        currentLd.draw();//显示为待选
+        //currentLd.draw();//显示为待选
+
         showInterupt(currentLd.key);
 
         var lastTreeD = dmap[key];
@@ -1533,8 +1614,12 @@ var map = {
         //显示提示信息
         showBubble(position[0]-bubbleHalfWidth,position[1]-bubbleHeight,bubbletext)
 
+        show2beSelectedSmallCard(currentKey);
         window.index+=1;
+
+
     }
+
 
 
     //隐藏当前的，显示下一个个要选择的
@@ -1549,7 +1634,6 @@ var map = {
         var toshow = dmap[lkey];
         toshow.clear();
         toshow.draw();
-
         prepare();
     }
 
@@ -1690,7 +1774,7 @@ var map = {
 
         return imgData;
     }
-    LInit(100, "legend", 1800, 900, main);
+    LInit(100, "legend", 1800, 1800, main);
     function main()
     {
         loadingLayer = new LoadingSample3();
@@ -1746,6 +1830,27 @@ var map = {
         words += currentwords;
         return words;
     }
+
+    function _renderAllSmallCard()
+    {
+        for(var i = 0; i < getMapSize(map); i++)
+        {
+            renderSmallCard(i);
+        }
+        var $sm_card_div = $("#sm-card-div");
+        $sm_card_div_ = $sm_card_div.clone();
+        $sm_card_div_.css("width","250px");
+        $sm_card_div_.attr("id","sm_card_div_");
+        $sm_card_div_.appendTo($("body"));
+
+        $sm_card_div_.css("position","fixed");
+        $sm_card_div_.css("z-index","999");
+        $sm_card_div_.attr("class","");
+        var offset = $sm_card_div.offset();
+        offset.top = 20;
+        offset.left = 2;
+
+    }
     function initall()
     {
         //initbglayer();
@@ -1753,6 +1858,14 @@ var map = {
        // initTree(treeRoot);
         //initLeft();
         //initusertipsLayer();
+        //$("#left").hide();
+//        initbglayer();
+//        initBubbleLayer();
+//        initTree(treeRoot);
+//        initLeft();
+//        initusertipsLayer();
+//        showmodalPanel(step1ok);
+
     }
 
     //window.location.href = "http://www.baicizhan.com";
