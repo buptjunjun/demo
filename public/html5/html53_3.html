@@ -30,6 +30,8 @@
     <script type="text/javascript" src="/js/jquery.pin.js"></script>
     <script src="js/lufylegend-1.9.0.min.js"></script>
     <style>
+
+        #loading{position:fixed;_position:absolute;top:50%;left:50%;width:124px;height:124px;overflow:hidden;background:url(loaderc.gif) no-repeat;z-index:7; margin:-62px 0 0 -62px;}
         .answersection
         {
             padding:5px;
@@ -610,7 +612,8 @@ function showmodalPanel(text)
 </script>
 
 <body>
-  <div id="jquery_jplayer_1"></div>
+<div id="loading"></div>
+<div id="jquery_jplayer_1"></div>
   <div id="bigpicture" style="position: absolute; z-index: 999;display: none">
       <a href="#" class="thumbnail">
           <img width="360"  height="720" src="">
@@ -2019,6 +2022,7 @@ var map = {
             parse(json);
             treeRoot = pairs[0][0];
             initRelationShip();
+            $("#loading").fadeOut();
             LInit(100, "legend", 2200, 1000, main);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
