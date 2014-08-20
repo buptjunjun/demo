@@ -21,7 +21,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="false" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/demo@Development__untitled.coverage" NAME="Development: untitled Coverage Results" MODIFIED="1408342070538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
+    <SUITE FILE_PATH="coverage/demo@Development__untitled.coverage" NAME="Development: untitled Coverage Results" MODIFIED="1408516206664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="untitled" />
     <SUITE FILE_PATH="coverage/demo@All_tests_in_railstest__railstest.coverage" NAME="All tests in railstest: railstest Coverage Results" MODIFIED="1405466455369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../railstest" MODULE_NAME="railstest" />
     <SUITE FILE_PATH="coverage/demo@mongotest.coverage" NAME="mongotest Coverage Results" MODIFIED="1405257857072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../firstgit" MODULE_NAME="firstgit" />
     <SUITE FILE_PATH="coverage/demo@batrename.coverage" NAME="batrename Coverage Results" MODIFIED="1406799379095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../firstgit" MODULE_NAME="firstgit" />
@@ -51,11 +51,41 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="html53.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html5/html53.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.86" vertical-offset="2827" max-vertical-offset="5550">
+              <caret line="198" column="13" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="html52.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html5/html52.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="690">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="html51.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html5/html51.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.3" vertical-offset="150" max-vertical-offset="780">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="html53_3.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/html5/html53_3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="14.561279" vertical-offset="3142" max-vertical-offset="28650">
-              <caret line="756" column="95" selection-start-line="756" selection-start-column="95" selection-end-line="756" selection-end-column="95" />
+            <state vertical-scroll-proportion="0.36744186" vertical-offset="5632" max-vertical-offset="30555">
+              <caret line="386" column="25" selection-start-line="386" selection-start-column="25" selection-end-line="386" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -127,22 +157,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/test2/test2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="7080">
-              <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-              <folding>
-                <marker date="1406603020000" expanded="false" signature="11626:11635" placeholder="..." />
-                <marker date="1406603020000" expanded="false" signature="11724:11733" placeholder="..." />
-                <marker date="1406603020000" expanded="false" signature="11888:11897" placeholder="..." />
-                <marker date="1406603020000" expanded="false" signature="12137:12146" placeholder="..." />
-                <marker date="1406603020000" expanded="false" signature="12389:12398" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -156,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/demo4_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/demo4/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/question1s/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/answer1s/edit.html.erb" />
@@ -203,9 +216,10 @@
         <option value="$USER_HOME$/Downloads/test2/test2.html" />
         <option value="$USER_HOME$/Downloads/test2/test07.html" />
         <option value="$PROJECT_DIR$/../firstgit/batrename.rb" />
-        <option value="$PROJECT_DIR$/public/html5/html53.html" />
         <option value="$PROJECT_DIR$/public/html5/html55.html" />
         <option value="$PROJECT_DIR$/public/html5/html53_2.html" />
+        <option value="$PROJECT_DIR$/public/html5/html53.html" />
+        <option value="$PROJECT_DIR$/public/html5/html51.html" />
         <option value="$PROJECT_DIR$/public/html5/html53_3.html" />
       </list>
     </option>
@@ -713,10 +727,10 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3125894" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19059406" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19059406" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38783783" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32673267" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -786,25 +800,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/lufylegend.js-lufylegend-1.9.0/examples/api/LTextField/wind.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="750">
-          <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/lufylegend.js-lufylegend-1.9.0/examples/api/LTextField/size.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51391864" vertical-offset="0" max-vertical-offset="467">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../railstest/public/html5/picture/4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../railstest/public/html5/picture/2.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1022,11 +1017,11 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="6685" max-vertical-offset="7080">
           <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
           <folding>
-            <marker date="1406603020000" expanded="false" signature="11626:11635" placeholder="..." />
-            <marker date="1406603020000" expanded="false" signature="11724:11733" placeholder="..." />
-            <marker date="1406603020000" expanded="false" signature="11888:11897" placeholder="..." />
-            <marker date="1406603020000" expanded="false" signature="12137:12146" placeholder="..." />
-            <marker date="1406603020000" expanded="false" signature="12389:12398" placeholder="..." />
+            <marker date="1406603020000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1406603020000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1406603020000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1406603020000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1406603020000" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1093,14 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/html5/html53.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3962963" vertical-offset="311" max-vertical-offset="5550">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/html55.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="225">
@@ -1109,18 +1096,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/html5/ONE_solar_system.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/html53_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3" vertical-offset="8340" max-vertical-offset="24000">
-          <caret line="577" column="12" selection-start-line="573" selection-start-column="5" selection-end-line="577" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.3508772" vertical-offset="18005" max-vertical-offset="24000">
+          <caret line="1211" column="27" selection-start-line="1211" selection-start-column="20" selection-end-line="1211" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html5/html51.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3" vertical-offset="150" max-vertical-offset="780">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html5/html52.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="690">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html5/html53.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.86" vertical-offset="2827" max-vertical-offset="5550">
+          <caret line="198" column="13" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/html53_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="14.561279" vertical-offset="3142" max-vertical-offset="28650">
-          <caret line="756" column="95" selection-start-line="756" selection-start-column="95" selection-end-line="756" selection-end-column="95" />
+        <state vertical-scroll-proportion="0.36744186" vertical-offset="5632" max-vertical-offset="30555">
+          <caret line="386" column="25" selection-start-line="386" selection-start-column="25" selection-end-line="386" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
