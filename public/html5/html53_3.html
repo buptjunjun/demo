@@ -661,7 +661,7 @@ function showmodalPanel(text)
           </div>
       </li>
 
-      <div class="col-md-12" id="left" style="margin-top: 10px">
+      <div class="col-md-12" id="left" style="margin-top: 10px;display: none">
         <div class="col-md-3 col-md-offset-2" id="sm-card-div">
             <ul class="list-group-item" id="sm-card" style="border:0px; min-height: 800px">
             </ul>
@@ -1920,7 +1920,7 @@ var map = {
                     removeChild(loadingLayer);
                     loadingLayer = null;
                     initall();
-                    //$("#left").show(200);
+                    $("#left").show(200);
                     setTimeout(function() {
                         playaudio("/audio/bigbang.mp3");
                     }, 100);
@@ -1986,7 +1986,7 @@ var map = {
        // initTree(treeRoot);
         //initLeft();
         //initusertipsLayer();
-        //$("#left").hide();
+        $("#left").hide();
         //initbglayer();
 
     }
@@ -2019,13 +2019,13 @@ var map = {
             parse(json);
             treeRoot = pairs[0][0];
             initRelationShip();
-            LInit(100, "legend", 2200, 1800, main);
+            LInit(100, "legend", 2200, 1000, main);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("ajax error");
         }
     });
 
-    LInit(100, "legend", 2200, 1800, main);
+    LInit(100, "legend", 2200, 1000, main);
 </script>
 
