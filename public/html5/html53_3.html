@@ -590,14 +590,6 @@ function showSmallCardWords(index)
     }
 }
 
-setTimeout(function() {
-    renderQuestion(0);
-    $(".sm-card-item").on("mouseover",function(){
-       // $(this).css("background","#d1d1d1");
-    }).on("mouseleave",function(){
-      //  $(this).css("background","white");
-    });
-},200);
 window.qindex = 0;
 
 var step1ok = "恭喜您！通过了第一关的测试！下一关，我们要把学过知识拼成知识图谱，<br>请根据提示，从左边的卡片中选择一个，用鼠标点击，放到左边的十字架中。"
@@ -2024,6 +2016,15 @@ var map = {
             initRelationShip();
             $("#loading").fadeOut();
             LInit(100, "legend", 2200, 1000, main);
+
+            setTimeout(function() {
+                renderQuestion(0);
+                $(".sm-card-item").on("mouseover",function(){
+                    // $(this).css("background","#d1d1d1");
+                }).on("mouseleave",function(){
+                    //  $(this).css("background","white");
+                });
+            },100);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("ajax error");
