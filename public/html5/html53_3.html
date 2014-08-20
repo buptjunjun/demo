@@ -103,8 +103,30 @@
         return false;
     }
 </script>
+
 <script>
 
+    function GetUrlParms() {
+        var args = new Object();
+        var query = location.search.substring(1); //获取查询串
+        var pairs = query.split("&"); //在逗号处断开
+        for (var i = 0; i < pairs.length; i++) {
+            var pos = pairs[i].indexOf('='); //查找name=value
+            if (pos == -1) continue; //如果没有找到就跳过
+            var argname = pairs[i].substring(0, pos); //提取name
+            var value = pairs[i].substring(pos + 1); //提取value
+            args[argname] = unescape(value); //存为属性
+        }
+        return args;
+    }
+    //调用方法
+    var args = new Object();
+    args = GetUrlParms();
+    var argsValue = args["taskIndex"];
+    var taskIndex=parseInt(argsValue);
+   // alert(argsValue);
+</script>
+<script>
     var imagUrlPre = "http://demo.baicizhan.com:9008/talent/image/upload/";
     window.qindex = 0;
     var wrongpicsm = "http://baicizhan.qiniudn.com/pack/assets/done-wrong.png";
@@ -189,7 +211,14 @@ function showTipBox()
 
 }
 
-/**
+
+function scroll2Top()
+{
+    alert("---");
+    $("#sm-card-div").scrollTop(200);
+}
+
+    /**
  * 单词选意思
  *
  */
@@ -198,6 +227,7 @@ function renderQuestion1(index)
     $(".picsection").hide();
     $("#questionDivs").show();
     $(".answersection").show();
+    //scrollLeftTop();
 
     //当前问题
     var q  = getQuesion(index);
@@ -220,6 +250,7 @@ function renderQuestion1(index)
         initTree(treeRoot);
         initLeft();
         initusertipsLayer();
+        $("#legend").show();
         return;
     }
 
@@ -510,7 +541,6 @@ function renderSmallCard(index)
         $smcard_item.appendTo($("#sm-card"));
 }
 
-
 //显示大图片
 function renderBigCard(index)
 {
@@ -657,8 +687,8 @@ function showmodalPanel(text)
       </li>
 
       <div class="col-md-12" id="left" style="margin-top: 10px;display: none">
-        <div class="col-md-3 col-md-offset-2" id="sm-card-div">
-            <ul class="list-group-item" id="sm-card" style="border:0px; min-height: 800px">
+        <div class="col-md-3 col-md-offset-2" id="sm-card-div" style="height: 700px; overflow:scroll">
+            <ul class="list-group-item" id="sm-card" style="border:0px; min-height: 700px">
             </ul>
         </div>
 
@@ -1241,9 +1271,11 @@ function showmodalPanel(text)
 
         p3y = p1y+(p2y-p1y)/2;
 
-        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p1x,p3y]);
-        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p3y,p2x,p3y]);
-        layer.graphics.drawLine(0.5,"#7ecefd",[p2x,p3y,p2x,p2y]);
+//        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p1x,p3y]);
+//        layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p3y,p2x,p3y]);
+//        layer.graphics.drawLine(0.5,"#7ecefd",[p2x,p3y,p2x,p2y]);
+          layer.graphics.drawLine(0.5,"#7ecefd",[p1x,p1y,p2x,p2y]);
+
         return [(p1x+p2x)/2,p3y]
     }
 //    /**
@@ -1404,12 +1436,18 @@ var map = {
 
 <script>
 
-    var ajaxurl = "ONE_solar_system.txt";
+    var ajaxurl = "ONE_Mars.txt";
+    var ajaxurls = ["ONE_solar_system.txt","ONE_Mars.txt"];
+
     var map = {};
     var pairs = new Array();
     var depends = null;
     function parse(json)
     {
+
+        map = {};
+        pairs = new Array();
+        depends = null;
 
         for(var i = 0; i < json.length; i++) {
             var obj = json[i];
@@ -1467,6 +1505,9 @@ var map = {
         for(var i = 0; i < singleDepends.length; i++)
         {
             var pair = singleDepends[i];
+            if(pair == "" || pair == null || pair == undefined)
+                continue;
+
             var words = pair.split("=");
             var word = wordsmap[words[1]];
             var tmp = [words[0], words[1], word['tips']];
@@ -1676,6 +1717,7 @@ var map = {
     function prepare()
     {
 
+
         //----------------
         hideBubble();
         if(window.index >= pairs.length)
@@ -1693,6 +1735,13 @@ var map = {
             }
 
             $("#show_tip_div").hide(500);
+
+            window.taskIndex += 1;
+            window.qindex = 0;
+            taskIndex += 1;
+            var url = window.location.href;
+            var search = window.location.search;
+            window.location.href = url.replace(search,"?taskIndex="+taskIndex);
             return;
         }
 
@@ -2004,32 +2053,40 @@ var map = {
         }
     }
 
-    $.ajax({
-        type: "get",
-        url: ajaxurl,
-        dataType: 'text',
-        jsonp: 'jsoncallback',
-        success: function (data) {
-            var json =  eval("("+data+")");
-            parse(json);
-            treeRoot = pairs[0][0];
-            initRelationShip();
-            $("#loading").fadeOut();
-            LInit(100, "legend", 2200, 1000, main);
+    function startTask(ajaxurl)
+    {
+        $.ajax({
+            type: "get",
+            url: ajaxurl,
+            dataType: 'text',
+            jsonp: 'jsoncallback',
+            success: function (data) {
+                var json = eval("(" + data + ")");
+                parse(json);
+                treeRoot = pairs[0][0];
+                initRelationShip();
+                $("#loading").fadeOut();
 
-            setTimeout(function() {
-                renderQuestion(0);
-                $(".sm-card-item").on("mouseover",function(){
-                    // $(this).css("background","#d1d1d1");
-                }).on("mouseleave",function(){
-                    //  $(this).css("background","white");
-                });
-            },100);
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            alert("ajax error");
-        }
-    });
+                $("#left").show();
+                $("#sm-card-div").children().show();
+                $("#sm-card").children().remove();
+                $("#sm_card_div_").children().remove();
+                LInit(100, "legend", 2200, 1000, main);
+
+                $("#legend").hide();
+                setTimeout(function () {
+                    renderQuestion(0);
+                }, 50);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("ajax error");
+            }
+        });
+    }
+
+    //window.taskIndex = 0;
+   // alert(taskIndex);
+    startTask(ajaxurls[taskIndex]);
 
     LInit(100, "legend", 2200, 1000, main);
 </script>
