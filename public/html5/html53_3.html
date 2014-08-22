@@ -247,7 +247,10 @@ function renderQuestion1(index)
     $(".answersection").show();
     //scrollLeftTop();
     if(index > 8)
-        scroll2Top(600);
+        scroll2Top(800);
+    if(index > 16)
+        scroll2Top(1400);
+
     //当前问题
     var q  = getQuesion(index);
 
@@ -712,8 +715,8 @@ function showmodalPanel(text)
       </li>
 
       <div class="col-md-12" id="left" style="margin-top: 10px;display: none">
-        <div class="col-md-3 col-md-offset-2" id="sm-card-div" style="height: 700px; overflow:scroll;border: 0px">
-            <ul class="list-group-item" id="sm-card" style="border:0px; min-height: 700px">
+        <div class="col-md-3 col-md-offset-2" id="sm-card-div" style="height: 600px; overflow:scroll;border: 0px">
+            <ul class="list-group-item" id="sm-card" style="border:0px;">
             </ul>
         </div>
 
@@ -2131,6 +2134,7 @@ var map = {
                 $("#sm-card").children().remove();
                 $("#sm_card_div_").children().remove();
                 LInit(100, "legend", 2200, 1000, main);
+                //$("#sm-card-div").css("height",$("window").height()-100);;
 
                 $("#legend").hide();
                 setTimeout(function () {
