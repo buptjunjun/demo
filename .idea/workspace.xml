@@ -41,11 +41,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="html53_3.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="html53_3.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/html5/html53_3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54186046" vertical-offset="21907" max-vertical-offset="32625">
-              <caret line="1476" column="5" selection-start-line="1476" selection-start-column="5" selection-end-line="1476" selection-end-column="5" />
+            <state vertical-scroll-proportion="-5.26" vertical-offset="22522" max-vertical-offset="32625">
+              <caret line="1519" column="39" selection-start-line="1519" selection-start-column="39" selection-end-line="1519" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -67,6 +67,16 @@
                 <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ONE_solar_system.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/html5/ONE_solar_system.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.40931374" vertical-offset="7258" max-vertical-offset="16080">
+              <caret line="495" column="16" selection-start-line="495" selection-start-column="16" selection-end-line="495" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -173,8 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/demo4/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/question1s/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/answer1s/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/question1s/edit.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20140718030058_add_tag.rb" />
@@ -224,6 +232,8 @@
         <option value="$PROJECT_DIR$/public/html5/html51.html" />
         <option value="$PROJECT_DIR$/public/html5/html55.html" />
         <option value="$PROJECT_DIR$/public/html5/html53_3.html" />
+        <option value="$PROJECT_DIR$/public/html5/ONE_solar_system.txt" />
+        <option value="$PROJECT_DIR$/public/html5/ONE_solar_system.json" />
       </list>
     </option>
   </component>
@@ -235,8 +245,9 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
+    <option name="x" value="249" />
+    <option name="y" value="52" />
+    <option name="width" value="980" />
     <option name="height" value="874" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -703,7 +714,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="249" y="52" width="980" height="874" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -711,7 +722,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3125894" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46588486" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19059406" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38783783" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1145,8 +1156,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/html5/html53_3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54186046" vertical-offset="21907" max-vertical-offset="32625">
-          <caret line="1476" column="5" selection-start-line="1476" selection-start-column="5" selection-end-line="1476" selection-end-column="5" />
+        <state vertical-scroll-proportion="-5.26" vertical-offset="22522" max-vertical-offset="32625">
+          <caret line="1519" column="39" selection-start-line="1519" selection-start-column="39" selection-end-line="1519" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1168,6 +1179,14 @@
             <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html5/ONE_solar_system.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40931374" vertical-offset="7258" max-vertical-offset="16080">
+          <caret line="495" column="16" selection-start-line="495" selection-start-column="16" selection-end-line="495" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>

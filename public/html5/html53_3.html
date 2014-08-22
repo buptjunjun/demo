@@ -1489,7 +1489,7 @@ var map = {
 
             var item = getTaskResultByTaskName(obj["results"], "picture");
             var picture = null;
-            if (item["value"] != null && item["value"] != undefined)
+            if (item!=null && item != undefined && item["value"] != null && item["value"] != undefined)
                 picture = item["value"]["image"][0];
             map[word]["pic"] = picture;
             map[word]["picsm"] = picture;
@@ -1497,31 +1497,31 @@ var map = {
 
             var item = getTaskResultByTaskName(obj["results"], "wiki");
             var wiki = null;
-            if (item["value"] != null && item["value"] != undefined)
+            if (item!=null && item != undefined && item["value"] != null && item["value"] != undefined)
                 wiki = item["value"]["text"][0];
             map[word]["wiki"] = wiki;
 
             var item = getTaskResultByTaskName(obj["results"], "chinesetranslation");
             var chinesetranslation = null;
-            if (item["value"] != null && item["value"] != undefined)
+            if (item!=null && item != undefined && item["value"] != null && item["value"] != undefined)
                 chinesetranslation = item["value"]["text"][0];
             map[word]["chinese"] = chinesetranslation;
 
             var item = getTaskResultByTaskName(obj["results"], "tips");
             var tips = null;
-            if (item["value"] != null && item["value"] != undefined)
+            if (item!=null && item != undefined && item["value"] != null && item["value"] != undefined)
                 tips = item["value"]["text"][0];
             map[word]["tips"] = tips;
 
             var item = getTaskResultByTaskName(obj["results"], "audio");
             var audio = null;
-            if (item["value"] != null && item["value"] != undefined)
+            if (item!=null && item != undefined && item["value"] != null && item["value"] != undefined)
                 audio = item["value"]["audio"][0];
             map[word]["audio"] = audio;
 
             var item = getTaskResultByTaskName(obj["results"], "maps");
             var map_ = null;
-            if (item["value"] != null && item["value"] != undefined)
+            if (item!=null && item != undefined && item["value"] != null && item["value"] != undefined)
                 map_ = item["value"]["text"][0];
 
             if (map_ != null && map_ != undefined && map_.length > 0) {
