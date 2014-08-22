@@ -224,10 +224,11 @@ function showTipBox()
 }
 
 
-function scroll2Top()
+function scroll2Top(margin)
 {
-    alert("---");
-    $("#sm-card-div").scrollTop(200);
+    //alert("---");
+    if( $("#sm-card-div") != null &&  $("#sm-card-div").length >0)
+         $("#sm-card-div")[0].scrollTop = margin;
 }
 
     /**
@@ -240,7 +241,8 @@ function renderQuestion1(index)
     $("#questionDivs").show();
     $(".answersection").show();
     //scrollLeftTop();
-
+    if(index > 8)
+        scroll2Top(600);
     //当前问题
     var q  = getQuesion(index);
 
@@ -258,7 +260,7 @@ function renderQuestion1(index)
         showmodalPanel(step1ok);
         showTipBox();
         initbglayer();
-        initBubbleLayer();
+        //initBubbleLayer();
         initTree(treeRoot);
         initLeft();
         initusertipsLayer();
@@ -377,7 +379,7 @@ function renderQuestion(index)
 {
     $(".picsection").show();
     $(".answersection").hide();
-
+    scroll2Top(1000);
 
     //文件编号
     var array = [1,2];
@@ -390,6 +392,7 @@ function renderQuestion(index)
         window.qindex = 0;
         hideSmallCardWords();
         hideBigCard();
+        scroll2Top(1);
        // hideQuestionDiv();
         renderQuestion1(0);
         //$(".answersection").show();
@@ -1736,7 +1739,7 @@ var map = {
 
 
         //----------------
-        hideBubble();
+       // hideBubble();
         if(window.index >= pairs.length)
         {
             leftLayer.removeAllChild();
