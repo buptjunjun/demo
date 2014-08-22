@@ -102,6 +102,16 @@
         }
         return false;
     }
+
+    function preloadimages(arr){
+        var newimages=[]
+        var arr=(typeof arr!="object")? [arr] : arr  //确保参数总是数组
+        for (var i=0; i<arr.length; i++){
+            newimages[i]=new Image()
+            newimages[i].src=arr[i]
+        }
+    }
+
 </script>
 
 <script>
@@ -1918,6 +1928,8 @@ var map = {
 
 
     var backgroundpic = "picture/nemo1/background.png";
+    var images = new Array();
+
     function collectImageData()
     {
         var imgData = new Array();
@@ -1934,6 +1946,18 @@ var map = {
         imgData.push({name:"wrongpicsm",path:wrongpicsm});
         imgData.push({name:"rightpicsm",path:rightpicsm});
 
+        images.push(backgroundpic);
+        images.push( "picture/nemo1/bg.png");
+        images.push("picture/nemo1/bubble.png");
+        images.push("picture/nemo1/hover.png");
+        images.push("picture/nemo1/selected.png");
+        images.push("picture/nemo1/selected2.png");
+        images.push(wrongpic);
+        images.push(rightpic);
+        images.push(wrongpicsm);
+        images.push(rightpicsm);
+
+
 //        for(var i = 1;i <=9; i++)
 //            for(var j = 1; j <=4; j++)
 //            {
@@ -1945,6 +1969,8 @@ var map = {
            var item = map[key];
            imgData.push({name:item.word+"picmd",path:imagUrlPre+item.picmd});
            imgData.push({name:item.word+"picsm",path:imagUrlPre+item.picsm});
+           images.push(imagUrlPre+item.picmd);
+           images.push(imagUrlPre+item.picsm);
 //
 //           for(var j = 1; j <= 4; j++)
 //           {
@@ -2081,6 +2107,10 @@ var map = {
             success: function (data) {
                 var json = eval("(" + data + ")");
                 parse(json);
+
+                collectImageData();
+                preloadimages(images);
+
                 treeRoot = pairs[0][0];
                 initRelationShip();
                 $("#loading").fadeOut();
@@ -2104,8 +2134,15 @@ var map = {
 
     //window.taskIndex = 0;
    // alert(taskIndex);
-    startTask(ajaxurls[taskIndex]);
+    collectImageData();
+    preloadimages(images);
+    setTimeout(function(){
+      startTask(ajaxurls[taskIndex]);
+    },
+    3000);
+
 
    LInit(100, "legend", 2200, 1000, main);
+
 </script>
 
