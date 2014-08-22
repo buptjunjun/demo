@@ -137,6 +137,11 @@
     if(argsValue != null && argsValue != undefined)
          taskIndex=parseInt(argsValue);
    // alert(argsValue);
+
+    if(taskIndex >= ajaxurls.length)
+    {
+        alert("没有了喔！");
+    }
 </script>
 <script>
     var imagUrlPre = "http://demo.baicizhan.com:9008/talent/image/upload/";
@@ -927,6 +932,9 @@ function showmodalPanel(text)
                 var textfield = new LTextField();
                 this.word = textfield;
                 this.word.width = this.bg.getWidth()*5/6;
+                if(this.word.width < 10)
+                    this.word.width =82;
+
                 this.word.setWordWrap(true);
                 this.word.size = 12;
                 this.word.color="#3c3c3c";
