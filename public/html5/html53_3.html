@@ -368,7 +368,7 @@ function renderQuestion1(index)
 
     });
 
-    var audio = q.audio;
+    var audio = imagUrlPre+q.audio;
     $("#play").on("mouseover",function(){
         $(this).attr("class","glyphicon glyphicon-volume-up");
         playaudio(audio);
@@ -414,7 +414,7 @@ function renderQuestion(index)
 
     $("#english").text(q.word);
     //播放声音
-    playaudio(q.audio);
+    playaudio(imagUrlPre+q.audio);
 
     if(preq == null )
     {
@@ -539,7 +539,7 @@ function renderQuestion(index)
         renderQuestion(window.qindex);
     });
 
-    var audio = q.audio;
+    var audio = imagUrlPre+q.audio;
     $("#play").on("mouseover",function(){
         $(this).attr("class","glyphicon glyphicon-volume-up");
         playaudio(audio);
@@ -1468,7 +1468,7 @@ var map = {
 <script>
 
     var ajaxurl = "ONE_Mars.txt";
-    var ajaxurls = ["ONE_solar_system.txt","ONE_Mars.txt"];
+    var ajaxurls = ["ONE_solar_system.txt", "ONE_Mercury.txt", "ONE_Venus.txt", "ONE_Earth.txt","ONE_Mars.txt", "ONE_Jupiter.txt", "ONE_Saturn.txt", "ONE_Uranus.txt", "ONE_Neptune.txt"];
 
     var map = {};
     var pairs = new Array();
@@ -1512,6 +1512,12 @@ var map = {
             if (item["value"] != null && item["value"] != undefined)
                 tips = item["value"]["text"][0];
             map[word]["tips"] = tips;
+
+            var item = getTaskResultByTaskName(obj["results"], "audio");
+            var audio = null;
+            if (item["value"] != null && item["value"] != undefined)
+                audio = item["value"]["audio"][0];
+            map[word]["audio"] = audio;
 
             var item = getTaskResultByTaskName(obj["results"], "maps");
             var map_ = null;
