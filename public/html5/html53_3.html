@@ -1467,7 +1467,7 @@ var map = {
 
 <script>
 
-    var ajaxurl = "ONE_Mars.txt";
+    var ajaxurl = "ONE_solar_system.txt";
     var ajaxurls = ["ONE_solar_system.txt", "ONE_Mercury.txt", "ONE_Venus.txt", "ONE_Earth.txt","ONE_Mars.txt", "ONE_Jupiter.txt", "ONE_Saturn.txt", "ONE_Uranus.txt", "ONE_Neptune.txt"];
 
     var map = {};
@@ -1547,7 +1547,9 @@ var map = {
 
             var words = pair.split("=");
             var word = wordsmap[words[1]];
-            var tmp = [words[0], words[1], word['tips']];
+            var tmp = [words[0], words[1], "empty tips"];
+            if(word != null && word != undefined && word['tips'] != null && word['tips'] != undefined )
+                var tmp = [words[0], words[1], word['tips']];
             ret.push(tmp);
         }
 
