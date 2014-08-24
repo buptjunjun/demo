@@ -103,6 +103,13 @@
         return false;
     }
 
+    function trim (value) {
+        if(value == null || value == undefined)
+            return null;
+
+        return   value.replace(/^\s+|\s+$/g, '');
+    }
+
     function preloadimages(arr){
         var newimages=[]
         var arr=(typeof arr!="object")? [arr] : arr  //确保参数总是数组
@@ -1482,7 +1489,7 @@ var map = {
 
         for(var i = 0; i < json.length; i++) {
             var obj = json[i];
-            var word = obj['subkey'];
+            var word = trim(obj['subkey']);
 
             map[word] = {};
             map[word]["word"] = word;
