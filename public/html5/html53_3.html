@@ -123,6 +123,11 @@
 
 <script>
 
+    var ajaxurl = "ONE_solar_system.txt";
+    var ajaxurls = ["ONE_solar_system.txt", "ONE_Mercury.txt", "ONE_Venus.txt", "ONE_Earth.txt","ONE_Mars.txt", "ONE_Jupiter.txt", "ONE_Saturn.txt", "ONE_Uranus.txt", "ONE_Neptune.txt"];
+</script>
+<script>
+
     function GetUrlParms() {
         var args = new Object();
         var query = location.search.substring(1); //获取查询串
@@ -143,12 +148,12 @@
     var taskIndex= 0;
     if(argsValue != null && argsValue != undefined)
          taskIndex=parseInt(argsValue);
-   // alert(argsValue);
-
     if(taskIndex >= ajaxurls.length)
     {
         alert("没有了喔！");
     }
+   // alert(argsValue);
+
 </script>
 <script>
     var imagUrlPre = "http://demo.baicizhan.com:9008/talent/image/upload/";
@@ -1473,10 +1478,6 @@ var map = {
 
 
 <script>
-
-    var ajaxurl = "ONE_solar_system.txt";
-    var ajaxurls = ["ONE_solar_system.txt", "ONE_Mercury.txt", "ONE_Venus.txt", "ONE_Earth.txt","ONE_Mars.txt", "ONE_Jupiter.txt", "ONE_Saturn.txt", "ONE_Uranus.txt", "ONE_Neptune.txt"];
-
     var map = {};
     var pairs = new Array();
     var depends = null;
@@ -2175,4 +2176,54 @@ var map = {
    LInit(100, "legend", 2200, 1800, main);
 
 </script>
+<script>
 
+    var test_name= "oneThing"; //区分不同的测试页面，需要和测试用户均分处定义一致
+    var start_time = new Date();
+    start_time = start_time.getTime();
+    var cur_step = 0;
+    var result = true;
+    function submit_result(result)
+    {
+        // 当前的测试项目
+        product = test_name;
+
+        // 用户开始做题的时间作为 key ， 登陆用户后台会使用 userid 替换
+        key = start_time.toString();
+
+        // subkey 为用户提交的时间，可以用来区分同一用户的多次提交
+        cur_time = new Date();
+        cur_time = cur_time.getTime();
+        subkey = cur_time.toString();
+
+        // topic id 为 第一个数据 value_int_1
+        topic_id = cur_step;
+        value_int_1 = topic_id.toString();
+
+        //数据位 value_int_2 表示该题目是否选择正确
+        value_int_2 = result ? 1 : 0;
+
+        json = '{"product":"'+product+'",';
+        json += '"key":"'+key+'",';
+        json += '"subkey":"'+subkey+'",';
+        json += '"value_int_1":'+value_int_1+',';
+        json += '"value_int_2":'+value_int_2+'}';
+
+        $.post("http://lab.baicizhan.com/result/add_result",{"result":json},function(json, status)
+        {
+            json = $.parseJSON(json)
+            if(json["RESP_CODE"] != "SUCCESS")
+            {
+                //alert("插入出错:"+json["RESP_CODE"]);
+                return ;
+            }
+            else
+            {
+                //alert("插入成功:"+json["RESP_CODE"]);
+                return ;
+            }
+        })
+    }
+
+    submit_result(true);
+</script>
